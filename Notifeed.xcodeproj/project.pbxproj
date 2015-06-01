@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */; };
+		A99342B11B1CA7E1001CF4EA /* Notifeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A99342AF1B1CA7E1001CF4EA /* Notifeed.xcdatamodeld */; };
+		A99342B31B1CA7E1001CF4EA /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342B21B1CA7E1001CF4EA /* MasterViewController.swift */; };
+		A99342B51B1CA7E1001CF4EA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342B41B1CA7E1001CF4EA /* DetailViewController.swift */; };
+		A99342B81B1CA7E2001CF4EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99342B61B1CA7E2001CF4EA /* Main.storyboard */; };
+		A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99342B91B1CA7E2001CF4EA /* Images.xcassets */; };
+		A99342BD1B1CA7E2001CF4EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */; };
+		A99342C91B1CA7E2001CF4EA /* NotifeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342C81B1CA7E2001CF4EA /* NotifeedTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A99342C31B1CA7E2001CF4EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A99342A01B1CA7E1001CF4EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A99342A71B1CA7E1001CF4EA;
+			remoteInfo = Notifeed;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A99342A81B1CA7E1001CF4EA /* Notifeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99342AC1B1CA7E1001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A99342B01B1CA7E1001CF4EA /* Notifeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notifeed.xcdatamodel; sourceTree = "<group>"; };
+		A99342B21B1CA7E1001CF4EA /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		A99342B41B1CA7E1001CF4EA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A99342B71B1CA7E2001CF4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A99342B91B1CA7E2001CF4EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A99342BC1B1CA7E2001CF4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A99342C21B1CA7E2001CF4EA /* NotifeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotifeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99342C71B1CA7E2001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A99342C81B1CA7E2001CF4EA /* NotifeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifeedTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A99342A51B1CA7E1001CF4EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99342BF1B1CA7E2001CF4EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A993429F1B1CA7E1001CF4EA = {
+			isa = PBXGroup;
+			children = (
+				A99342AA1B1CA7E1001CF4EA /* Notifeed */,
+				A99342C51B1CA7E2001CF4EA /* NotifeedTests */,
+				A99342A91B1CA7E1001CF4EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A99342A91B1CA7E1001CF4EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A99342A81B1CA7E1001CF4EA /* Notifeed.app */,
+				A99342C21B1CA7E2001CF4EA /* NotifeedTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A99342AA1B1CA7E1001CF4EA /* Notifeed */ = {
+			isa = PBXGroup;
+			children = (
+				A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */,
+				A99342B21B1CA7E1001CF4EA /* MasterViewController.swift */,
+				A99342B41B1CA7E1001CF4EA /* DetailViewController.swift */,
+				A99342B61B1CA7E2001CF4EA /* Main.storyboard */,
+				A99342B91B1CA7E2001CF4EA /* Images.xcassets */,
+				A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */,
+				A99342AF1B1CA7E1001CF4EA /* Notifeed.xcdatamodeld */,
+				A99342AB1B1CA7E1001CF4EA /* Supporting Files */,
+			);
+			path = Notifeed;
+			sourceTree = "<group>";
+		};
+		A99342AB1B1CA7E1001CF4EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A99342AC1B1CA7E1001CF4EA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A99342C51B1CA7E2001CF4EA /* NotifeedTests */ = {
+			isa = PBXGroup;
+			children = (
+				A99342C81B1CA7E2001CF4EA /* NotifeedTests.swift */,
+				A99342C61B1CA7E2001CF4EA /* Supporting Files */,
+			);
+			path = NotifeedTests;
+			sourceTree = "<group>";
+		};
+		A99342C61B1CA7E2001CF4EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A99342C71B1CA7E2001CF4EA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A99342A71B1CA7E1001CF4EA /* Notifeed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A99342CC1B1CA7E2001CF4EA /* Build configuration list for PBXNativeTarget "Notifeed" */;
+			buildPhases = (
+				A99342A41B1CA7E1001CF4EA /* Sources */,
+				A99342A51B1CA7E1001CF4EA /* Frameworks */,
+				A99342A61B1CA7E1001CF4EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notifeed;
+			productName = Notifeed;
+			productReference = A99342A81B1CA7E1001CF4EA /* Notifeed.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A99342C11B1CA7E2001CF4EA /* NotifeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A99342CF1B1CA7E2001CF4EA /* Build configuration list for PBXNativeTarget "NotifeedTests" */;
+			buildPhases = (
+				A99342BE1B1CA7E2001CF4EA /* Sources */,
+				A99342BF1B1CA7E2001CF4EA /* Frameworks */,
+				A99342C01B1CA7E2001CF4EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A99342C41B1CA7E2001CF4EA /* PBXTargetDependency */,
+			);
+			name = NotifeedTests;
+			productName = NotifeedTests;
+			productReference = A99342C21B1CA7E2001CF4EA /* NotifeedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A99342A01B1CA7E1001CF4EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Marco Salafia";
+				TargetAttributes = {
+					A99342A71B1CA7E1001CF4EA = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					A99342C11B1CA7E2001CF4EA = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = A99342A71B1CA7E1001CF4EA;
+					};
+				};
+			};
+			buildConfigurationList = A99342A31B1CA7E1001CF4EA /* Build configuration list for PBXProject "Notifeed" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A993429F1B1CA7E1001CF4EA;
+			productRefGroup = A99342A91B1CA7E1001CF4EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A99342A71B1CA7E1001CF4EA /* Notifeed */,
+				A99342C11B1CA7E2001CF4EA /* NotifeedTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A99342A61B1CA7E1001CF4EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99342B81B1CA7E2001CF4EA /* Main.storyboard in Resources */,
+				A99342BD1B1CA7E2001CF4EA /* LaunchScreen.xib in Resources */,
+				A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99342C01B1CA7E2001CF4EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A99342A41B1CA7E1001CF4EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */,
+				A99342B11B1CA7E1001CF4EA /* Notifeed.xcdatamodeld in Sources */,
+				A99342B31B1CA7E1001CF4EA /* MasterViewController.swift in Sources */,
+				A99342B51B1CA7E1001CF4EA /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99342BE1B1CA7E2001CF4EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99342C91B1CA7E2001CF4EA /* NotifeedTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A99342C41B1CA7E2001CF4EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A99342A71B1CA7E1001CF4EA /* Notifeed */;
+			targetProxy = A99342C31B1CA7E2001CF4EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A99342B61B1CA7E2001CF4EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A99342B71B1CA7E2001CF4EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A99342BC1B1CA7E2001CF4EA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A99342CA1B1CA7E2001CF4EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A99342CB1B1CA7E2001CF4EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A99342CD1B1CA7E2001CF4EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Notifeed/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A99342CE1B1CA7E2001CF4EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Notifeed/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A99342D01B1CA7E2001CF4EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NotifeedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notifeed.app/Notifeed";
+			};
+			name = Debug;
+		};
+		A99342D11B1CA7E2001CF4EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NotifeedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notifeed.app/Notifeed";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A99342A31B1CA7E1001CF4EA /* Build configuration list for PBXProject "Notifeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A99342CA1B1CA7E2001CF4EA /* Debug */,
+				A99342CB1B1CA7E2001CF4EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A99342CC1B1CA7E2001CF4EA /* Build configuration list for PBXNativeTarget "Notifeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A99342CD1B1CA7E2001CF4EA /* Debug */,
+				A99342CE1B1CA7E2001CF4EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A99342CF1B1CA7E2001CF4EA /* Build configuration list for PBXNativeTarget "NotifeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A99342D01B1CA7E2001CF4EA /* Debug */,
+				A99342D11B1CA7E2001CF4EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A99342AF1B1CA7E1001CF4EA /* Notifeed.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A99342B01B1CA7E1001CF4EA /* Notifeed.xcdatamodel */,
+			);
+			currentVersion = A99342B01B1CA7E1001CF4EA /* Notifeed.xcdatamodel */;
+			path = Notifeed.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A99342A01B1CA7E1001CF4EA /* Project object */;
+}
