@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qzt-Qi-4eH">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notifeed-->
+        <scene sceneID="HM7-3t-4wQ">
+            <objects>
+                <tableViewController id="vuO-wc-ZtT" customClass="MGSFeedTableViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="UCT-wB-AVS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="1" green="0.75060961069999999" blue="0.55052633120000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Seh-C5-Yd0" rowHeight="53" style="IBUITableViewCellStyleDefault" id="vjT-z6-qCB">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vjT-z6-qCB" id="2TG-M2-zB0">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Seh-C5-Yd0">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.40896786941692786" blue="0.28640216928939355" alpha="0.01" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vuO-wc-ZtT" id="H5R-xj-ttD"/>
+                            <outlet property="delegate" destination="vuO-wc-ZtT" id="X2A-rL-z8K"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Notifeed" id="gsm-U9-ogA"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="fbE-t5-xzq" kind="showDetail" identifier="toDetailSegue" id="VzB-cj-rBM"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SW5-fz-JON" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-46" y="-1006"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="xgP-er-tl5">
+            <objects>
+                <viewController id="wAb-rA-tnh" customClass="MGSWebViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N8I-6S-7Te"/>
+                        <viewControllerLayoutGuide type="bottom" id="imG-Xn-23v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="trj-eq-uDA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" paginationMode="leftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="ZyY-tb-kRd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wAb-rA-tnh" id="zSm-07-Uxc"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bRT-Fb-2fH">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bRT-Fb-2fH" firstAttribute="centerY" secondItem="ZyY-tb-kRd" secondAttribute="centerY" id="3qg-oO-iQz"/>
+                            <constraint firstItem="ZyY-tb-kRd" firstAttribute="bottom" secondItem="trj-eq-uDA" secondAttribute="bottomMargin" id="4dt-aK-WpJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZyY-tb-kRd" secondAttribute="trailing" constant="-16" id="LHb-wc-vaB"/>
+                            <constraint firstItem="ZyY-tb-kRd" firstAttribute="top" secondItem="trj-eq-uDA" secondAttribute="topMargin" id="iNN-HN-CtH"/>
+                            <constraint firstItem="bRT-Fb-2fH" firstAttribute="centerX" secondItem="ZyY-tb-kRd" secondAttribute="centerX" id="m87-N3-oc8"/>
+                            <constraint firstItem="ZyY-tb-kRd" firstAttribute="leading" secondItem="trj-eq-uDA" secondAttribute="leadingMargin" constant="-16" id="oTw-jS-1su"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="AXC-RC-FiD"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="spinner" destination="bRT-Fb-2fH" id="euN-7H-QzA"/>
+                        <outlet property="webView" destination="ZyY-tb-kRd" id="tIT-Om-BAY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WU1-dT-gmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-20" y="-218"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="FeT-uz-VBX">
+            <objects>
+                <splitViewController id="qzt-Qi-4eH" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="0qr-fE-1NX" kind="relationship" relationship="masterViewController" id="xR4-QN-0J4"/>
+                        <segue destination="fbE-t5-xzq" kind="relationship" relationship="detailViewController" id="cug-yn-amQ"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAt-zm-EAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1705" y="-654"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="phD-aq-zBb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0qr-fE-1NX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dZi-2M-iRZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.40896786941692786" blue="0.28640216928939355" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.44179894179894175" green="0.038160358651469814" blue="0.076577287367337044" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vuO-wc-ZtT" kind="relationship" relationship="rootViewController" id="baA-9L-8yq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ong-xJ-k3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-808" y="-1006"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kE3-uu-SVV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fbE-t5-xzq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Wj-up-NXH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.40896786940000002" blue="0.28640216930000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.44179894180000001" green="0.038160358649999997" blue="0.076577287369999997" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wAb-rA-tnh" kind="relationship" relationship="rootViewController" id="9Lw-cZ-7ST"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdt-1l-oda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-832" y="-218"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="VzB-cj-rBM"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.71839402425873011" green="0.062733533328391433" blue="0.11824183638223755" alpha="1" colorSpace="calibratedRGB"/>
+</document>

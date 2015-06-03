@@ -13,10 +13,17 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var splitViewController: UISplitViewController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Imposto lo split view controller
+        splitViewController = self.window?.rootViewController as? UISplitViewController
+        splitViewController?.delegate = self
+        //splitViewController?.showDetailViewController(MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil), sender: nil)
+        var cnt = splitViewController!.viewControllers.count
+        (splitViewController?.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
+        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         
         return true
     }
@@ -58,6 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return false
     }*/
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool
+    {
+        return true
+    }
+    
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {

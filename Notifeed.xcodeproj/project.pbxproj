@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		A94798D41B1CB1E000A3513D /* MGSFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94798D31B1CB1E000A3513D /* MGSFeedTableViewController.swift */; };
 		A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */; };
-		A99342B81B1CA7E2001CF4EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99342B61B1CA7E2001CF4EA /* Main.storyboard */; };
 		A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99342B91B1CA7E2001CF4EA /* Images.xcassets */; };
 		A99342BD1B1CA7E2001CF4EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */; };
 		A99342C91B1CA7E2001CF4EA /* NotifeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342C81B1CA7E2001CF4EA /* NotifeedTests.swift */; };
 		A9DD3AC71B1EF376006FC61D /* MGSPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AC61B1EF376006FC61D /* MGSPost.swift */; };
+		A9DD3ACB1B1F1F52006FC61D /* MGSWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3ACA1B1F1F52006FC61D /* MGSWebViewController.swift */; };
+		A9DD3AD21B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */; };
+		A9DD3AD31B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */; };
+		A9DECF271B1F9CD20056A031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9DECF261B1F9CD20056A031 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +34,16 @@
 		A99342A81B1CA7E1001CF4EA /* Notifeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99342AC1B1CA7E1001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A99342B71B1CA7E2001CF4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A99342B91B1CA7E2001CF4EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A99342BC1B1CA7E2001CF4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A99342C21B1CA7E2001CF4EA /* NotifeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotifeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99342C71B1CA7E2001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A99342C81B1CA7E2001CF4EA /* NotifeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifeedTests.swift; sourceTree = "<group>"; };
 		A9DD3AC61B1EF376006FC61D /* MGSPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSPost.swift; sourceTree = "<group>"; };
+		A9DD3ACA1B1F1F52006FC61D /* MGSWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSWebViewController.swift; path = ../MGSWebViewController.swift; sourceTree = "<group>"; };
+		A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSEmptyDetailViewController.swift; path = ../MGSEmptyDetailViewController.swift; sourceTree = "<group>"; };
+		A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MGSEmptyDetailViewController.xib; path = ../MGSEmptyDetailViewController.xib; sourceTree = "<group>"; };
+		A9DECF261B1F9CD20056A031 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +87,13 @@
 			children = (
 				A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */,
 				A94798D31B1CB1E000A3513D /* MGSFeedTableViewController.swift */,
+				A9DD3ACA1B1F1F52006FC61D /* MGSWebViewController.swift */,
 				A9DD3AC61B1EF376006FC61D /* MGSPost.swift */,
-				A99342B61B1CA7E2001CF4EA /* Main.storyboard */,
+				A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */,
+				A9DECF261B1F9CD20056A031 /* Main.storyboard */,
 				A99342B91B1CA7E2001CF4EA /* Images.xcassets */,
 				A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */,
+				A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */,
 				A99342AB1B1CA7E1001CF4EA /* Supporting Files */,
 			);
 			path = Notifeed;
@@ -195,9 +204,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A99342B81B1CA7E2001CF4EA /* Main.storyboard in Resources */,
 				A99342BD1B1CA7E2001CF4EA /* LaunchScreen.xib in Resources */,
+				A9DD3AD31B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib in Resources */,
 				A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */,
+				A9DECF271B1F9CD20056A031 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A94798D41B1CB1E000A3513D /* MGSFeedTableViewController.swift in Sources */,
+				A9DD3AD21B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift in Sources */,
+				A9DD3ACB1B1F1F52006FC61D /* MGSWebViewController.swift in Sources */,
 				A9DD3AC71B1EF376006FC61D /* MGSPost.swift in Sources */,
 				A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */,
 			);
@@ -240,14 +252,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A99342B61B1CA7E2001CF4EA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A99342B71B1CA7E2001CF4EA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

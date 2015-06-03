@@ -15,23 +15,20 @@ class MGSFeedTableViewController: UITableViewController, NSXMLParserDelegate
     var post: MGSPost = MGSPost()
     
     var parser: NSXMLParser = NSXMLParser()
+    
+    var isItemTag : Bool = false
+    var selectedIndex : Int? = nil
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        let url: NSURL = NSURL(string: "http://www.unict.it/canali_informativi_avvisi_e_notizie.xml")!
+        let url: NSURL = NSURL(string: "http://www.xcoding.it/feed")!
         parser = NSXMLParser(contentsOfURL: url)!
         parser.delegate = self
         
-        println(parser.parse());
-        
+        parser.parse()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning()
@@ -45,6 +42,10 @@ class MGSFeedTableViewController: UITableViewController, NSXMLParserDelegate
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject])
     {
         post.eName = elementName
+        if elementName == "item"
+        {
+            isItemTag = true
+        }
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String?)
@@ -52,9 +53,13 @@ class MGSFeedTableViewController: UITableViewController, NSXMLParserDelegate
         let data = string!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if(!data.isEmpty)
         {
-            if post.eName == "title"
+            if post.eName == "title" && isItemTag
             {
-                post.title = data
+                post.title += " " + data
+            }
+            else if post.eName == "description"
+            {
+                post.description += data
             }
             else if post.eName == "link"
             {
@@ -69,8 +74,11 @@ class MGSFeedTableViewController: UITableViewController, NSXMLParserDelegate
         {
             let newPost: MGSPost = MGSPost()
             newPost.title = post.title
+            newPost.description = post.description
             newPost.link = post.link
             self.postArray.append(newPost)
+            post = MGSPost()
+            isItemTag = false
         }
     }
 
@@ -97,6 +105,12 @@ class MGSFeedTableViewController: UITableViewController, NSXMLParserDelegate
         cell.textLabel?.text = post.title
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        self.selectedIndex = indexPath.row;
+        self.performSegueWithIdentifier("toDetailSegue", sender: nil)
     }
     
 
@@ -135,14 +149,23 @@ class MGSFeedTableViewController: UITableViewController, NSXMLParserDelegate
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "toDetailSegue")
+        {
+            if let mvc = segue.destinationViewController as? UINavigationController
+            {
+                (mvc.topViewController as! MGSWebViewController).post = postArray[selectedIndex!]
+            }
+        }
     }
-    */
+    
 
 }

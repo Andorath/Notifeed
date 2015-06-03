@@ -11,6 +11,7 @@ import Foundation
 class MGSPost
 {
     var title: String = String()
+    var description: String = String()
     var link: String = String()
     var eName: String = String()
 }
