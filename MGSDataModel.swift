@@ -15,7 +15,7 @@ class MGSDataModel
     let del: AppDelegate
     let context: NSManagedObjectContext
     
-    //Model
+    //Model Property
     var feedArray: [AnyObject]? = [AnyObject]()
     
     init()
