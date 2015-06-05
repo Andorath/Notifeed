@@ -36,13 +36,7 @@
                             <outlet property="delegate" destination="vuO-wc-ZtT" id="X2A-rL-z8K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notifeed" id="gsm-U9-ogA">
-                        <barButtonItem key="rightBarButtonItem" image="RSSFilled50.png" id="W6z-aC-Afn">
-                            <connections>
-                                <segue destination="Zai-Nh-SFc" kind="show" id="8Xb-Cz-I09"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Notifeed" id="gsm-U9-ogA"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="fbE-t5-xzq" kind="showDetail" identifier="toDetailSegue" id="VzB-cj-rBM"/>
@@ -50,35 +44,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SW5-fz-JON" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="-1006"/>
+            <point key="canvasLocation" x="748" y="-1006"/>
         </scene>
         <!--My Feeds-->
         <scene sceneID="Hxc-rk-8Tp">
             <objects>
                 <tableViewController id="Zai-Nh-SFc" customClass="MGSFeedTableViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" id="kfn-60-BXj">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" id="kfn-60-BXj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="0c6-IR-NVn" detailTextLabel="kku-JG-N19" rowHeight="52" style="IBUITableViewCellStyleSubtitle" id="bol-aQ-ICV">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="0c6-IR-NVn" detailTextLabel="kku-JG-N19" imageView="rts-Su-LfU" rowHeight="67" style="IBUITableViewCellStyleSubtitle" id="bol-aQ-ICV">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bol-aQ-ICV" id="y0v-cg-I1I">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0c6-IR-NVn">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kku-JG-N19">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="RSSFilled50.png" id="rts-Su-LfU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.92767250537872314" blue="0.877949059009552" alpha="0.01" colorSpace="calibratedRGB"/>
@@ -96,10 +93,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vuO-wc-ZtT" kind="show" identifier="toPostsSegue" id="8V8-8n-VT0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJl-kC-IFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664" y="-1758"/>
+            <point key="canvasLocation" x="-12" y="-1006"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="xgP-er-tl5">
@@ -174,7 +174,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vuO-wc-ZtT" kind="relationship" relationship="rootViewController" id="baA-9L-8yq"/>
+                        <segue destination="Zai-Nh-SFc" kind="relationship" relationship="rootViewController" id="d2n-ea-m2a"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ong-xJ-k3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,7 +208,7 @@
         <image name="RSSFilled50.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cug-yn-amQ"/>
+        <segue reference="VzB-cj-rBM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839402425873011" green="0.062733533328391433" blue="0.11824183638223755" alpha="1" colorSpace="calibratedRGB"/>
 </document>

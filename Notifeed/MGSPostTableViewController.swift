@@ -14,6 +14,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
     var model: MGSDataModel?
     
     //Attributi inerenti Feeds e Posts
+    var selectedFeed: MGSFeed?
     var postArray: [MGSPost] = []
     var post: MGSPost = MGSPost()
     
@@ -60,17 +61,13 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
         
         postArray = []
         
-        if let feeds = model?.getFeedModel()
+        if let feed = selectedFeed
         {
+            url = NSURL(string: feed.link)!
+            parser = NSXMLParser(contentsOfURL: url)!
+            parser.delegate = self
             
-            for feed in feeds
-            {
-                url = NSURL(string: feed.link)!
-                parser = NSXMLParser(contentsOfURL: url)!
-                parser.delegate = self
-                
-                parser.parse()
-            }
+            parser.parse()
         }
         
         tableView.reloadData()
@@ -197,7 +194,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        if (segue.identifier == "toDetailSegue")
+        if segue.identifier == "toDetailSegue"
         {
             if let mvc = segue.destinationViewController as? UINavigationController
             {

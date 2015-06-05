@@ -97,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */,
-				A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */,
 				A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */,
+				A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */,
 				A9DD3ACA1B1F1F52006FC61D /* MGSWebViewController.swift */,
 				A9DD3AC61B1EF376006FC61D /* MGSPost.swift */,
 				A9960F601B21F27F007DDD39 /* MGSFeed.swift */,

@@ -12,7 +12,7 @@ import CoreData
 class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
 {
     
-    var model: MGSDataModel? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
+    var model: MGSDataModel?
     
     //Attributi per la logica
     weak var alertView: UIAlertController?
@@ -23,6 +23,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     }
     var textFields: [AnyObject]?
     weak var AddAlertSaveAction: UIAlertAction?
+    var selectedIndex = 0
     
     
     //METODI
@@ -30,7 +31,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     override func viewDidLoad()
     {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSNewFeedAddedNotification", object: nil)
-        
+        model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
         super.viewDidLoad()
     }
     
@@ -140,10 +141,6 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         if let feed = model!.getFeedModel()?[indexPath.row]
         {
             cell.textLabel?.text = feed.title
-        }
-        
-        if let feed = model!.getFeedModel()?[indexPath.row]
-        {
             cell.detailTextLabel?.text = feed.link
         }
 
@@ -171,6 +168,12 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         }   
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        selectedIndex = indexPath.row
+        self.performSegueWithIdentifier("toPostsSegue", sender: nil)
+    }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -194,14 +197,20 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         tableView.reloadData()
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "toPostsSegue"
+        {
+            if let mvc = segue.destinationViewController as? MGSPostTableViewController
+            {
+                mvc.selectedFeed = model?.getFeedModel()?[selectedIndex]
+            }
+        }
     }
-    */
+
 
 }
