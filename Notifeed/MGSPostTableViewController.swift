@@ -11,8 +11,9 @@ import CoreData
 
 class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
 {
+    var model: MGSDataModel?
+    
     //Attributi inerenti Feeds e Posts
-    var feedArray: [AnyObject]
     var postArray: [MGSPost] = []
     var post: MGSPost = MGSPost()
     
@@ -21,38 +22,15 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
     //Attributi per la logica
     var isItemTag : Bool = false
     var selectedIndex : Int? = nil
-    
-    //Attributi per Core Data
-    let del: AppDelegate
-    let context: NSManagedObjectContext
-    
-    required init!(coder aDecoder: NSCoder!)
-    {
-        feedArray = [AnyObject]()
-        
-        //Inizializzo gli attributi per Core Data
-        //meglio mettere queste istruzioni in init e richiamarlo qui stesso
-        del = UIApplication.sharedApplication().delegate as! AppDelegate
-        context = del.managedObjectContext!
-        
-        var request = NSFetchRequest(entityName: "Feed")
-        request.returnsObjectsAsFaults = false
-        var sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
-        
-        feedArray = context.executeFetchRequest(request, error: nil)!
-        
-        super.init(coder: aDecoder)
-    }
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        //DA CAMBIARE CON L'INTERAZIONE CON CORE DATA
-        startByExample()
-        //loadModelWithParsing()
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSFeedDeletedNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSNewFeedAddedNotification", object: nil)
+        //startByExample()
+        model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
+        updateInterface()
     }
     
     //MARK: - Funzioni di Diagnostica
@@ -65,7 +43,8 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
     
     func startByExample()
     {
-        let url: NSURL = NSURL(string: "http://www.xcoding.it/feed")!
+        //let url: NSURL = NSURL(string: "http://www.xcoding.it/feed")!
+        let url: NSURL = NSURL(string: "http://feeds.blogo.it/melablog/it")!
         parser = NSXMLParser(contentsOfURL: url)!
         parser.delegate = self
         
@@ -74,20 +53,27 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
     
     //MARK: - Funzioni di Model
     
-    func loadModelWithParsing()
+    func updateInterface()
     {
         var link: String
         var url: NSURL
         
-        for feed in feedArray
+        postArray = []
+        
+        if let feeds = model?.getFeedModel()
         {
-            link = (feed as! NSManagedObject).valueForKey("link") as! String
-            url = NSURL(string: link)!
-            parser = NSXMLParser(contentsOfURL: url)!
-            parser.delegate = self
             
-            parser.parse()
+            for feed in feeds
+            {
+                url = NSURL(string: feed.link)!
+                parser = NSXMLParser(contentsOfURL: url)!
+                parser.delegate = self
+                
+                parser.parse()
+            }
         }
+        
+        tableView.reloadData()
     }
     
     // MARK: - NSXMLParser

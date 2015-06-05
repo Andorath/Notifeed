@@ -47,7 +47,7 @@ class MGSDataModel
         context.save(nil)
         
         feedArray?.append(feedMO)
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterfaceNotification", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSNewFeedAddedNotification", object: nil)
     }
     
     func deleteFeedFromModel(index: Int)
@@ -56,6 +56,7 @@ class MGSDataModel
         context.save(nil)
         
         feedArray?.removeAtIndex(index)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSFeedDeletedNotification", object: nil)
     }
     
     //MARK: - Getting Data

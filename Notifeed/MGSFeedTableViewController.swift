@@ -29,7 +29,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
 
     override func viewDidLoad()
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateInterfaceNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSNewFeedAddedNotification", object: nil)
         
         super.viewDidLoad()
     }
