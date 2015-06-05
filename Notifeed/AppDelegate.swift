@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Imposto lo split view controller
         splitViewController = self.window?.rootViewController as? UISplitViewController
         splitViewController?.delegate = self
-        //splitViewController?.showDetailViewController(MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil), sender: nil)
         var cnt = splitViewController!.viewControllers.count
         (splitViewController?.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
         splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
