@@ -11,11 +11,8 @@ import CoreData
 
 class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
 {
-    var feedArray: [AnyObject]
     
-    //Attributi per Core Data
-    let del: AppDelegate
-    let context: NSManagedObjectContext
+    var model: MGSDataModel? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
     
     //Attributi per la logica
     weak var alertView: UIAlertController?
@@ -29,22 +26,11 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     
     
     //METODI
-    required init!(coder aDecoder: NSCoder!)
-    {
-        feedArray = [AnyObject]()
-        
-        //Inizializzo gli attributi per Core Data
-        //meglio mettere queste istruzioni in init e richiamarlo qui stesso
-        del = UIApplication.sharedApplication().delegate as! AppDelegate
-        context = del.managedObjectContext!
-        
-        super.init(coder: aDecoder)
-        
-        self.loadDataFromModel()
-    }
 
     override func viewDidLoad()
     {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSUpdateInterfaceNotification", object: nil)
+        
         super.viewDidLoad()
     }
     
@@ -86,7 +72,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
             var titleNoSpaces: NSString = ((textFields![0] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             var linkNoSpaces: NSString = ((textFields![1] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             
-            if self!.alreadyExists(titleNoSpaces as String)
+            if self!.model!.alreadyExists(titleNoSpaces as String)
             {
                 let alreadyExistAlert = UIAlertController(title: NSLocalizedString("Warning!", comment: "Titolo popup errore nome Feed"), message: NSLocalizedString("A Feed with this title already exists!", comment: "Messaggio popup errore Feed"), preferredStyle: UIAlertControllerStyle.Alert)
                 alreadyExistAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok popup errore creazione prescrizione"), style: UIAlertActionStyle.Default, handler: nil))
@@ -95,17 +81,13 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
             else
             {
                 
-                var feed = NSEntityDescription.insertNewObjectForEntityForName("Feed", inManagedObjectContext: self!.context) as! NSManagedObject
-                
-                feed.setValue(titleNoSpaces, forKey: "title")
-                feed.setValue(linkNoSpaces, forKey: "link")
-                feed.setValue(NSDate(), forKey: "creazione")
-                self!.context.save(nil)
-                self!.updateInterface()
+                var feed: MGSFeed = MGSFeed(title: titleNoSpaces as String, link: linkNoSpaces as String, creazione: NSDate())
+                self?.model?.addNewFeedToModel(feed)
+                self?.updateInterface()
                 
             }
             
-        }//nel caso te lo stessi chiedendo ho usato Trailing Closures
+        }
         
         addAction.enabled = false
         
@@ -136,17 +118,6 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         var textField = notification.object as! UITextField
         AddAlertSaveAction!.enabled = (count((textFields![0] as! UITextField).text.utf16) >= 1) && (count((textFields![1] as! UITextField).text.utf16) >= 1)
     }
-    
-    func alreadyExists (title: String) -> Bool
-    {
-        var request = NSFetchRequest(entityName: "Feed")
-        request.returnsObjectsAsFaults = false
-        var predicate = NSPredicate(format: "title = %@", title)
-        request.predicate = predicate
-        var results = context.executeFetchRequest(request, error: nil)
-        
-        return !results!.isEmpty
-    }
 
     // MARK: - Table view data source
 
@@ -158,7 +129,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return feedArray.count
+        return model!.getFeedModel()!.count
     }
 
     
@@ -166,14 +137,14 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
-        if let title = (feedArray[indexPath.row] as! NSManagedObject).valueForKey("title") as? String
+        if let feed = model!.getFeedModel()?[indexPath.row]
         {
-            cell.textLabel?.text = title
+            cell.textLabel?.text = feed.title
         }
         
-        if let link = (feedArray[indexPath.row] as! NSManagedObject).valueForKey("link") as? String
+        if let feed = model!.getFeedModel()?[indexPath.row]
         {
-            cell.detailTextLabel?.text = link
+            cell.detailTextLabel?.text = feed.link
         }
 
         return cell
@@ -194,10 +165,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         if editingStyle == .Delete
         {
             // Delete the row from the data source
-            context.deleteObject(feedArray[indexPath.row] as! NSManagedObject)
-            context.save(nil)
-            
-            feedArray.removeAtIndex(indexPath.row)
+            model?.deleteFeedFromModel(indexPath.row)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }   
@@ -221,20 +189,8 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     
     // MARK: - Load from Model and refresh data
     
-    func loadDataFromModel()
-    {
-        var request = NSFetchRequest(entityName: "Feed")
-        request.returnsObjectsAsFaults = false
-        var sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
-        
-        feedArray = context.executeFetchRequest(request, error: nil)!
-        
-    }
-    
     func updateInterface()
     {
-        loadDataFromModel()
         tableView.reloadData()
     }
 

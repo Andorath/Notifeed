@@ -8,13 +8,20 @@
 
 import Foundation
 
-class MGSFeed
+class MGSFeed : Printable
 {
     var title: String
     var link: String
-    var creazione: String
+    var creazione: NSDate
     
-    init(title: String, link: String, creazione: String)
+    var description: String
+    {
+        get {
+            return self.title + ": " + link + "\n"
+        }
+    }
+    
+    init(title: String, link: String, creazione: NSDate)
     {
         self.title = title
         self.link = link
@@ -23,6 +30,6 @@ class MGSFeed
     
     convenience init()
     {
-        self.init(title: "", link: "", creazione: "")
+        self.init(title: "", link: "", creazione: NSDate())
     }
 }

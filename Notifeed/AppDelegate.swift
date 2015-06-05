@@ -14,9 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
     var splitViewController: UISplitViewController?
+    var model: MGSDataModel?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //Imposto il modello
+        model = MGSDataModel()
+        
         // Imposto lo split view controller
         splitViewController = self.window?.rootViewController as? UISplitViewController
         splitViewController?.delegate = self

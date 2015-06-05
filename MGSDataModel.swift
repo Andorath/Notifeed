@@ -47,6 +47,7 @@ class MGSDataModel
         context.save(nil)
         
         feedArray?.append(feedMO)
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSUpdateInterfaceNotification", object: nil)
     }
     
     func deleteFeedFromModel(index: Int)
@@ -58,6 +59,17 @@ class MGSDataModel
     }
     
     //MARK: - Getting Data
+    
+    func alreadyExists (title: String) -> Bool
+    {
+        var request = NSFetchRequest(entityName: "Feed")
+        request.returnsObjectsAsFaults = false
+        var predicate = NSPredicate(format: "title = %@", title)
+        request.predicate = predicate
+        var results = context.executeFetchRequest(request, error: nil)
+        
+        return !results!.isEmpty
+    }
     
     func getFeedModel() -> ([MGSFeed]?)
     {
@@ -71,7 +83,7 @@ class MGSDataModel
                 temp = MGSFeed()
                 temp.title = (feedMO as! NSManagedObject).valueForKey("title") as! String
                 temp.link = (feedMO as! NSManagedObject).valueForKey("link") as! String
-                temp.creazione = (feedMO as! NSManagedObject).valueForKey("creazione") as! String
+                temp.creazione = (feedMO as! NSManagedObject).valueForKey("creazione") as! NSDate
                 feeds?.append(temp)
             }
         }
