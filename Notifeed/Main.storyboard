@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Notifeed-->
+        <!--News-->
         <scene sceneID="HM7-3t-4wQ">
             <objects>
                 <tableViewController id="vuO-wc-ZtT" customClass="MGSPostTableViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                             <outlet property="delegate" destination="vuO-wc-ZtT" id="X2A-rL-z8K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notifeed" id="gsm-U9-ogA"/>
+                    <navigationItem key="navigationItem" title="News" id="gsm-U9-ogA"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="fbE-t5-xzq" kind="showDetail" identifier="toDetailSegue" id="VzB-cj-rBM"/>
@@ -46,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="748" y="-1006"/>
         </scene>
-        <!--My Feeds-->
+        <!--Notifeed-->
         <scene sceneID="Hxc-rk-8Tp">
             <objects>
                 <tableViewController id="Zai-Nh-SFc" customClass="MGSFeedTableViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,8 +86,8 @@
                             <outlet property="delegate" destination="Zai-Nh-SFc" id="Dum-Rk-wWt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Feeds" id="Rhe-mb-uld">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EVn-QT-Crd">
+                    <navigationItem key="navigationItem" title="Notifeed" id="Rhe-mb-uld">
+                        <barButtonItem key="rightBarButtonItem" image="rss-plus.png" id="EVn-QT-Crd">
                             <connections>
                                 <action selector="addNewFeed:" destination="Zai-Nh-SFc" id="QjD-0U-pyW"/>
                             </connections>
@@ -134,10 +134,37 @@
                             <constraint firstItem="ZyY-tb-kRd" firstAttribute="leading" secondItem="trj-eq-uDA" secondAttribute="leadingMargin" constant="-16" id="oTw-jS-1su"/>
                         </constraints>
                     </view>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" image="Back-50.png" id="F8m-ng-uCZ">
+                            <connections>
+                                <action selector="goBack:" destination="wAb-rA-tnh" id="BJ7-Bv-oce"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="KL0-as-u7p"/>
+                        <barButtonItem enabled="NO" image="Forward-50.png" id="jiM-rY-Fmd">
+                            <connections>
+                                <action selector="goForward:" destination="wAb-rA-tnh" id="t3e-uO-GtO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Xmh-QA-6eM"/>
+                        <barButtonItem systemItem="action" id="4dJ-Sl-qxl">
+                            <connections>
+                                <action selector="showActivityController:" destination="wAb-rA-tnh" id="D5d-he-Odv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="14" style="plain" systemItem="fixedSpace" id="zEd-mD-x6f"/>
+                        <barButtonItem systemItem="refresh" id="F2T-fI-hRl">
+                            <connections>
+                                <action selector="refreshPage:" destination="wAb-rA-tnh" id="4Wr-qe-7k1"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="AXC-RC-FiD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="actionButton" destination="4dJ-Sl-qxl" id="eIw-2k-lSv"/>
+                        <outlet property="browserBackButton" destination="F8m-ng-uCZ" id="MLl-CP-hnh"/>
+                        <outlet property="browserForwardButton" destination="jiM-rY-Fmd" id="XKN-mi-QML"/>
                         <outlet property="spinner" destination="bRT-Fb-2fH" id="euN-7H-QzA"/>
                         <outlet property="webView" destination="ZyY-tb-kRd" id="tIT-Om-BAY"/>
                     </connections>
@@ -167,7 +194,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dZi-2M-iRZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.40896786941692786" blue="0.28640216928939355" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.40896788239479065" blue="0.28640216588973999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.44179894179894175" green="0.038160358651469814" blue="0.076577287367337044" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -189,7 +216,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Wj-up-NXH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.40896786940000002" blue="0.28640216930000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.40896788239479065" blue="0.28640216588973999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.44179894180000001" green="0.038160358649999997" blue="0.076577287369999997" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -205,7 +232,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back-50.png" width="25" height="25"/>
+        <image name="Forward-50.png" width="25" height="25"/>
         <image name="RSSFilled50.png" width="25" height="25"/>
+        <image name="rss-plus.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VzB-cj-rBM"/>

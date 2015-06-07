@@ -27,6 +27,11 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     
     
     //METODI
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        self.navigationController?.setToolbarHidden(true, animated: false)
+    }
 
     override func viewDidLoad()
     {
@@ -168,10 +173,32 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         }   
     }
     
+    //MARK: - Table view delegate
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         selectedIndex = indexPath.row
         self.performSegueWithIdentifier("toPostsSegue", sender: nil)
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?
+    {
+        var editLabel = NSLocalizedString("Edit", comment: "Azione modifica")
+        var editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: editLabel)
+        {
+            action, index in println("ereoto")
+        }
+        editAction.backgroundColor = UIColor(red: 252.0/255.0, green: 106.0/255.0, blue: 86.0/255.0, alpha: 1)
+        
+        var deleteLabel = NSLocalizedString("Delete", comment: "Azione cancella")
+        var tv: UITableView? = tableView
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: deleteLabel)
+        {
+            (action, index) in tv!.dataSource?.tableView!(tv!, commitEditingStyle: .Delete, forRowAtIndexPath: index)
+        }
+        deleteAction.backgroundColor = UIColor.redColor()
+        
+        return [deleteAction, editAction]
     }
     
 

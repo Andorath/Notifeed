@@ -23,6 +23,10 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
     //Attributi per la logica
     var isItemTag : Bool = false
     var selectedIndex : Int? = nil
+    
+    override func viewDidAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: false)
+    }
 
     override func viewDidLoad()
     {
