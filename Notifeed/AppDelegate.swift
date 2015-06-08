@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         var cnt = splitViewController!.viewControllers.count
         (splitViewController?.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
         splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        UIBarButtonItem.my_appearanceWhenContainedIn(UISearchBar).tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
+        UIBarButtonItem.my_appearanceWhenContainedIn(UIToolbar).tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
+        
+        //buttonAppar.tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
         
         return true
     }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
+class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UISearchResultsUpdating
 {
     
     var model: MGSDataModel?
@@ -25,6 +25,10 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     weak var AddAlertSaveAction: UIAlertAction?
     var selectedIndex = 0
     
+    //Search
+    var filteredTableData = [MGSFeed]()
+    var resultSearchController = UISearchController()
+    
     
     //METODI
     
@@ -38,6 +42,19 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSNewFeedAddedNotification", object: nil)
         model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
         super.viewDidLoad()
+        
+        self.resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            controller.searchBar.searchBarStyle = .Minimal
+            
+            self.tableView.tableHeaderView = controller.searchBar
+            self.tableView.contentOffset = CGPointMake(0.0, 44.0)
+            
+            return controller
+        })()
     }
     
     //MARK: - Interface Builder Actions
@@ -135,7 +152,14 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return model!.getFeedModel()!.count
+        if self.resultSearchController.active
+        {
+            return self.filteredTableData.count
+        }
+        else
+        {
+            return model!.getFeedModel()!.count
+        }
     }
 
     
@@ -143,12 +167,23 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
-        if let feed = model!.getFeedModel()?[indexPath.row]
+        
+        if self.resultSearchController.active
         {
-            cell.textLabel?.text = feed.title
-            cell.detailTextLabel?.text = feed.link
+            cell.textLabel?.text = filteredTableData[indexPath.row].title
+            cell.detailTextLabel?.text = filteredTableData[indexPath.row].link
         }
+        else
+        {
+            if let feed = model!.getFeedModel()?[indexPath.row]
+            {
+                cell.textLabel?.text = feed.title
+                cell.detailTextLabel?.text = feed.link
+            }
 
+            return cell
+        }
+        
         return cell
     }
     
@@ -184,11 +219,12 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?
     {
         var editLabel = NSLocalizedString("Edit", comment: "Azione modifica")
+        var editingPost: NSManagedObject? = model?.getManagedObjectFeedForIndex(indexPath.row)
         var editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: editLabel)
         {
             action, index in println("ereoto")
         }
-        editAction.backgroundColor = UIColor(red: 252.0/255.0, green: 106.0/255.0, blue: 86.0/255.0, alpha: 1)
+        editAction.backgroundColor = UIColor(red: 255.0/255.0, green: 128.0/255.0, blue: 102.0/255.0, alpha: 1)
         
         var deleteLabel = NSLocalizedString("Delete", comment: "Azione cancella")
         var tv: UITableView? = tableView
@@ -201,6 +237,26 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
         return [deleteAction, editAction]
     }
     
+    //MARK: - Searching Result Updating
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController)
+    {
+        //filteredTableData.removeAll(keepCapacity: false)
+        let feeds = model!.getFeedModel()
+        let array: [MGSFeed]
+        if searchController.searchBar.text.isEmpty
+        {
+            array = model!.getFeedModel()!
+        }
+        else
+        {
+            let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@", searchController.searchBar.text)
+            array = feeds!.filter{searchPredicate.evaluateWithObject($0)}
+        }
+        filteredTableData = array
+        
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -222,6 +278,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
     func updateInterface()
     {
         tableView.reloadData()
+        filteredTableData = model!.getFeedModel()!
     }
 
     
@@ -235,6 +292,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate
             if let mvc = segue.destinationViewController as? MGSPostTableViewController
             {
                 mvc.selectedFeed = model?.getFeedModel()?[selectedIndex]
+                resultSearchController.active = false
             }
         }
     }

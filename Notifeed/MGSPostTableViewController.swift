@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
+class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate, UISearchResultsUpdating
 {
     var model: MGSDataModel?
     
@@ -24,7 +24,12 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
     var isItemTag : Bool = false
     var selectedIndex : Int? = nil
     
-    override func viewDidAppear(animated: Bool) {
+    //Search
+    var filteredTableData = [MGSPost]()
+    var resultSearchController = UISearchController()
+    
+    override func viewDidAppear(animated: Bool)
+    {
         self.navigationController?.setToolbarHidden(true, animated: false)
     }
 
@@ -36,6 +41,20 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
         //startByExample()
         model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
         updateInterface()
+        
+        self.resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            controller.searchBar.searchBarStyle = .Minimal
+            
+            self.tableView.tableHeaderView = controller.searchBar
+            self.tableView.contentOffset = CGPointMake(0.0, 44.0)
+            
+            return controller
+        })()
+
     }
     
     //MARK: - Funzioni di Diagnostica
@@ -99,7 +118,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
             }
             else if post.eName == "description"
             {
-                post.description += data
+                post.postDescription += data
             }
             else if post.eName == "link"
             {
@@ -114,7 +133,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
         {
             let newPost: MGSPost = MGSPost()
             newPost.title = post.title
-            newPost.description = post.description
+            newPost.postDescription = post.postDescription
             newPost.link = post.link
             self.postArray.append(newPost)
             post = MGSPost()
@@ -131,7 +150,14 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return postArray.count
+        if self.resultSearchController.active
+        {
+            return self.filteredTableData.count
+        }
+        else
+        {
+            return postArray.count
+        }
     }
     
     //MARK: - Table view delegate
@@ -140,9 +166,17 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-
-        let post: MGSPost = postArray[indexPath.row]
-        cell.textLabel?.text = post.title
+        
+        if self.resultSearchController.active
+        {
+            cell.textLabel?.text = filteredTableData[indexPath.row].title
+        }
+        else
+        {
+            cell.textLabel?.text = postArray[indexPath.row].title
+            
+            return cell
+        }
 
         return cell
     }
@@ -153,6 +187,25 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
         self.performSegueWithIdentifier("toDetailSegue", sender: nil)
     }
     
+    //MARK: - Searching Result Updating
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController)
+    {
+        //filteredTableData.removeAll(keepCapacity: false)
+        let array: [MGSPost]
+        if searchController.searchBar.text.isEmpty
+        {
+            array = postArray
+        }
+        else
+        {
+            let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@", searchController.searchBar.text)
+            array = postArray.filter{searchPredicate.evaluateWithObject($0)}
+        }
+        filteredTableData = array
+        
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -203,6 +256,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate
             if let mvc = segue.destinationViewController as? UINavigationController
             {
                 (mvc.topViewController as! MGSWebViewController).post = postArray[selectedIndex!]
+                resultSearchController.active = false
             }
         }
     }
