@@ -8,13 +8,13 @@
 
 import Foundation
 
-class MGSFeed : Printable
+class MGSFeed : NSObject, Printable
 {
     var title: String
     var link: String
     var creazione: NSDate
     
-    var description: String
+    override var description: String
     {
         get {
             return self.title + ": " + link + "\n"
@@ -28,8 +28,9 @@ class MGSFeed : Printable
         self.creazione = creazione
     }
     
-    convenience init()
+    convenience override init()
     {
         self.init(title: "", link: "", creazione: NSDate())
     }
+    
 }

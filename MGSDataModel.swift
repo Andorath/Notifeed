@@ -92,4 +92,9 @@ class MGSDataModel
         return feeds
     }
     
+    func getManagedObjectFeedForIndex(index: Int) -> NSManagedObject
+    {
+        return feedArray![index] as! NSManagedObject
+    }
+    
 }

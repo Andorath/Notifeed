@@ -8,10 +8,10 @@
 
 import Foundation
 
-class MGSPost
+class MGSPost: NSObject
 {
     var title: String = String()
-    var description: String = String()
+    var postDescription: String = String()
     var link: String = String()
     var eName: String = String()
 }
