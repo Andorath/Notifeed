@@ -31,6 +31,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate, UI
     override func viewDidAppear(animated: Bool)
     {
         self.navigationController?.setToolbarHidden(true, animated: false)
+        //updateInterface()
     }
 
     override func viewDidLoad()
