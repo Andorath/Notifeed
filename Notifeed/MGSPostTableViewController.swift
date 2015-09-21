@@ -99,7 +99,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate, UI
     
     // MARK: - NSXMLParser
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject])
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
         post.eName = elementName
         if elementName == "item"
@@ -166,7 +166,7 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate, UI
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         if self.resultSearchController.active
         {
@@ -194,13 +194,13 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate, UI
     {
         //filteredTableData.removeAll(keepCapacity: false)
         let array: [MGSPost]
-        if searchController.searchBar.text.isEmpty
+        if searchController.searchBar.text!.isEmpty
         {
             array = postArray
         }
         else
         {
-            let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@", searchController.searchBar.text)
+            let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@", searchController.searchBar.text!)
             array = postArray.filter{searchPredicate.evaluateWithObject($0)}
         }
         filteredTableData = array

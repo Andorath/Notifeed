@@ -92,8 +92,8 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UI
         let addAction = UIAlertAction(title: NSLocalizedString("Add", comment: "Azione Aggiungi popup creazione nuova prescrizione"), style: UIAlertActionStyle.Default)
             {  [weak self] alert in
             
-            var titleNoSpaces: NSString = ((textFields![0] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            var linkNoSpaces: NSString = ((textFields![1] as! UITextField).text as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            let titleNoSpaces: String = (textFields![0] as! UITextField).text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            let linkNoSpaces: String = (textFields![1] as! UITextField).text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             
             if self!.model!.alreadyExists(titleNoSpaces as String)
             {
@@ -104,7 +104,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UI
             else
             {
                 
-                var feed: MGSFeed = MGSFeed(title: titleNoSpaces as String, link: linkNoSpaces as String, creazione: NSDate())
+                let feed: MGSFeed = MGSFeed(title: titleNoSpaces as String, link: linkNoSpaces as String, creazione: NSDate())
                 self?.model?.addNewFeedToModel(feed)
                 self?.updateInterface()
                 
@@ -139,7 +139,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UI
     func handleTextFieldTextDidChangeNotification (notification: NSNotification)
     {
         var textField = notification.object as! UITextField
-        AddAlertSaveAction!.enabled = (count((textFields![0] as! UITextField).text.utf16) >= 1) && (count((textFields![1] as! UITextField).text.utf16) >= 1)
+        AddAlertSaveAction!.enabled = ((textFields![0] as! UITextField).text!.utf16.count >= 1) && ((textFields![1] as! UITextField).text!.utf16.count >= 1)
     }
 
     // MARK: - Table view data source
@@ -165,7 +165,7 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UI
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
 
         
         if self.resultSearchController.active
@@ -216,19 +216,19 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UI
         self.performSegueWithIdentifier("toPostsSegue", sender: nil)
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
-        var editLabel = NSLocalizedString("Edit", comment: "Azione modifica")
+        let editLabel = NSLocalizedString("Edit", comment: "Azione modifica")
         var editingPost: NSManagedObject? = model?.getManagedObjectFeedForIndex(indexPath.row)
-        var editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: editLabel)
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: editLabel)
         {
-            action, index in println("ereoto")
+            action, index in print("ereoto")
         }
         editAction.backgroundColor = UIColor(red: 255.0/255.0, green: 128.0/255.0, blue: 102.0/255.0, alpha: 1)
         
-        var deleteLabel = NSLocalizedString("Delete", comment: "Azione cancella")
-        var tv: UITableView? = tableView
-        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: deleteLabel)
+        let deleteLabel = NSLocalizedString("Delete", comment: "Azione cancella")
+        let tv: UITableView? = tableView
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: deleteLabel)
         {
             (action, index) in tv!.dataSource?.tableView!(tv!, commitEditingStyle: .Delete, forRowAtIndexPath: index)
         }
@@ -244,13 +244,13 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UI
         //filteredTableData.removeAll(keepCapacity: false)
         let feeds = model!.getFeedModel()
         let array: [MGSFeed]
-        if searchController.searchBar.text.isEmpty
+        if searchController.searchBar.text!.isEmpty
         {
             array = model!.getFeedModel()!
         }
         else
         {
-            let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@", searchController.searchBar.text)
+            let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@", searchController.searchBar.text!)
             array = feeds!.filter{searchPredicate.evaluateWithObject($0)}
         }
         filteredTableData = array

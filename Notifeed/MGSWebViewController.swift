@@ -41,8 +41,8 @@ class MGSWebViewController: UIViewController, UIWebViewDelegate
         // Do any additional setup after loading the view
         initActivityController()
         
-        var URL = NSURL(string: post.link)
-        var request = NSURLRequest(URL: URL!)
+        let URL = NSURL(string: post.link)
+        let request = NSURLRequest(URL: URL!)
         webView.loadRequest(request)
         
     }

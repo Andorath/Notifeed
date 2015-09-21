@@ -29,22 +29,25 @@ class MGSDataModel
     
     func updateDataFromModel()
     {
-        var request = NSFetchRequest(entityName: "Feed")
+        let request = NSFetchRequest(entityName: "Feed")
         request.returnsObjectsAsFaults = false
-        var sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
-        feedArray = context.executeFetchRequest(request, error: nil)!
+        feedArray = try! context.executeFetchRequest(request)
     }
     
     func addNewFeedToModel(feed: MGSFeed)
     {
-        var feedMO = NSEntityDescription.insertNewObjectForEntityForName("Feed", inManagedObjectContext: context) as! NSManagedObject
+        let feedMO = NSEntityDescription.insertNewObjectForEntityForName("Feed", inManagedObjectContext: context) 
         
         feedMO.setValue(feed.title, forKey: "title")
         feedMO.setValue(feed.link, forKey: "link")
         feedMO.setValue(feed.creazione, forKey: "creazione")
-        context.save(nil)
+        do {
+            try context.save()
+        } catch _ {
+        }
         
         feedArray?.append(feedMO)
         NSNotificationCenter.defaultCenter().postNotificationName("MGSNewFeedAddedNotification", object: nil)
@@ -53,7 +56,10 @@ class MGSDataModel
     func deleteFeedFromModel(index: Int)
     {
         context.deleteObject(feedArray![index] as! NSManagedObject)
-        context.save(nil)
+        do {
+            try context.save()
+        } catch _ {
+        }
         
         feedArray?.removeAtIndex(index)
         NSNotificationCenter.defaultCenter().postNotificationName("MGSFeedDeletedNotification", object: nil)
@@ -63,11 +69,11 @@ class MGSDataModel
     
     func alreadyExists (title: String) -> Bool
     {
-        var request = NSFetchRequest(entityName: "Feed")
+        let request = NSFetchRequest(entityName: "Feed")
         request.returnsObjectsAsFaults = false
-        var predicate = NSPredicate(format: "title = %@", title)
+        let predicate = NSPredicate(format: "title = %@", title)
         request.predicate = predicate
-        var results = context.executeFetchRequest(request, error: nil)
+        let results = try? context.executeFetchRequest(request)
         
         return !results!.isEmpty
     }

@@ -8,7 +8,10 @@
 
 import Foundation
 
-class MGSFeed : NSObject, Printable
+//Era conforme a CustomStringConvertible ??? Non so cosa sia, lo avrà messo il convertitore
+//automatico a Swift 2
+
+class MGSFeed : NSObject
 {
     var title: String
     var link: String
