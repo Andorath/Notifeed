@@ -14,4 +14,13 @@ class Post: NSObject
     var postDescription: String = String()
     var link: String = String()
     var eName: String = String()
+    
+    convenience init(post: Post)
+    {
+        self.init()
+        title = post.title
+        postDescription = post.postDescription
+        link = post.link
+        eName = post.eName
+    }
 }

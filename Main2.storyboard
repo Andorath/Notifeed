@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Split View Controller-->
@@ -43,18 +44,18 @@
         <!--Notifeed-->
         <scene sceneID="wGf-vr-5VT">
             <objects>
-                <tableViewController id="fEC-zo-n5e" customClass="FeedTableViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fEC-zo-n5e" customClass="FeedViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="a4r-OV-ql5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Gsy-b4-3YZ" detailTextLabel="87A-yB-eHA" imageView="eYU-Cn-MZH" style="IBUITableViewCellStyleSubtitle" id="MZj-7U-ggE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="Gsy-b4-3YZ" detailTextLabel="87A-yB-eHA" imageView="eYU-Cn-MZH" style="IBUITableViewCellStyleSubtitle" id="MZj-7U-ggE">
                                 <rect key="frame" x="0.0" y="92" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZj-7U-ggE" id="XKd-gu-lub">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gsy-b4-3YZ">
@@ -68,7 +69,7 @@
                                             <rect key="frame" x="55" y="37" width="50" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="RSSFilled50.png" id="eYU-Cn-MZH">
@@ -77,6 +78,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="jby-eD-Xkg" kind="show" identifier="toPosts" id="ckq-cV-Qtk"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -112,34 +116,130 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="NVN-b8-6D8" kind="relationship" relationship="rootViewController" id="WlZ-be-48F"/>
+                        <segue destination="dQN-vJ-X9m" kind="relationship" relationship="rootViewController" id="I21-c9-uVA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsA-X8-LnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-832" y="-218"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="QBC-4V-mS1">
+        <!--Web View Controller-->
+        <scene sceneID="Usp-VG-y35">
             <objects>
-                <viewController id="NVN-b8-6D8" sceneMemberID="viewController">
+                <viewController id="dQN-vJ-X9m" customClass="MGSWebViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Ei-6c-8ma"/>
-                        <viewControllerLayoutGuide type="bottom" id="DEE-8g-2he"/>
+                        <viewControllerLayoutGuide type="top" id="8yz-uO-tbr"/>
+                        <viewControllerLayoutGuide type="bottom" id="nrK-dl-BpY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aPF-ti-kn9">
+                    <view key="view" contentMode="scaleToFill" id="e5V-dE-oIL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" paginationMode="leftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-hd-22n">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dQN-vJ-X9m" id="9FD-gB-eY3"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ltg-Uq-NfJ">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QDX-hd-22n" secondAttribute="trailing" constant="-16" id="5h8-f7-6Fa"/>
+                            <constraint firstItem="QDX-hd-22n" firstAttribute="top" secondItem="e5V-dE-oIL" secondAttribute="topMargin" id="6VM-xI-Axm"/>
+                            <constraint firstItem="QDX-hd-22n" firstAttribute="leading" secondItem="e5V-dE-oIL" secondAttribute="leadingMargin" constant="-16" id="OnO-C9-Mrb"/>
+                            <constraint firstItem="Ltg-Uq-NfJ" firstAttribute="centerX" secondItem="QDX-hd-22n" secondAttribute="centerX" id="PUv-Fq-JaV"/>
+                            <constraint firstItem="Ltg-Uq-NfJ" firstAttribute="centerY" secondItem="QDX-hd-22n" secondAttribute="centerY" id="jRB-i6-get"/>
+                            <constraint firstItem="QDX-hd-22n" firstAttribute="bottom" secondItem="e5V-dE-oIL" secondAttribute="bottomMargin" id="r9Z-hR-287"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" image="Back-50.png" id="1jK-8f-hqu">
+                            <connections>
+                                <action selector="goBack:" destination="dQN-vJ-X9m" id="K2A-JA-ASR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="kWm-RW-8av"/>
+                        <barButtonItem enabled="NO" image="Forward-50.png" id="scN-Fe-TFv">
+                            <connections>
+                                <action selector="goForward:" destination="dQN-vJ-X9m" id="JHF-Ur-C5D"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="i8y-8g-tZB"/>
+                        <barButtonItem systemItem="action" id="bYJ-G6-7bQ">
+                            <connections>
+                                <action selector="showActivityController:" destination="dQN-vJ-X9m" id="dPV-k3-bYk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="14" style="plain" systemItem="fixedSpace" id="uoV-QG-fVJ"/>
+                        <barButtonItem systemItem="refresh" id="Rej-aU-odU">
+                            <connections>
+                                <action selector="refreshPage:" destination="dQN-vJ-X9m" id="xv5-ly-VBK"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="e5p-dp-IMX"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="actionButton" destination="bYJ-G6-7bQ" id="9h2-LE-g3o"/>
+                        <outlet property="browserBackButton" destination="1jK-8f-hqu" id="Xss-Vp-Ik9"/>
+                        <outlet property="browserForwardButton" destination="scN-Fe-TFv" id="m5E-mn-DIh"/>
+                        <outlet property="spinner" destination="Ltg-Uq-NfJ" id="fg7-s2-agW"/>
+                        <outlet property="webView" destination="QDX-hd-22n" id="d4X-Er-hNe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aSw-rQ-xYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="-218"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="IIO-Fh-Kao">
+            <objects>
+                <tableViewController id="jby-eD-Xkg" customClass="PostsViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="T3g-dX-bkv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="UNi-7v-FOt"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G0t-ag-MB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="separatorColor" red="1" green="0.75060961069999999" blue="0.55052633120000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="PvD-W8-uY8" rowHeight="69" style="IBUITableViewCellStyleDefault" id="gHN-Fr-qz7">
+                                <rect key="frame" x="0.0" y="86" width="600" height="69"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHN-Fr-qz7" id="hkh-zi-dWc">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="68"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PvD-W8-uY8">
+                                            <rect key="frame" x="15" y="0.0" width="550" height="68"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.40896786940000002" blue="0.28640216930000001" alpha="0.01" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jby-eD-Xkg" id="H9D-MM-Hua"/>
+                            <outlet property="delegate" destination="jby-eD-Xkg" id="oOI-qw-9Xg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="ADP-Fa-TMD"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EFz-T5-1vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="-213"/>
+            <point key="canvasLocation" x="690" y="-1006"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Back-50.png" width="25" height="25"/>
+        <image name="Forward-50.png" width="25" height="25"/>
         <image name="RSSFilled50.png" width="25" height="25"/>
         <image name="rss-plus.png" width="32" height="32"/>
     </resources>

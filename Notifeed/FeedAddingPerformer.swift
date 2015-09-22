@@ -11,24 +11,24 @@ import UIKit
 
 protocol FeedAddingDelegate
 {
-    var delegator: FeedTableViewController? {get}
+    var delegator: FeedViewController? {get}
     var feed: Feed? {get set}
     var alertController: UIAlertController? {get}
     
-    init(delegator: FeedTableViewController)
+    init(delegator: FeedViewController)
     
     func showAlertController()
 }
 
 class FeedAddingPerformer: NSObject, FeedAddingDelegate, UITextFieldDelegate
 {
-    var delegator: FeedTableViewController?
+    var delegator: FeedViewController?
     var feed: Feed?
     
     var alertController: UIAlertController?
     var saveAction: UIAlertAction?
     
-    required init(delegator: FeedTableViewController)
+    required init(delegator: FeedViewController)
     {
         super.init()
         self.delegator = delegator

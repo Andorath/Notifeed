@@ -262,7 +262,7 @@
         <image name="rss-plus.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cug-yn-amQ"/>
+        <segue reference="VzB-cj-rBM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71764705882352942" green="0.062745098039215685" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
 </document>

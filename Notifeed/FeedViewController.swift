@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, UISearchResultsUpdating
+class FeedViewController: UITableViewController, UISearchResultsUpdating
 {
     var feedAdderDelegate: FeedAddingDelegate?
     
@@ -176,14 +176,32 @@ class FeedTableViewController: UITableViewController, UISearchResultsUpdating
         self.tableView.reloadData()
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let segueId = segue.identifier
+        {
+            switch segueId
+            {
+                case "toPosts":
+                
+                    if let destinationPostController = segue.destinationViewController as? PostsViewController
+                    {
+                        if let cell = sender as? UITableViewCell
+                        {
+                            if let selectedIndex = self.tableView.indexPathForCell(cell)
+                            {
+                                let selectedFeed = FeedModel.getSharedInstance().getFeeds()[selectedIndex.row]
+                                destinationPostController.selectedFeed = selectedFeed
+                            }
+                        }
+                    }
+                
+                default:
+                    break
+            }
+        }
     }
-    */
 
 }

@@ -247,7 +247,6 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate, UI
     
     // MARK: - Navigation
 
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         // Get the new view controller using [segue destinationViewController].
