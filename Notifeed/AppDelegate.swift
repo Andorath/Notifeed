@@ -14,25 +14,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
     var splitViewController: UISplitViewController?
-    var model: MGSDataModel?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        //Imposto il modello
-        model = MGSDataModel()
-        
-        // Imposto lo split view controller
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
+        setSplitViewController()
+        setCustomAppearance()
+        return true
+    }
+    
+    func setSplitViewController()
+    {
         splitViewController = self.window?.rootViewController as? UISplitViewController
         splitViewController?.delegate = self
         let cnt = splitViewController!.viewControllers.count
         (splitViewController?.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
         splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+    }
+    
+    func setCustomAppearance()
+    {
         UIBarButtonItem.my_appearanceWhenContainedIn(UISearchBar).tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
         UIBarButtonItem.my_appearanceWhenContainedIn(UIToolbar).tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
-        
-        //buttonAppar.tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
-        
-        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -40,7 +40,8 @@ class MGSFeedTableViewController: UITableViewController, UITextFieldDelegate, UI
     override func viewDidLoad()
     {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSNewFeedAddedNotification", object: nil)
-        model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
+        //Commentato per compilare
+        //model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
         super.viewDidLoad()
         
         self.resultSearchController = ({

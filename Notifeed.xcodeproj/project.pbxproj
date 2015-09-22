@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A92F29771B25EFB50045102C /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F29761B25EFB50045102C /* UIAppearance+Swift.m */; };
 		A94798D41B1CB1E000A3513D /* MGSPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */; };
+		A96627C11BB1682100B44B0B /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96627C01BB1682100B44B0B /* FeedTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A96627C31BB16A2800B44B0B /* FeedAddingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */; settings = {ASSET_TAGS = (); }; };
+		A968D4EB1BB1B44500BB8C22 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */; settings = {ASSET_TAGS = (); }; };
 		A9751DAE1B24E2B0009BD779 /* MGSOpenWithSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9751DAD1B24E2B0009BD779 /* MGSOpenWithSafari.swift */; };
 		A9751DB01B24E506009BD779 /* SafariActivity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9751DAF1B24E506009BD779 /* SafariActivity@2x.png */; };
 		A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */; };
@@ -49,6 +52,9 @@
 		A92F29751B25EFB50045102C /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
 		A92F29761B25EFB50045102C /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSPostTableViewController.swift; path = Notifeed/MGSPostTableViewController.swift; sourceTree = "<group>"; };
+		A96627C01BB1682100B44B0B /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAddingPerformer.swift; sourceTree = "<group>"; };
+		A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		A9751DAD1B24E2B0009BD779 /* MGSOpenWithSafari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSOpenWithSafari.swift; sourceTree = "<group>"; };
 		A9751DAF1B24E506009BD779 /* SafariActivity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SafariActivity@2x.png"; sourceTree = "<group>"; };
 		A99342A81B1CA7E1001CF4EA /* Notifeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,13 +64,13 @@
 		A99342BC1B1CA7E2001CF4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A99342C21B1CA7E2001CF4EA /* NotifeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotifeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99342C71B1CA7E2001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9960F5E1B21EF32007DDD39 /* MGSDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSDataModel.swift; path = ../MGSDataModel.swift; sourceTree = "<group>"; };
+		A9960F5E1B21EF32007DDD39 /* MGSDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSDataModel.swift; sourceTree = "<group>"; };
 		A9960F601B21F27F007DDD39 /* MGSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSFeed.swift; path = Notifeed/MGSFeed.swift; sourceTree = "<group>"; };
 		A9CDB9A11B2A4AED00A02411 /* MGSAddFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSAddFeedTableViewController.swift; sourceTree = "<group>"; };
 		A9DD3AC61B1EF376006FC61D /* MGSPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSPost.swift; path = Notifeed/MGSPost.swift; sourceTree = "<group>"; };
 		A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSEmptyDetailViewController.swift; sourceTree = "<group>"; };
-		A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MGSEmptyDetailViewController.xib; path = ../MGSEmptyDetailViewController.xib; sourceTree = "<group>"; };
-		A9DECF261B1F9CD20056A031 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGSEmptyDetailViewController.xib; sourceTree = "<group>"; };
+		A9DECF261B1F9CD20056A031 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Notifeed/Main.storyboard; sourceTree = "<group>"; };
 		A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-plus@2x.png"; sourceTree = "<group>"; };
 		A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSWebViewController.swift; path = Notifeed/MGSWebViewController.swift; sourceTree = "<group>"; };
 		A9F1D9CD1B24B92600AB8D77 /* Back-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back-50@2x.png"; sourceTree = "<group>"; };
@@ -75,7 +81,7 @@
 		A9F230F51BB0BD5C00BD5434 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		A9FA35291B204523008E68A7 /* Notifeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notifeed.xcdatamodel; sourceTree = "<group>"; };
 		A9FA352B1B205335008E68A7 /* RSSFilled50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RSSFilled50@2x.png"; path = "Notifeed/RSSFilled50@2x.png"; sourceTree = "<group>"; };
-		A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSFeedTableViewController.swift; path = Notifeed/MGSFeedTableViewController.swift; sourceTree = "<group>"; };
+		A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSFeedTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,8 @@
 		A9751DB11B24E716009BD779 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */,
+				A96627C01BB1682100B44B0B /* FeedTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 		A9751DB31B24E76C009BD779 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */,
 				A9751DAD1B24E2B0009BD779 /* MGSOpenWithSafari.swift */,
 			);
 			name = "Custom Classes";
@@ -123,6 +132,10 @@
 		A993429F1B1CA7E1001CF4EA = {
 			isa = PBXGroup;
 			children = (
+				A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */,
+				A9DECF261B1F9CD20056A031 /* Main.storyboard */,
+				A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */,
+				A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */,
 				A9F230F21BB0BCB000BD5434 /* OLD */,
 				A99342AA1B1CA7E1001CF4EA /* Notifeed */,
 				A99342C51B1CA7E2001CF4EA /* NotifeedTests */,
@@ -148,9 +161,6 @@
 				A9751DB31B24E76C009BD779 /* Custom Classes */,
 				A9F230F71BB0C2BD00BD5434 /* Utility Class */,
 				A99342B91B1CA7E2001CF4EA /* Images.xcassets */,
-				A9DECF261B1F9CD20056A031 /* Main.storyboard */,
-				A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */,
-				A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */,
 				A9FA35281B204523008E68A7 /* Notifeed.xcdatamodeld */,
 				A9FA352D1B20533D008E68A7 /* Images */,
 				A99342AB1B1CA7E1001CF4EA /* Supporting Files */,
@@ -189,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				A9F230EC1BB0B93D00BD5434 /* FeedModel.swift */,
-				A9960F5E1B21EF32007DDD39 /* MGSDataModel.swift */,
 				A9F230F31BB0BD0C00BD5434 /* Post.swift */,
 				A9F230F51BB0BD5C00BD5434 /* Feed.swift */,
 			);
@@ -199,7 +208,7 @@
 		A9F230F21BB0BCB000BD5434 /* OLD */ = {
 			isa = PBXGroup;
 			children = (
-				A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */,
+				A9960F5E1B21EF32007DDD39 /* MGSDataModel.swift */,
 				A9CDB9A11B2A4AED00A02411 /* MGSAddFeedTableViewController.swift */,
 				A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */,
 				A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */,
@@ -277,7 +286,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Marco Salafia";
 				TargetAttributes = {
 					A99342A71B1CA7E1001CF4EA = {
@@ -322,6 +331,7 @@
 				A9751DB01B24E506009BD779 /* SafariActivity@2x.png in Resources */,
 				A9F1D9D01B24B92D00AB8D77 /* Forward-50@2x.png in Resources */,
 				A9DECF271B1F9CD20056A031 /* Main.storyboard in Resources */,
+				A968D4EB1BB1B44500BB8C22 /* Main2.storyboard in Resources */,
 				A9F1D9CA1B24A00900AB8D77 /* rss-plus@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,9 +369,11 @@
 				A9FA352F1B205A37008E68A7 /* MGSFeedTableViewController.swift in Sources */,
 				A9F230F61BB0BD5C00BD5434 /* Feed.swift in Sources */,
 				A9751DAE1B24E2B0009BD779 /* MGSOpenWithSafari.swift in Sources */,
+				A96627C11BB1682100B44B0B /* FeedTableViewController.swift in Sources */,
 				A92F29771B25EFB50045102C /* UIAppearance+Swift.m in Sources */,
 				A9F230F41BB0BD0C00BD5434 /* Post.swift in Sources */,
 				A9F1D9CC1B24A84A00AB8D77 /* MGSWebViewController.swift in Sources */,
+				A96627C31BB16A2800B44B0B /* FeedAddingPerformer.swift in Sources */,
 				A94798D41B1CB1E000A3513D /* MGSPostTableViewController.swift in Sources */,
 				A9CDB9A21B2A4AED00A02411 /* MGSAddFeedTableViewController.swift in Sources */,
 				A9FA352A1B204523008E68A7 /* Notifeed.xcdatamodeld in Sources */,
@@ -399,6 +411,7 @@
 				A99342BC1B1CA7E2001CF4EA /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = Notifeed;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -425,6 +438,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -496,7 +510,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Notifeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Notifeed/Notifeed-Bridging-Header.h";
@@ -513,7 +529,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Notifeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Notifeed/Notifeed-Bridging-Header.h";
@@ -536,6 +554,7 @@
 				INFOPLIST_FILE = NotifeedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notifeed.app/Notifeed";
@@ -554,6 +573,7 @@
 				INFOPLIST_FILE = NotifeedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DTEST";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notifeed.app/Notifeed";
 			};

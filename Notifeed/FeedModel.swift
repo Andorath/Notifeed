@@ -83,8 +83,6 @@ class FeedModel
             try context.save()
         } catch _ {
         }
-        
-        NSNotificationCenter.defaultCenter().postNotificationName("MGSFeedUpdateInterface", object: nil)
     }
     
     func deleteFeedAtIndex(index: Int) throws

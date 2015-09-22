@@ -108,7 +108,7 @@
                     <navigationItem key="navigationItem" title="Notifeed" id="Rhe-mb-uld">
                         <barButtonItem key="rightBarButtonItem" image="rss-plus.png" id="EVn-QT-Crd">
                             <connections>
-                                <segue destination="dGT-oA-FMl" kind="presentation" modalPresentationStyle="formSheet" id="gV6-jj-DCY"/>
+                                <action selector="addFeedAction:" destination="Zai-Nh-SFc" id="gIn-Pn-DDk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -208,89 +208,6 @@
             </objects>
             <point key="canvasLocation" x="-1705" y="-654"/>
         </scene>
-        <!--Add new feed-->
-        <scene sceneID="RAf-Ki-eQ3">
-            <objects>
-                <tableViewController id="XQb-Rv-dhJ" customClass="MGSAddFeedTableViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vEa-lr-q2o">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
-                        <sections>
-                            <tableViewSection headerTitle="Title" id="Zw1-KG-g1M">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Evw-3O-TIC">
-                                        <rect key="frame" x="0.0" y="94" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Evw-3O-TIC" id="xG9-4Q-j71">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert a title for this feed" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cKp-3p-Gkj">
-                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Link" footerTitle="Make sure your link starts with &quot;https://&quot; and/or remove any &quot;feed://&quot; eventually." id="MEW-nR-aVG">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="V9o-lq-9WE">
-                                        <rect key="frame" x="0.0" y="181" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V9o-lq-9WE" id="Hh4-90-Rer">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insert the link of this feed" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="661-hI-ttq">
-                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="XQb-Rv-dhJ" id="Agq-9t-h6N"/>
-                            <outlet property="delegate" destination="XQb-Rv-dhJ" id="4bt-mH-LL2"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Add new feed" id="MG5-oo-7gA">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wmO-sg-8j0">
-                            <connections>
-                                <action selector="cancelAction:" destination="XQb-Rv-dhJ" id="2Q8-Hb-ldh"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="MA0-2h-fOq">
-                            <connections>
-                                <action selector="addAction:" destination="XQb-Rv-dhJ" id="UyX-Pd-UMN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="doneButton" destination="MA0-2h-fOq" id="7cU-jW-6TC"/>
-                        <outlet property="linkTextField" destination="661-hI-ttq" id="ide-10-ea3"/>
-                        <outlet property="titleTextField" destination="cKp-3p-Gkj" id="hLs-3V-hdT"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ccy-v0-f1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1516" y="-1700"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="phD-aq-zBb">
             <objects>
@@ -337,26 +254,6 @@
             </objects>
             <point key="canvasLocation" x="-832" y="-218"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="bpL-VP-9d7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dGT-oA-FMl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ka1-jZ-eU6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="barTintColor" red="1" green="0.40784314274787903" blue="0.28627452254295349" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XQb-Rv-dhJ" kind="relationship" relationship="rootViewController" id="N9T-he-c1Y"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZSA-0e-Fx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="748" y="-1700"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Back-50.png" width="25" height="25"/>
@@ -365,7 +262,7 @@
         <image name="rss-plus.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VzB-cj-rBM"/>
+        <segue reference="cug-yn-amQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71764705882352942" green="0.062745098039215685" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
 </document>

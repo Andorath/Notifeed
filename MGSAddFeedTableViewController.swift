@@ -21,8 +21,8 @@ class MGSAddFeedTableViewController: UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
+        //Commenato per compilare
+        //model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
         
         doneButton.enabled = false;
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleTextFieldDidChangeNotification", name: UITextFieldTextDidChangeNotification, object: titleTextField)

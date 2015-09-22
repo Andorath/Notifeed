@@ -40,7 +40,8 @@ class MGSPostTableViewController: UITableViewController, NSXMLParserDelegate, UI
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSFeedDeletedNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface", name: "MGSNewFeedAddedNotification", object: nil)
         //startByExample()
-        model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
+        //Commentato per compilare
+        //model = (UIApplication.sharedApplication().delegate as? AppDelegate)?.model
         updateInterface()
         
         self.resultSearchController = ({
