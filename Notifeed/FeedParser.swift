@@ -19,14 +19,15 @@ class FeedParser: NSObject, NSXMLParserDelegate
     
     func parseLink(link: String) -> [Post]
     {
-        let url = NSURL(string: link)!
-        
         postArray = []
         
-        parser = NSXMLParser(contentsOfURL: url)!
-        parser.delegate = self
-        
-        parser.parse()
+        if let url = NSURL(string: link)
+        {
+            parser = NSXMLParser(contentsOfURL: url)!
+            parser.delegate = self
+            
+            parser.parse()
+        }
         
         return postArray
     }

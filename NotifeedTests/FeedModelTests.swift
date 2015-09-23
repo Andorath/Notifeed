@@ -43,13 +43,13 @@ class FeedModelTests: XCTestCase
     override func setUp()
     {
         super.setUp()
+        FeedModel.destroySharedInstance()
         context = setUpInMemoryManagedObjectContext()
         model = FeedModel.getSharedInstance(context!)
     }
     
     override func tearDown()
     {
-        FeedModel.destroySharedInstance()
         super.tearDown()
     }
 
@@ -210,6 +210,23 @@ class FeedModelTests: XCTestCase
         managedFeed = model!.getManagedFeedForIndex(1)
         let title = managedFeed!.valueForKey("title") as! String
         XCTAssertTrue(title == "B")
+    }
+    
+    func testEditFeed()
+    {
+        var feed = Feed(title: "A", link: "url1", creazione: NSDate())
+        model!.addFeed(feed)
+        
+        XCTAssertTrue(model!.alreadyExistsFeedWithTitle("A"))
+        
+        model!.editFeed(feed, withNewFeed: Feed(title: "B", link: "url2", creazione: NSDate()))
+        
+        XCTAssertFalse(model!.alreadyExistsFeedWithTitle("A"))
+        XCTAssertTrue(model!.alreadyExistsFeedWithTitle("B"))
+        
+        feed = model!.getFeeds()[0]
+        
+        XCTAssertTrue(feed.link == "url2")
     }
 
 }

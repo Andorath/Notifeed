@@ -211,4 +211,19 @@ class FeedModel
         return nil
     }
     
+    func editFeed(feed: Feed, withNewFeed newFeed: Feed)
+    {
+        if let oldFeed = getManagedFeedsWithTitle(feed.title)?[0]
+        {
+            oldFeed.setValue(newFeed.title, forKey: "title")
+            oldFeed.setValue(newFeed.link, forKey: "link")
+            do
+            {
+                try context.save()
+            }
+            catch _
+            {}
+        }
+    }
+    
 }

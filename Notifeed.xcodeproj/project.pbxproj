@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		A92F29771B25EFB50045102C /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F29761B25EFB50045102C /* UIAppearance+Swift.m */; };
+		A9377DF51BB2FBFB00633AFF /* FeedEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */; settings = {ASSET_TAGS = (); }; };
 		A94798D41B1CB1E000A3513D /* MGSPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */; };
 		A96627C11BB1682100B44B0B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96627C01BB1682100B44B0B /* FeedViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A96627C31BB16A2800B44B0B /* FeedAddingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */; settings = {ASSET_TAGS = (); }; };
 		A968D4EB1BB1B44500BB8C22 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */; settings = {ASSET_TAGS = (); }; };
 		A9751DAE1B24E2B0009BD779 /* MGSOpenWithSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9751DAD1B24E2B0009BD779 /* MGSOpenWithSafari.swift */; };
 		A9751DB01B24E506009BD779 /* SafariActivity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9751DAF1B24E506009BD779 /* SafariActivity@2x.png */; };
+		A97621CC1BB2AF1F0003672E /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621C31BB2AF1F0003672E /* FrameView.swift */; settings = {ASSET_TAGS = (); }; };
+		A97621CD1BB2AF1F0003672E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97621C41BB2AF1F0003672E /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		A97621CE1BB2AF1F0003672E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A97621C51BB2AF1F0003672E /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		A97621CF1BB2AF1F0003672E /* PKHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621C71BB2AF1F0003672E /* PKHUD.swift */; settings = {ASSET_TAGS = (); }; };
+		A97621D01BB2AF1F0003672E /* PKHUDAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621C81BB2AF1F0003672E /* PKHUDAssets.swift */; settings = {ASSET_TAGS = (); }; };
+		A97621D11BB2AF1F0003672E /* PKHUDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621C91BB2AF1F0003672E /* PKHUDContentView.swift */; settings = {ASSET_TAGS = (); }; };
+		A97621D21BB2AF1F0003672E /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621CA1BB2AF1F0003672E /* Window.swift */; settings = {ASSET_TAGS = (); }; };
+		A97621D31BB2AF1F0003672E /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621CB1BB2AF1F0003672E /* WindowRootViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */; };
 		A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99342B91B1CA7E2001CF4EA /* Images.xcassets */; };
 		A9960F5B1B21E80B007DDD39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */; };
@@ -53,12 +62,22 @@
 		A92F29741B25EFB50045102C /* Notifeed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Notifeed-Bridging-Header.h"; sourceTree = "<group>"; };
 		A92F29751B25EFB50045102C /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
 		A92F29761B25EFB50045102C /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
+		A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEditingPerformer.swift; sourceTree = "<group>"; };
 		A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSPostTableViewController.swift; sourceTree = "<group>"; };
 		A96627C01BB1682100B44B0B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAddingPerformer.swift; sourceTree = "<group>"; };
 		A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		A9751DAD1B24E2B0009BD779 /* MGSOpenWithSafari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSOpenWithSafari.swift; path = Notifeed/MGSOpenWithSafari.swift; sourceTree = "<group>"; };
 		A9751DAF1B24E506009BD779 /* SafariActivity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SafariActivity@2x.png"; sourceTree = "<group>"; };
+		A97621C31BB2AF1F0003672E /* FrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		A97621C41BB2AF1F0003672E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A97621C51BB2AF1F0003672E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A97621C61BB2AF1F0003672E /* PKHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHUD.h; sourceTree = "<group>"; };
+		A97621C71BB2AF1F0003672E /* PKHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUD.swift; sourceTree = "<group>"; };
+		A97621C81BB2AF1F0003672E /* PKHUDAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDAssets.swift; sourceTree = "<group>"; };
+		A97621C91BB2AF1F0003672E /* PKHUDContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDContentView.swift; sourceTree = "<group>"; };
+		A97621CA1BB2AF1F0003672E /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		A97621CB1BB2AF1F0003672E /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
 		A99342A81B1CA7E1001CF4EA /* Notifeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99342AC1B1CA7E1001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,13 +144,20 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		A9751DB31B24E76C009BD779 /* Custom Classes */ = {
+		A97621C21BB2AF1F0003672E /* PKHUD */ = {
 			isa = PBXGroup;
 			children = (
-				A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */,
-				A9B212D61BB1F491009E150C /* FeedParser.swift */,
+				A97621C31BB2AF1F0003672E /* FrameView.swift */,
+				A97621C41BB2AF1F0003672E /* Images.xcassets */,
+				A97621C51BB2AF1F0003672E /* Info.plist */,
+				A97621C61BB2AF1F0003672E /* PKHUD.h */,
+				A97621C71BB2AF1F0003672E /* PKHUD.swift */,
+				A97621C81BB2AF1F0003672E /* PKHUDAssets.swift */,
+				A97621C91BB2AF1F0003672E /* PKHUDContentView.swift */,
+				A97621CA1BB2AF1F0003672E /* Window.swift */,
+				A97621CB1BB2AF1F0003672E /* WindowRootViewController.swift */,
 			);
-			name = "Custom Classes";
+			path = PKHUD;
 			sourceTree = "<group>";
 		};
 		A993429F1B1CA7E1001CF4EA = {
@@ -141,6 +167,7 @@
 				A9DECF261B1F9CD20056A031 /* Main.storyboard */,
 				A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */,
 				A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */,
+				A97621C21BB2AF1F0003672E /* PKHUD */,
 				A9F230F21BB0BCB000BD5434 /* OLD */,
 				A99342AA1B1CA7E1001CF4EA /* Notifeed */,
 				A99342C51B1CA7E2001CF4EA /* NotifeedTests */,
@@ -163,7 +190,6 @@
 				A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */,
 				A9F230EB1BB0B91F00BD5434 /* Model */,
 				A9751DB11B24E716009BD779 /* View Controllers */,
-				A9751DB31B24E76C009BD779 /* Custom Classes */,
 				A9F230F71BB0C2BD00BD5434 /* Utility Class */,
 				A99342B91B1CA7E2001CF4EA /* Images.xcassets */,
 				A9FA35281B204523008E68A7 /* Notifeed.xcdatamodeld */,
@@ -228,6 +254,9 @@
 		A9F230F71BB0C2BD00BD5434 /* Utility Class */ = {
 			isa = PBXGroup;
 			children = (
+				A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */,
+				A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */,
+				A9B212D61BB1F491009E150C /* FeedParser.swift */,
 			);
 			name = "Utility Class";
 			sourceTree = "<group>";
@@ -333,9 +362,11 @@
 				A9FA352C1B205335008E68A7 /* RSSFilled50@2x.png in Resources */,
 				A9DD3AD31B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib in Resources */,
 				A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */,
+				A97621CD1BB2AF1F0003672E /* Images.xcassets in Resources */,
 				A9F1D9CE1B24B92600AB8D77 /* Back-50@2x.png in Resources */,
 				A9751DB01B24E506009BD779 /* SafariActivity@2x.png in Resources */,
 				A9F1D9D01B24B92D00AB8D77 /* Forward-50@2x.png in Resources */,
+				A97621CE1BB2AF1F0003672E /* Info.plist in Resources */,
 				A9DECF271B1F9CD20056A031 /* Main.storyboard in Resources */,
 				A968D4EB1BB1B44500BB8C22 /* Main2.storyboard in Resources */,
 				A9F1D9CA1B24A00900AB8D77 /* rss-plus@2x.png in Resources */,
@@ -373,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9FA352F1B205A37008E68A7 /* MGSFeedTableViewController.swift in Sources */,
+				A97621CF1BB2AF1F0003672E /* PKHUD.swift in Sources */,
 				A9F230F61BB0BD5C00BD5434 /* Feed.swift in Sources */,
 				A9751DAE1B24E2B0009BD779 /* MGSOpenWithSafari.swift in Sources */,
 				A96627C11BB1682100B44B0B /* FeedViewController.swift in Sources */,
@@ -380,17 +412,23 @@
 				A9F230F41BB0BD0C00BD5434 /* Post.swift in Sources */,
 				A9F1D9CC1B24A84A00AB8D77 /* MGSWebViewController.swift in Sources */,
 				A96627C31BB16A2800B44B0B /* FeedAddingPerformer.swift in Sources */,
+				A97621CC1BB2AF1F0003672E /* FrameView.swift in Sources */,
 				A94798D41B1CB1E000A3513D /* MGSPostTableViewController.swift in Sources */,
 				A9CDB9A21B2A4AED00A02411 /* MGSAddFeedTableViewController.swift in Sources */,
 				A9FA352A1B204523008E68A7 /* Notifeed.xcdatamodeld in Sources */,
 				A9DD3AD21B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift in Sources */,
+				A97621D31BB2AF1F0003672E /* WindowRootViewController.swift in Sources */,
 				A9B212D71BB1F491009E150C /* FeedParser.swift in Sources */,
+				A97621D11BB2AF1F0003672E /* PKHUDContentView.swift in Sources */,
+				A97621D01BB2AF1F0003672E /* PKHUDAssets.swift in Sources */,
 				A9B212D51BB1EEA6009E150C /* PostsViewController.swift in Sources */,
 				A9F230ED1BB0B93D00BD5434 /* FeedModel.swift in Sources */,
 				A9960F611B21F27F007DDD39 /* MGSFeed.swift in Sources */,
 				A9DD3AC71B1EF376006FC61D /* MGSPost.swift in Sources */,
 				A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */,
+				A9377DF51BB2FBFB00633AFF /* FeedEditingPerformer.swift in Sources */,
 				A9960F5F1B21EF32007DDD39 /* MGSDataModel.swift in Sources */,
+				A97621D21BB2AF1F0003672E /* Window.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

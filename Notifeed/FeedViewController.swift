@@ -10,9 +10,6 @@ import UIKit
 
 class FeedViewController: UITableViewController, UISearchResultsUpdating
 {
-    var feedAdderDelegate: FeedAddingDelegate?
-    
-    //Search
     var filteredTableData = [Feed]()
     var resultSearchController = UISearchController()
     
@@ -38,7 +35,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     func updateInterfaceByCell()
@@ -55,9 +52,9 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
 
     @IBAction func addFeedAction(sender: AnyObject)
     {
-        feedAdderDelegate = FeedAddingPerformer(delegator: self)
-        feedAdderDelegate!.showAlertController()
+        FeedAddingPerformer(delegator: self).showAlertController()
     }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -132,9 +129,8 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
         let editAction = UITableViewRowAction(style: .Normal,
                                               title: editLabel){
                                                     (action, index) in
-                                                    //TODO: completare la modifica implementando l'editor
-                                                    print("Modifica!")
-                                                    
+                                                    let feed = FeedModel.getSharedInstance().getFeeds()[index.row]
+                                                    FeedEditingPerformer(delegator: self, feed: feed).performEditingProcedure()
                                                 }
         editAction.backgroundColor = UIColor(red: 255.0/255.0, green: 128.0/255.0, blue: 102.0/255.0, alpha: 1)
         

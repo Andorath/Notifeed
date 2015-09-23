@@ -45,8 +45,30 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         if let feed = selectedFeed
         {
             postArray = FeedParser().parseLink(feed.link)
+            if postArray.isEmpty
+            {
+                showInvalidURLAlert()
+            }
             updateInterfaceBySections()
         }
+    }
+    
+    func showInvalidURLAlert()
+    {
+        let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
+            message: NSLocalizedString("Insert a valid URL for an RSS Feed", comment: "Messaggio alert url invalido"),
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
+            style: .Default){
+                alert in
+                if let navController = self.navigationController
+                {
+                    navController.popViewControllerAnimated(true)
+                }
+            })
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func updateInterfaceBySections()
@@ -59,7 +81,7 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view data source e Delegate
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
@@ -95,6 +117,14 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         
         return cell
     }
+    //TODO: Decommenta questa linea per attivare l'animazione
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//        let contentView = PKHUDImageView(image: PKHUDAssets.checkmarkImage)
+//        PKHUD.sharedHUD.contentView = contentView
+//        PKHUD.sharedHUD.show()
+//        PKHUD.sharedHUD.hide(afterDelay: 1)
+//    }
     
     //MARK: - Searching Result Updating
     
