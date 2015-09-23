@@ -19,6 +19,7 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.navigationItem.title = selectedFeed?.title
         resultSearchController = getResultSearchController()
     }
     

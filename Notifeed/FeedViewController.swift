@@ -185,11 +185,15 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
                     if let destinationPostController = segue.destinationViewController as? PostsViewController
                     {
                         if let cell = sender as? UITableViewCell
-                        {
+                        {1
                             if let selectedIndex = self.tableView.indexPathForCell(cell)
                             {
-                                let selectedFeed = FeedModel.getSharedInstance().getFeeds()[selectedIndex.row]
+                                let selectedFeed = resultSearchController.active == true ?
+                                                   filteredTableData[selectedIndex.row] :
+                                                   FeedModel.getSharedInstance().getFeeds()[selectedIndex.row]
+                                
                                 destinationPostController.selectedFeed = selectedFeed
+                                resultSearchController.active = false
                             }
                         }
                     }
