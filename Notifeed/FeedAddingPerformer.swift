@@ -61,6 +61,7 @@ class FeedAddingPerformer: NSObject, FeedAddingDelegate, UITextFieldDelegate
     {
         textField.placeholder = NSLocalizedString("Title", comment: "Placeholder del titolo nuovo feed")
         textField.autocapitalizationType = UITextAutocapitalizationType.Sentences
+        textField.clearButtonMode = .WhileEditing
         textField.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: "handleTextFieldTextDidChangeNotification:",
@@ -72,6 +73,7 @@ class FeedAddingPerformer: NSObject, FeedAddingDelegate, UITextFieldDelegate
     {
         textField.placeholder = NSLocalizedString("Link url of the rss", comment: "Placeholder del link nuovo feed")
         textField.autocapitalizationType = UITextAutocapitalizationType.None
+        textField.clearButtonMode = .WhileEditing
         textField.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: "handleTextFieldTextDidChangeNotification:",

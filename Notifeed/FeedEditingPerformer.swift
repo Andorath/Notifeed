@@ -50,7 +50,7 @@ class FeedEditingPerformer: NSObject, FeedEditingDelegate, UITextFieldDelegate
                                                  style: UIAlertActionStyle.Cancel,
                                                  handler: nil))
         
-        let editFeed = getAddAction()
+        let editFeed = getEditAction()
         alertController!.addAction(editFeed)
     }
     
@@ -59,6 +59,7 @@ class FeedEditingPerformer: NSObject, FeedEditingDelegate, UITextFieldDelegate
         textField.text = feed?.title
         textField.placeholder = NSLocalizedString("Title", comment: "Placeholder del titolo modifica feed")
         textField.autocapitalizationType = UITextAutocapitalizationType.Sentences
+        textField.clearButtonMode = .WhileEditing
         textField.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: "handleTextFieldTextDidChangeNotification:",
@@ -71,6 +72,7 @@ class FeedEditingPerformer: NSObject, FeedEditingDelegate, UITextFieldDelegate
         textField.text = feed?.link
         textField.placeholder = NSLocalizedString("Link url of the rss", comment: "Placeholder del link modifica feed")
         textField.autocapitalizationType = UITextAutocapitalizationType.None
+        textField.clearButtonMode = .WhileEditing
         textField.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: "handleTextFieldTextDidChangeNotification:",
@@ -78,9 +80,9 @@ class FeedEditingPerformer: NSObject, FeedEditingDelegate, UITextFieldDelegate
                                                          object: textField)
     }
     
-    func getAddAction() -> UIAlertAction
+    func getEditAction() -> UIAlertAction
     {
-        let addAction = UIAlertAction(title: NSLocalizedString("Add", comment: "Azione Aggiungi popup creazione nuova prescrizione"),
+        let addAction = UIAlertAction(title: NSLocalizedString("Edit", comment: "Azione Aggiungi popup creazione nuova prescrizione"),
             style: .Default, handler: editActionHandler)
         
         addAction.enabled = false
