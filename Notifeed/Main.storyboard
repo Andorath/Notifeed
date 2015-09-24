@@ -217,7 +217,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="barTintColor" red="1" green="0.40784313725490196" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.59215686274509804" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.44179894179894175" green="0.038160358651469814" blue="0.076577287367337044" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

@@ -21,11 +21,13 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         super.viewDidLoad()
         self.navigationItem.title = selectedFeed?.title
         resultSearchController = getResultSearchController()
+        showActivityIndicator()
     }
     
     override func viewDidAppear(animated: Bool)
     {
         scanSelectedFeed()
+        hideActivityIndicator()
     }
     
     func getResultSearchController() -> UISearchController
@@ -57,7 +59,7 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     func showInvalidURLAlert()
     {
         let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
-            message: NSLocalizedString("Insert a valid URL for an RSS Feed", comment: "Messaggio alert url invalido"),
+            message: NSLocalizedString("Invalid URL! Please insert a valid URL for an RSS Feed.", comment: "Messaggio alert url invalido"),
             preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
@@ -75,6 +77,18 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     func updateInterfaceBySections()
     {
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+    }
+    
+    func showActivityIndicator()
+    {
+        let contentView = PKHUDSystemActivityIndicatorView()
+        PKHUD.sharedHUD.contentView = contentView
+        PKHUD.sharedHUD.show()
+    }
+    
+    func hideActivityIndicator()
+    {
+        PKHUD.sharedHUD.hide()
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,14 +132,35 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         
         return cell
     }
-    //TODO: Decommenta questa linea per attivare l'animazione
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-//    {
-//        let contentView = PKHUDImageView(image: PKHUDAssets.checkmarkImage)
-//        PKHUD.sharedHUD.contentView = contentView
-//        PKHUD.sharedHUD.show()
-//        PKHUD.sharedHUD.hide(afterDelay: 1)
-//    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+    {
+        let archiveAction = getArchiveRowAction()
+        
+        return [archiveAction]
+    }
+    
+    func getArchiveRowAction() -> UITableViewRowAction
+    {
+        let editLabel = NSLocalizedString("Archive", comment: "Azione archivia")
+        let editAction = UITableViewRowAction(style: .Normal,
+                                              title: editLabel){
+                                              (action, index) in
+                                              self.showCheckMarkOverlay()
+                                                self.setEditing(false, animated: true)
+                                      }
+        editAction.backgroundColor = UIColor(red: 255.0/255.0, green: 151.0/255.0, blue: 12.0/255.0, alpha: 1)
+        
+        return editAction
+    }
+    
+    func showCheckMarkOverlay()
+    {
+        let contentView = PKHUDImageView(image: PKHUDAssets.checkmarkImage)
+        PKHUD.sharedHUD.contentView = contentView
+        PKHUD.sharedHUD.show()
+        PKHUD.sharedHUD.hide(afterDelay: 1)
+    }
     
     //MARK: - Searching Result Updating
     
