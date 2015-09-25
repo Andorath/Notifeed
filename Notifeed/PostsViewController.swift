@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import SafariServices
 
 class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchResultsUpdating
 {
-    var selectedFeed: Feed?
+    var selectedFeed: Feed? {
+        didSet {
+            self.navigationItem.title = selectedFeed?.title
+        }
+    }
     var postArray: [Post] = []
     
     var filteredTableData = [Post]()
@@ -19,7 +24,7 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.navigationItem.title = selectedFeed?.title
+
         resultSearchController = getResultSearchController()
         showActivityIndicator()
     }
@@ -154,6 +159,8 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         return editAction
     }
     
+    // MARK: - Animazioni
+    
     func showCheckMarkOverlay()
     {
         let contentView = PKHUDImageView(image: PKHUDAssets.checkmarkImage)
@@ -185,7 +192,38 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        
+        if let segueId = segue.identifier
+        {
+            switch segueId
+            {
+                case "toBrowser":
+                
+                    if let webVC = (segue.destinationViewController as? UINavigationController)?.topViewController as? WebViewController
+                    {
+                        if let cell = sender as? UITableViewCell
+                        {
+                            if let selectedIndex = self.tableView.indexPathForCell(cell)
+                            {
+                                let selectedPost = resultSearchController.active == true ?
+                                    filteredTableData[selectedIndex.row] :
+                                    postArray[selectedIndex.row]
+                                
+                                webVC.post = selectedPost
+                                
+                                resultSearchController.active = false
+                            }
+                        }
+                    }
+                
+                default:
+                    break
+            }
+        }
     }
 
 }
+
+
+
+
+

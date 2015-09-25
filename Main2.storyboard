@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6ad-2b-Ngr">
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -11,18 +11,25 @@
             <objects>
                 <splitViewController id="6ad-2b-Ngr" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="KxM-oZ-15V" kind="relationship" relationship="masterViewController" id="1Ki-AE-cbP"/>
-                        <segue destination="DV4-DN-WKJ" kind="relationship" relationship="detailViewController" id="isc-EJ-O6g"/>
+                        <segue destination="DV4-DN-WKJ" kind="relationship" relationship="detailViewController" id="6C8-P6-m0d"/>
+                        <segue destination="uZU-2p-g96" kind="relationship" relationship="masterViewController" id="rT1-IP-6wL"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kg4-ik-vDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1705" y="-654"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Feeds-->
         <scene sceneID="XoD-hS-qWX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KxM-oZ-15V" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feeds" image="RSSFilled50.png" id="XTz-Th-gZX">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.40784314274787903" blue="0.28627452254295349" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qAQ-Bj-e6h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -39,7 +46,107 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1m-bP-7NO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-808" y="-1006"/>
+            <point key="canvasLocation" x="-24" y="-1750"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZP3-tJ-Epr">
+            <objects>
+                <viewController id="laC-1J-e4c" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hka-cO-ajt"/>
+                        <viewControllerLayoutGuide type="bottom" id="pkg-1O-sEI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yv4-wU-SSd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sbx-y2-aQb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hce-db-GEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="-943"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="wJ4-Uc-1MO">
+            <objects>
+                <viewController id="e8G-XV-ZYB" customClass="WebViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6dx-tD-O8z"/>
+                        <viewControllerLayoutGuide type="bottom" id="6F7-5P-mL2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r3s-O7-4sM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-JT-Q4a">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qgg-JT-Q4a" firstAttribute="leading" secondItem="r3s-O7-4sM" secondAttribute="leadingMargin" constant="-20" id="7G2-rG-pDy"/>
+                            <constraint firstItem="qgg-JT-Q4a" firstAttribute="bottom" secondItem="r3s-O7-4sM" secondAttribute="bottomMargin" id="RVB-Fr-UIc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qgg-JT-Q4a" secondAttribute="trailing" constant="-20" id="aTE-3m-LJw"/>
+                            <constraint firstItem="qgg-JT-Q4a" firstAttribute="top" secondItem="r3s-O7-4sM" secondAttribute="topMargin" id="jFL-NI-USW"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" image="Back-50.png" id="sFp-Hx-Lw5">
+                            <connections>
+                                <action selector="goBack:" destination="e8G-XV-ZYB" id="6Z2-fm-0da"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="xpT-2s-dou"/>
+                        <barButtonItem enabled="NO" image="Forward-50.png" id="gz6-4L-CwV">
+                            <connections>
+                                <action selector="goForward:" destination="e8G-XV-ZYB" id="THy-Dj-A3l"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="oYo-mb-4Ci"/>
+                        <barButtonItem systemItem="action" id="2VL-tj-vWA">
+                            <connections>
+                                <action selector="showActivityController:" destination="e8G-XV-ZYB" id="POm-9d-AVy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="oyt-Lz-chT"/>
+                        <barButtonItem systemItem="refresh" id="OZD-Hh-XVf">
+                            <connections>
+                                <action selector="refreshPage:" destination="e8G-XV-ZYB" id="nGP-zQ-56d"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="RiU-eY-uRz"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="actionButton" destination="2VL-tj-vWA" id="aNO-ye-UNB"/>
+                        <outlet property="browserBackButton" destination="sFp-Hx-Lw5" id="kNc-SL-cyX"/>
+                        <outlet property="browserForwardButton" destination="gz6-4L-CwV" id="bSz-em-Cfc"/>
+                        <outlet property="webView" destination="qgg-JT-Q4a" id="y8c-b1-5lm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zta-iT-4bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-15" y="-215"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Yqk-Rg-gPv">
+            <objects>
+                <tabBarController id="uZU-2p-g96" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="340-Lb-Rhj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KxM-oZ-15V" kind="relationship" relationship="viewControllers" id="OXQ-Mo-xfJ"/>
+                        <segue destination="Wuw-fT-ug6" kind="relationship" relationship="viewControllers" id="X1l-oU-ZMn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qmr-lk-Wje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-832" y="-1272"/>
         </scene>
         <!--Notifeed-->
         <scene sceneID="wGf-vr-5VT">
@@ -99,7 +206,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blw-EF-fE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="-1006"/>
+            <point key="canvasLocation" x="713" y="-1750"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mVK-Qe-a70">
@@ -116,84 +223,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="dQN-vJ-X9m" kind="relationship" relationship="rootViewController" id="I21-c9-uVA"/>
+                        <segue destination="e8G-XV-ZYB" kind="relationship" relationship="rootViewController" id="7Ru-xe-BIf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsA-X8-LnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-832" y="-218"/>
-        </scene>
-        <!--Web View Controller-->
-        <scene sceneID="Usp-VG-y35">
-            <objects>
-                <viewController id="dQN-vJ-X9m" customClass="MGSWebViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8yz-uO-tbr"/>
-                        <viewControllerLayoutGuide type="bottom" id="nrK-dl-BpY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e5V-dE-oIL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" paginationMode="leftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-hd-22n">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="dQN-vJ-X9m" id="9FD-gB-eY3"/>
-                                </connections>
-                            </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ltg-Uq-NfJ">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="QDX-hd-22n" secondAttribute="trailing" constant="-16" id="5h8-f7-6Fa"/>
-                            <constraint firstItem="QDX-hd-22n" firstAttribute="top" secondItem="e5V-dE-oIL" secondAttribute="topMargin" id="6VM-xI-Axm"/>
-                            <constraint firstItem="QDX-hd-22n" firstAttribute="leading" secondItem="e5V-dE-oIL" secondAttribute="leadingMargin" constant="-16" id="OnO-C9-Mrb"/>
-                            <constraint firstItem="Ltg-Uq-NfJ" firstAttribute="centerX" secondItem="QDX-hd-22n" secondAttribute="centerX" id="PUv-Fq-JaV"/>
-                            <constraint firstItem="Ltg-Uq-NfJ" firstAttribute="centerY" secondItem="QDX-hd-22n" secondAttribute="centerY" id="jRB-i6-get"/>
-                            <constraint firstItem="QDX-hd-22n" firstAttribute="bottom" secondItem="e5V-dE-oIL" secondAttribute="bottomMargin" id="r9Z-hR-287"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem enabled="NO" image="Back-50.png" id="1jK-8f-hqu">
-                            <connections>
-                                <action selector="goBack:" destination="dQN-vJ-X9m" id="K2A-JA-ASR"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="kWm-RW-8av"/>
-                        <barButtonItem enabled="NO" image="Forward-50.png" id="scN-Fe-TFv">
-                            <connections>
-                                <action selector="goForward:" destination="dQN-vJ-X9m" id="JHF-Ur-C5D"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="i8y-8g-tZB"/>
-                        <barButtonItem systemItem="action" id="bYJ-G6-7bQ">
-                            <connections>
-                                <action selector="showActivityController:" destination="dQN-vJ-X9m" id="dPV-k3-bYk"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem width="14" style="plain" systemItem="fixedSpace" id="uoV-QG-fVJ"/>
-                        <barButtonItem systemItem="refresh" id="Rej-aU-odU">
-                            <connections>
-                                <action selector="refreshPage:" destination="dQN-vJ-X9m" id="xv5-ly-VBK"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="e5p-dp-IMX"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="actionButton" destination="bYJ-G6-7bQ" id="9h2-LE-g3o"/>
-                        <outlet property="browserBackButton" destination="1jK-8f-hqu" id="Xss-Vp-Ik9"/>
-                        <outlet property="browserForwardButton" destination="scN-Fe-TFv" id="m5E-mn-DIh"/>
-                        <outlet property="spinner" destination="Ltg-Uq-NfJ" id="fg7-s2-agW"/>
-                        <outlet property="webView" destination="QDX-hd-22n" id="d4X-Er-hNe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aSw-rQ-xYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-71" y="-218"/>
+            <point key="canvasLocation" x="-816" y="-218"/>
         </scene>
         <!--News-->
         <scene sceneID="IIO-Fh-Kao">
@@ -222,6 +257,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.40896786940000002" blue="0.28640216930000001" alpha="0.01" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="DV4-DN-WKJ" kind="showDetail" identifier="toBrowser" id="oYU-p2-fvR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -234,7 +272,32 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFz-T5-1vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="-1006"/>
+            <point key="canvasLocation" x="1474" y="-1750"/>
+        </scene>
+        <!--Archived-->
+        <scene sceneID="Y7N-sj-hHf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wuw-fT-ug6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Archived" image="RSSFilled50.png" id="D4G-S4-KBa">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.40784314274787903" blue="0.28627452254295349" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HXX-rj-FWn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="laC-1J-e4c" kind="relationship" relationship="rootViewController" id="yHv-8N-oKF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yR6-kM-NxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-12" y="-943"/>
         </scene>
     </scenes>
     <resources>
@@ -243,5 +306,8 @@
         <image name="RSSFilled50.png" width="25" height="25"/>
         <image name="rss-plus.png" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="oYU-p2-fvR"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -73,6 +73,7 @@ class MGSWebViewController: UIViewController, UIWebViewDelegate
     {
         spinner.stopAnimating()
         
+        //la cosa più stronza che abbia mai visto
         if webView.canGoBack
         {
             browserBackButton.enabled = true

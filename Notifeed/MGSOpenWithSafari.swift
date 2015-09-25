@@ -47,7 +47,7 @@ class MGSOpenWithSafari: UIActivity
     
     override func performActivity()
     {
-        if (url != nil)
+        if let _ = url
         {
             UIApplication.sharedApplication().openURL(url!)
         }
