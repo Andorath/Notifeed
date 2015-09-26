@@ -110,7 +110,16 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         if editingStyle == .Delete
         {
-            try! FeedModel.getSharedInstance().deleteFeedAtIndex(indexPath.row)
+            if resultSearchController.active
+            {
+                try! FeedModel.getSharedInstance().deleteFeed(filteredTableData[indexPath.row])
+                filteredTableData.removeAtIndex(indexPath.row)
+            }
+            else
+            {
+                try! FeedModel.getSharedInstance().deleteFeedAtIndex(indexPath.row)
+            }
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
@@ -127,14 +136,28 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         let editLabel = NSLocalizedString("Edit", comment: "Azione modifica")
         let editAction = UITableViewRowAction(style: .Normal,
-                                              title: editLabel){
-                                                    (action, index) in
-                                                    let feed = FeedModel.getSharedInstance().getFeeds()[index.row]
-                                                    FeedEditingPerformer(delegator: self, feed: feed).performEditingProcedure()
-                                                }
+                                              title: editLabel,
+                                              handler: editHandler)
+
         editAction.backgroundColor = UIColor(red: 255.0/255.0, green: 128.0/255.0, blue: 102.0/255.0, alpha: 1)
         
         return editAction
+    }
+    
+    func editHandler(action: UITableViewRowAction, index: NSIndexPath)
+    {
+        var feed: Feed
+        
+        if resultSearchController.active
+        {
+            feed = filteredTableData[index.row]
+        }
+        else
+        {
+            feed = FeedModel.getSharedInstance().getFeeds()[index.row]
+        }
+        
+        FeedEditingPerformer(delegator: self, feed: feed).performEditingProcedure()
     }
     
     func getDeleteRowAction() -> UITableViewRowAction

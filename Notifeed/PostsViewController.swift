@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchResultsUpdating
 {

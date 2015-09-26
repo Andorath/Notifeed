@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {        
-        setSplitViewController()
+        //setSplitViewController()
+        setAllSplitController()
         setCustomAppearance()
         return true
     }
@@ -29,6 +30,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let cnt = splitViewController!.viewControllers.count
         (splitViewController?.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
         splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+    }
+    
+    func setAllSplitController()
+    {
+        if let split1 = (self.window?.rootViewController as? UITabBarController)?.viewControllers?[0] as? UISplitViewController
+        {
+            split1.delegate = self
+            let cnt = split1.viewControllers.count
+            (split1.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
+            split1.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        }
+        
+        if let split2 = (self.window?.rootViewController as? UITabBarController)?.viewControllers?[1] as? UISplitViewController
+        {
+            split2.delegate = self
+            let cnt = split2.viewControllers.count
+            (split2.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
+            split2.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        }
     }
     
     func setCustomAppearance()

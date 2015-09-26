@@ -226,4 +226,71 @@ class FeedModel
         }
     }
     
+    // MARK: Managing Posts
+    
+    func addPost(post: Post)
+    {
+        let managedPost = NSEntityDescription.insertNewObjectForEntityForName("Post", inManagedObjectContext: context)
+        
+        managedPost.setValue(post.title, forKey: "title")
+        managedPost.setValue(post.link, forKey: "link")
+        managedPost.setValue(post.postDescription, forKey: "postDescription")
+        managedPost.setValue(post.eName, forKey: "eName")
+        managedPost.setValue(NSDate(), forKey: "creazione")
+        
+        do {
+            try context.save()
+        } catch _ {
+        }
+    }
+    
+    func getPosts() -> [Post]
+    {
+        var feeds: [Post] = [Post]()
+        var temp: Post
+        
+        let _results = getManagedPosts()
+        
+        if let results = _results
+        {
+            for managedPost in results
+            {
+                temp = Post()
+                temp.title = managedPost.valueForKey("title") as! String
+                temp.link = managedPost.valueForKey("link") as! String
+                temp.postDescription = managedPost.valueForKey("postDescription") as! String
+                temp.eName = managedPost.valueForKey("eName") as! String
+
+                feeds.append(temp)
+            }
+        }
+        
+        return feeds
+    }
+    
+    func getManagedPosts() -> [NSManagedObject]?
+    {
+        let request = NSFetchRequest(entityName: "Post")
+        request.returnsObjectsAsFaults = false
+        let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        let results = try! context.executeFetchRequest(request) as? [NSManagedObject]
+        return results
+    }
+    
+    func deletePostAtIndex(index: Int)
+    {
+        if let results = getManagedPosts()
+        {
+            context.deleteObject(results[index])
+            do
+            {
+                try context.save()
+            }
+            catch _
+            {}
+        }
+    }
+    
 }

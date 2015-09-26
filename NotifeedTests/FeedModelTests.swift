@@ -228,5 +228,32 @@ class FeedModelTests: XCTestCase
         
         XCTAssertTrue(feed.link == "url2")
     }
+    
+    func testAddPost()
+    {
+        model!.addPost(Post())
+        model!.addPost(Post())
+        model!.addPost(Post())
+        
+        let request = NSFetchRequest(entityName: "Post")
+        request.returnsObjectsAsFaults = false
+        let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        let results = try! context!.executeFetchRequest(request) as? [NSManagedObject]
+        
+        XCTAssertTrue(results?.count == 3)
+    }
+    
+    func testGetPosts()
+    {
+        model!.addPost(Post())
+        model!.addPost(Post())
+        model!.addPost(Post())
+        
+        let posts = model!.getPosts()
+        
+        XCTAssertTrue(posts.count == 3)
+    }
 
 }

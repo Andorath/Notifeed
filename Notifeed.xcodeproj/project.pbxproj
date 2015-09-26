@@ -24,6 +24,7 @@
 		A97621D11BB2AF1F0003672E /* PKHUDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621C91BB2AF1F0003672E /* PKHUDContentView.swift */; settings = {ASSET_TAGS = (); }; };
 		A97621D21BB2AF1F0003672E /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621CA1BB2AF1F0003672E /* Window.swift */; settings = {ASSET_TAGS = (); }; };
 		A97621D31BB2AF1F0003672E /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97621CB1BB2AF1F0003672E /* WindowRootViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A98ED8E81BB5BA570043B5DC /* Main3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A98ED8E71BB5BA570043B5DC /* Main3.storyboard */; settings = {ASSET_TAGS = (); }; };
 		A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */; };
 		A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99342B91B1CA7E2001CF4EA /* Images.xcassets */; };
 		A9960F5B1B21E80B007DDD39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */; };
@@ -31,6 +32,7 @@
 		A9960F611B21F27F007DDD39 /* MGSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9960F601B21F27F007DDD39 /* MGSFeed.swift */; };
 		A9B212D51BB1EEA6009E150C /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B212D41BB1EEA6009E150C /* PostsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9B212D71BB1F491009E150C /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B212D61BB1F491009E150C /* FeedParser.swift */; settings = {ASSET_TAGS = (); }; };
+		A9BCB26C1BB7042600A9BC29 /* ArchivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9CDB9A21B2A4AED00A02411 /* MGSAddFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDB9A11B2A4AED00A02411 /* MGSAddFeedTableViewController.swift */; };
 		A9DD3AC71B1EF376006FC61D /* MGSPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AC61B1EF376006FC61D /* MGSPost.swift */; };
 		A9DD3AD21B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */; };
@@ -65,7 +67,7 @@
 		A92F29761B25EFB50045102C /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEditingPerformer.swift; sourceTree = "<group>"; };
 		A94067721BB4867C005EFA09 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSPostTableViewController.swift; sourceTree = "<group>"; };
+		A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSPostTableViewController.swift; path = Notifeed/MGSPostTableViewController.swift; sourceTree = "<group>"; };
 		A96627C01BB1682100B44B0B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAddingPerformer.swift; sourceTree = "<group>"; };
 		A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		A97621C91BB2AF1F0003672E /* PKHUDContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHUDContentView.swift; sourceTree = "<group>"; };
 		A97621CA1BB2AF1F0003672E /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		A97621CB1BB2AF1F0003672E /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
+		A98ED8E71BB5BA570043B5DC /* Main3.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main3.storyboard; sourceTree = "<group>"; };
 		A99342A81B1CA7E1001CF4EA /* Notifeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99342AC1B1CA7E1001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,13 +94,14 @@
 		A9960F601B21F27F007DDD39 /* MGSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSFeed.swift; path = Notifeed/MGSFeed.swift; sourceTree = "<group>"; };
 		A9B212D41BB1EEA6009E150C /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		A9B212D61BB1F491009E150C /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
+		A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchivedViewController.swift; sourceTree = "<group>"; };
 		A9CDB9A11B2A4AED00A02411 /* MGSAddFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSAddFeedTableViewController.swift; sourceTree = "<group>"; };
 		A9DD3AC61B1EF376006FC61D /* MGSPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSPost.swift; path = Notifeed/MGSPost.swift; sourceTree = "<group>"; };
 		A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSEmptyDetailViewController.swift; sourceTree = "<group>"; };
 		A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGSEmptyDetailViewController.xib; sourceTree = "<group>"; };
 		A9DECF261B1F9CD20056A031 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Notifeed/Main.storyboard; sourceTree = "<group>"; };
 		A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-plus@2x.png"; sourceTree = "<group>"; };
-		A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSWebViewController.swift; sourceTree = "<group>"; };
+		A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSWebViewController.swift; path = Notifeed/MGSWebViewController.swift; sourceTree = "<group>"; };
 		A9F1D9CD1B24B92600AB8D77 /* Back-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back-50@2x.png"; sourceTree = "<group>"; };
 		A9F1D9CF1B24B92D00AB8D77 /* Forward-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Forward-50@2x.png"; sourceTree = "<group>"; };
 		A9F230EC1BB0B93D00BD5434 /* FeedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -140,10 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				A96627C01BB1682100B44B0B /* FeedViewController.swift */,
-				A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */,
 				A9B212D41BB1EEA6009E150C /* PostsViewController.swift */,
-				A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */,
 				A94067721BB4867C005EFA09 /* WebViewController.swift */,
+				A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 		A993429F1B1CA7E1001CF4EA = {
 			isa = PBXGroup;
 			children = (
+				A98ED8E71BB5BA570043B5DC /* Main3.storyboard */,
 				A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */,
 				A9DECF261B1F9CD20056A031 /* Main.storyboard */,
 				A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */,
@@ -244,8 +248,10 @@
 			isa = PBXGroup;
 			children = (
 				A9960F5E1B21EF32007DDD39 /* MGSDataModel.swift */,
+				A94798D31B1CB1E000A3513D /* MGSPostTableViewController.swift */,
 				A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */,
 				A9CDB9A11B2A4AED00A02411 /* MGSAddFeedTableViewController.swift */,
+				A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */,
 				A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */,
 				A9DD3AC61B1EF376006FC61D /* MGSPost.swift */,
 				A9960F601B21F27F007DDD39 /* MGSFeed.swift */,
@@ -369,6 +375,7 @@
 				A9F1D9CE1B24B92600AB8D77 /* Back-50@2x.png in Resources */,
 				A9751DB01B24E506009BD779 /* SafariActivity@2x.png in Resources */,
 				A9F1D9D01B24B92D00AB8D77 /* Forward-50@2x.png in Resources */,
+				A98ED8E81BB5BA570043B5DC /* Main3.storyboard in Resources */,
 				A97621CE1BB2AF1F0003672E /* Info.plist in Resources */,
 				A9DECF271B1F9CD20056A031 /* Main.storyboard in Resources */,
 				A968D4EB1BB1B44500BB8C22 /* Main2.storyboard in Resources */,
@@ -406,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BCB26C1BB7042600A9BC29 /* ArchivedViewController.swift in Sources */,
 				A9FA352F1B205A37008E68A7 /* MGSFeedTableViewController.swift in Sources */,
 				A94067731BB4867C005EFA09 /* WebViewController.swift in Sources */,
 				A97621CF1BB2AF1F0003672E /* PKHUD.swift in Sources */,

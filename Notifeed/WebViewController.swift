@@ -12,10 +12,14 @@ class WebViewController: UIViewController, UIWebViewDelegate
 {
     var activityViewController: UIActivityViewController?
     
+    var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     @IBOutlet var webView: UIWebView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var browserBackButton: UIBarButtonItem!
     @IBOutlet weak var browserForwardButton: UIBarButtonItem!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var post: Post = Post()
         {
@@ -25,7 +29,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
         }
         
     }
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -55,14 +59,12 @@ class WebViewController: UIViewController, UIWebViewDelegate
     
     func showActivityIndicator()
     {
-        let contentView = PKHUDSystemActivityIndicatorView()
-        PKHUD.sharedHUD.contentView = contentView
-        PKHUD.sharedHUD.show()
+        spinner.startAnimating()
     }
     
     func hideActivityIndicator()
     {
-        PKHUD.sharedHUD.hide()
+        spinner.stopAnimating()
     }
 
     override func didReceiveMemoryWarning() {
