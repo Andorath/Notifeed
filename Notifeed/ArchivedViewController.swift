@@ -98,7 +98,16 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     {
         if editingStyle == .Delete
         {
-            FeedModel.getSharedInstance().deletePostAtIndex(indexPath.row)
+            if resultSearchController.active
+            {
+                FeedModel.getSharedInstance().deletePost(filteredTableData[indexPath.row])
+                filteredTableData.removeAtIndex(indexPath.row)
+            }
+            else
+            {
+                FeedModel.getSharedInstance().deletePostAtIndex(indexPath.row)
+            }
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }

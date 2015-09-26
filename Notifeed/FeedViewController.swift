@@ -148,16 +148,21 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         var feed: Feed
         
+        /* Il FeedEditingPerformer(delegator: self, feed: feed).performEditingProcedure() è
+        volutamente ripetuto due volte all'interno dei branch del IF per una questione di
+        animazioni più piacevoli */
+        
         if resultSearchController.active
         {
             feed = filteredTableData[index.row]
+            FeedEditingPerformer(delegator: self, feed: feed).performEditingProcedure()
+            resultSearchController.active = false
         }
         else
         {
             feed = FeedModel.getSharedInstance().getFeeds()[index.row]
+            FeedEditingPerformer(delegator: self, feed: feed).performEditingProcedure()
         }
-        
-        FeedEditingPerformer(delegator: self, feed: feed).performEditingProcedure()
     }
     
     func getDeleteRowAction() -> UITableViewRowAction

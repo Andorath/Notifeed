@@ -255,5 +255,63 @@ class FeedModelTests: XCTestCase
         
         XCTAssertTrue(posts.count == 3)
     }
+    
+    func testDeletePostAtIndex()
+    {
+        model!.addPost(Post(title: "A", link: "Url1", postDescription: "a", eName: "ea"))
+        model!.addPost(Post(title: "B", link: "Url2", postDescription: "b", eName: "eb"))
+        model!.addPost(Post(title: "C", link: "Url3", postDescription: "c", eName: "ec"))
+        
+        var request = NSFetchRequest(entityName: "Post")
+        request.returnsObjectsAsFaults = false
+        var predicate = NSPredicate(format: "title = %@", "B")
+        request.predicate = predicate
+        var results = try? context!.executeFetchRequest(request)
+        
+        XCTAssertTrue(results?.count == 1)
+        
+        model!.deletePostAtIndex(1)
+        
+        request = NSFetchRequest(entityName: "Post")
+        request.returnsObjectsAsFaults = false
+        predicate = NSPredicate(format: "title = %@", "B")
+        request.predicate = predicate
+        results = try? context!.executeFetchRequest(request)
+        
+        XCTAssertTrue(results?.count == 0)
+        
+        let posts = model!.getPosts()
+        
+        XCTAssertTrue(posts.count == 2)
+    }
+    
+    func testDeletePost()
+    {
+        model!.addPost(Post(title: "A", link: "Url1", postDescription: "a", eName: "ea"))
+        model!.addPost(Post(title: "B", link: "Url2", postDescription: "b", eName: "eb"))
+        model!.addPost(Post(title: "C", link: "Url3", postDescription: "c", eName: "ec"))
+        
+        var request = NSFetchRequest(entityName: "Post")
+        request.returnsObjectsAsFaults = false
+        var predicate = NSPredicate(format: "title = %@", "B")
+        request.predicate = predicate
+        var results = try? context!.executeFetchRequest(request)
+        
+        XCTAssertTrue(results?.count == 1)
+        
+        model!.deletePost(Post(title: "B", link: "Url55555", postDescription: "AA", eName: "aa"))
+        
+        request = NSFetchRequest(entityName: "Post")
+        request.returnsObjectsAsFaults = false
+        predicate = NSPredicate(format: "title = %@", "B")
+        request.predicate = predicate
+        results = try? context!.executeFetchRequest(request)
+        
+        XCTAssertTrue(results?.count == 0)
+        
+        let posts = model!.getPosts()
+        
+        XCTAssertTrue(posts.count == 2)
+    }
 
 }

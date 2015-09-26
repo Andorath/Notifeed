@@ -293,4 +293,28 @@ class FeedModel
         }
     }
     
+    func deletePost(post: Post)
+    {
+        if let results = getManagedPostWithTitle(post.title)
+        {
+            context.deleteObject(results[0])
+            do
+            {
+                try context.save()
+            }
+            catch _
+            {}
+        }
+    }
+    
+    func getManagedPostWithTitle(title: String) -> [NSManagedObject]?
+    {
+        let request = NSFetchRequest(entityName: "Post")
+        request.returnsObjectsAsFaults = false
+        let predicate = NSPredicate(format: "title = %@", title)
+        request.predicate = predicate
+        let results = try? context.executeFetchRequest(request) as! [NSManagedObject]
+        return results
+    }
+    
 }
