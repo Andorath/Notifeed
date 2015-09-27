@@ -63,17 +63,17 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     func showInvalidURLAlert()
     {
         let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
-            message: NSLocalizedString("Invalid URL! Please insert a valid URL for an RSS Feed.", comment: "Messaggio alert url invalido"),
-            preferredStyle: UIAlertControllerStyle.Alert)
+                                                message: NSLocalizedString("Invalid URL! Please insert a valid URL for an RSS Feed.", comment: "Messaggio alert url invalido"),
+                                                preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
-            style: .Default){
-                alert in
-                if let navController = self.navigationController
-                {
-                    navController.popViewControllerAnimated(true)
-                }
-            })
+                                                style: .Default){
+                                                                    alert in
+                                                                    if let navController = self.navigationController
+                                                                    {
+                                                                        navController.popViewControllerAnimated(true)
+                                                                    }
+                                                                })
         
         presentViewController(alertController, animated: true, completion: nil)
     }

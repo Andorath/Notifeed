@@ -356,7 +356,37 @@ class FeedModel
         }
     }
     
+    func countUncheckedPosts() -> Int
+    {
+        var count = 0
+        
+        let posts = getPosts()
     
+        for post in posts
+        {
+            if !post.checked
+            {
+                count++
+            }
+            
+        }
+        
+        return count
+    }
+    
+    func setUncheckedPost(post: Post)
+    {
+        if let results = getManagedPostWithTitle(post.title)
+        {
+            results[0].setValue(false, forKey: "checked")
+            do
+            {
+                try context.save()
+            }
+            catch _
+            {}
+        }
+    }
     
     
     

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         //setSplitViewController()
         setAllSplitController()
         setCustomAppearance()
+        updateAchivedTabBadge()
         return true
     }
     
@@ -55,6 +56,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     {
         UIBarButtonItem.my_appearanceWhenContainedIn(UISearchBar).tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
         UIBarButtonItem.my_appearanceWhenContainedIn(UIToolbar).tintColor = UIColor(red: 246.0/255.0, green: 106.0/255.0, blue: 75.0/255.0, alpha: 1)
+    }
+    
+    func updateAchivedTabBadge()
+    {
+        if let tabItem = (self.window?.rootViewController as? UITabBarController)?.tabBar.items?[1]
+        {
+            let count = FeedModel.getSharedInstance().countUncheckedPosts()
+            
+            tabItem.badgeValue = count == 0 ? nil : String(count)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -34,7 +34,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qAQ-Bj-e6h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.40784313729999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.60392156862745094" green="0.73333333333333328" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.44179894180000001" green="0.038160358649999997" blue="0.076577287369999997" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

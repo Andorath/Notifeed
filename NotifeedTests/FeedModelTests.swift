@@ -357,4 +357,34 @@ class FeedModelTests: XCTestCase
         XCTAssertTrue(check)
     }
 
+    func testCountUncheckedPosts()
+    {
+        model!.addPost(Post(title: "A", link: "Url1", postDescription: "a", eName: "ea"))
+        model!.addPost(Post(title: "B", link: "Url2", postDescription: "b", eName: "eb"))
+        model!.addPost(Post(title: "C", link: "Url3", postDescription: "c", eName: "ec"))
+        
+        model!.setCheckedPostAtIndex(1)
+        
+        XCTAssertTrue(model!.countUncheckedPosts() == 2)
+    }
+    
+    func testSetUncheckedPost()
+    {
+        model!.addPost(Post(title: "A", link: "Url1", postDescription: "a", eName: "ea"))
+        model!.addPost(Post(title: "B", link: "Url2", postDescription: "b", eName: "eb"))
+        model!.addPost(Post(title: "C", link: "Url3", postDescription: "c", eName: "ec"))
+        
+        model!.setCheckedPostAtIndex(1)
+        
+        var post = model!.getPosts()[1]
+        
+        XCTAssertTrue(post.checked)
+        
+        model!.setUncheckedPost(post)
+        
+        post = model!.getPosts()[1]
+        
+        XCTAssertFalse(post.checked)
+    }
+    
 }
