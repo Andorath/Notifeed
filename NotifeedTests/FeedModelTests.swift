@@ -313,5 +313,48 @@ class FeedModelTests: XCTestCase
         
         XCTAssertTrue(posts.count == 2)
     }
+    
+    func testAlreadyExistsPost()
+    {
+        XCTAssertFalse(model!.alreadyExistsPost(Post(title: "A", link: "url1", postDescription: "a", eName: "ea")))
+        
+        model!.addPost(Post(title: "A", link: "Url1", postDescription: "a", eName: "ea"))
+        
+        XCTAssertTrue(model!.alreadyExistsPost(Post(title: "A", link: "url1", postDescription: "a", eName: "ea")))
+    }
+    
+    func testSetCheckedPostAtIndex()
+    {
+        model!.addPost(Post(title: "A", link: "Url1", postDescription: "a", eName: "ea"))
+        model!.addPost(Post(title: "B", link: "Url2", postDescription: "b", eName: "eb"))
+        model!.addPost(Post(title: "C", link: "Url3", postDescription: "c", eName: "ec"))
+        
+        var check = model!.getPosts()[1].checked
+        
+        XCTAssertFalse(check)
+        
+        model!.setCheckedPostAtIndex(1)
+        
+        check = model!.getPosts()[1].checked
+        
+        XCTAssertTrue(check)
+    }
+    
+    func testSetCheckedPost()
+    {
+        model!.addPost(Post(title: "A", link: "Url1", postDescription: "a", eName: "ea"))
+        model!.addPost(Post(title: "B", link: "Url2", postDescription: "b", eName: "eb"))
+        model!.addPost(Post(title: "C", link: "Url3", postDescription: "c", eName: "ec"))
+        
+        var check = model!.getPosts()[1].checked
+        
+        XCTAssertFalse(check)
+        
+        model!.setCheckedPost(Post(title: "B", link: "Url2", postDescription: "b", eName: "eb"))
+        
+        check = model!.getPosts()[1].checked
+        
+        XCTAssertTrue(check)
+    }
 
 }

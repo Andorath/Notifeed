@@ -148,18 +148,58 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     {
         let editLabel = NSLocalizedString("Archive", comment: "Azione archivia")
         let editAction = UITableViewRowAction(style: .Normal,
-                                              title: editLabel){
-                                              (action, index) in
-                                              self.showCheckMarkOverlay()
-                                                self.setEditing(false, animated: true)
-                                      }
+                                              title: editLabel,
+                                              handler: archiveActionHandler)
+        
         editAction.backgroundColor = UIColor(red: 255.0/255.0, green: 151.0/255.0, blue: 12.0/255.0, alpha: 1)
         
         return editAction
     }
     
-    // MARK: - Animazioni
+    func archiveActionHandler(action: UITableViewRowAction, index: NSIndexPath)
+    {
+        if self.resultSearchController.active
+        {
+            archivePost(filteredTableData[index.row])
+        }
+        else
+        {
+            archivePost(postArray[index.row])
+        }
+        
+        self.setEditing(false, animated: true)
+    }
     
+    func archivePost(post: Post)
+    {
+        if FeedModel.getSharedInstance().alreadyExistsPost(post)
+        {
+            showAlreadyArchivedAlert()
+        }
+        else
+        {
+            FeedModel.getSharedInstance().addPost(post)
+            showCheckMarkOverlay()
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "MGSArchivedNotification", object: nil))
+        }
+        
+    }
+    
+    func showAlreadyArchivedAlert()
+    {
+        let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Titolo post già archiviato"),
+                                                message: NSLocalizedString("This post has been already archived.", comment: "Messaggio post già archiviato"),
+                                                preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok action post già archiviato"),
+                                                style: UIAlertActionStyle.Default,
+                                                handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Animazioni
+
     func showCheckMarkOverlay()
     {
         let contentView = PKHUDImageView(image: PKHUDAssets.checkmarkImage)

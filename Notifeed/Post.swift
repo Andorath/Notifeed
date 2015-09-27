@@ -14,6 +14,7 @@ class Post: NSObject
     var postDescription: String = String()
     var link: String = String()
     var eName: String = String()
+    var checked: Bool = false
     
     convenience init(title: String, link: String, postDescription: String, eName: String)
     {

@@ -10,7 +10,7 @@ import UIKit
 
 class ArchivedViewController: UITableViewController, UISearchResultsUpdating
 {
-    var postArray: [Post] = []
+    var postArray: [Post] = FeedModel.getSharedInstance().getPosts()
     
     var filteredTableData = [Post]()
     var resultSearchController = UISearchController()
@@ -18,7 +18,40 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        initAllObservers()
         resultSearchController = getResultSearchController()
+    }
+    
+    func initAllObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "archivingUpdate", name: "MGSArchivedNotification", object: nil)
+    }
+    
+    func archivingUpdate()
+    {
+        incrementTabBarItemBadge()
+        postArray = FeedModel.getSharedInstance().getPosts()
+        tableView.reloadData()
+    }
+    
+    func incrementTabBarItemBadge()
+    {
+        if let badge = splitViewController?.tabBarItem.badgeValue
+        {
+            if let badgeVal = Int(badge)
+            {
+                splitViewController?.tabBarItem.badgeValue = String(badgeVal + 1)
+            }
+        }
+        else
+        {
+            splitViewController?.tabBarItem.badgeValue = String(1)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        splitViewController?.tabBarItem.badgeValue = nil
     }
     
     func getResultSearchController() -> UISearchController
@@ -32,6 +65,11 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
         self.tableView.tableHeaderView = controller.searchBar
         
         return controller
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        //TODO: resettare i badge sul Tab Item
     }
     
     func updateInterfaceByCell()
@@ -75,18 +113,57 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
+        var post: Post
+        
         if self.resultSearchController.active
         {
-            cell.textLabel?.text = filteredTableData[indexPath.row].title
+            post = filteredTableData[indexPath.row]
+            cell.textLabel?.text = post.title
         }
         else
         {
-            cell.textLabel?.text = postArray[indexPath.row].title
-            
-            return cell
+            post = postArray[indexPath.row]
+            cell.textLabel?.text = post.title
         }
         
+        cell.accessoryView = post.checked ? nil : getDot()
+        
         return cell
+    }
+    
+    func getDot() -> UIImageView
+    {
+        let image = UIImageView(image: UIImage(named: "archived_dot.png"))
+        image.frame = CGRectMake(0, 0, 15, 15)
+        
+        return image
+    }
+    
+    //TODO: correggere sto manicomio con gli indexPath
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+    {
+        var post: Post
+        var originalIndexPath: NSIndexPath
+        
+        if self.resultSearchController.active
+        {
+            post = filteredTableData[indexPath.row]
+            let index = postArray.indexOf(post)
+            originalIndexPath = NSIndexPath(forRow: index!, inSection: 0)
+        }
+        else
+        {
+            post = postArray[indexPath.row]
+            originalIndexPath = indexPath
+        }
+        
+        post.checked = true
+        FeedModel.getSharedInstance().setCheckedPost(post)
+        tableView.beginUpdates()
+        tableView.reloadRowsAtIndexPaths([originalIndexPath], withRowAnimation: .None)
+        tableView.endUpdates()
+        
+        return indexPath
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
@@ -132,14 +209,37 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
         self.tableView.reloadData()
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let segueId = segue.identifier
+        {
+            switch segueId
+            {
+                case "toBrowser2":
+                    
+                    if let webVC = (segue.destinationViewController as? UINavigationController)?.topViewController as? WebViewController
+                    {
+                        if let cell = sender as? UITableViewCell
+                        {
+                            if let selectedIndex = self.tableView.indexPathForCell(cell)
+                            {
+                                let selectedPost = resultSearchController.active == true ?
+                                    filteredTableData[selectedIndex.row] :
+                                    postArray[selectedIndex.row]
+                                
+                                webVC.post = selectedPost
+                                
+                                resultSearchController.active = false
+                            }
+                        }
+                    }
+                    
+                default:
+                    break
+            }
+        }
     }
-    */
 
 }

@@ -38,6 +38,7 @@
 		A9DD3AD21B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */; };
 		A9DD3AD31B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */; };
 		A9DECF271B1F9CD20056A031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9DECF261B1F9CD20056A031 /* Main.storyboard */; };
+		A9EF4D501BB84FDD00AAB95D /* archived_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A9F1D9CA1B24A00900AB8D77 /* rss-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */; };
 		A9F1D9CC1B24A84A00AB8D77 /* MGSWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */; };
 		A9F1D9CE1B24B92600AB8D77 /* Back-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9F1D9CD1B24B92600AB8D77 /* Back-50@2x.png */; };
@@ -100,6 +101,7 @@
 		A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSEmptyDetailViewController.swift; sourceTree = "<group>"; };
 		A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGSEmptyDetailViewController.xib; sourceTree = "<group>"; };
 		A9DECF261B1F9CD20056A031 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Notifeed/Main.storyboard; sourceTree = "<group>"; };
+		A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archived_dot@2x.png"; sourceTree = "<group>"; };
 		A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-plus@2x.png"; sourceTree = "<group>"; };
 		A9F1D9CB1B24A84A00AB8D77 /* MGSWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSWebViewController.swift; path = Notifeed/MGSWebViewController.swift; sourceTree = "<group>"; };
 		A9F1D9CD1B24B92600AB8D77 /* Back-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back-50@2x.png"; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 		A9FA352D1B20533D008E68A7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */,
 				A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */,
 				A9FA352B1B205335008E68A7 /* RSSFilled50@2x.png */,
 				A9F1D9CD1B24B92600AB8D77 /* Back-50@2x.png */,
@@ -373,6 +376,7 @@
 				A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */,
 				A97621CD1BB2AF1F0003672E /* Images.xcassets in Resources */,
 				A9F1D9CE1B24B92600AB8D77 /* Back-50@2x.png in Resources */,
+				A9EF4D501BB84FDD00AAB95D /* archived_dot@2x.png in Resources */,
 				A9751DB01B24E506009BD779 /* SafariActivity@2x.png in Resources */,
 				A9F1D9D01B24B92D00AB8D77 /* Forward-50@2x.png in Resources */,
 				A98ED8E81BB5BA570043B5DC /* Main3.storyboard in Resources */,

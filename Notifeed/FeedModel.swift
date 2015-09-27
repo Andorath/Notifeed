@@ -260,6 +260,7 @@ class FeedModel
                 temp.link = managedPost.valueForKey("link") as! String
                 temp.postDescription = managedPost.valueForKey("postDescription") as! String
                 temp.eName = managedPost.valueForKey("eName") as! String
+                temp.checked = managedPost.valueForKey("checked") as! Bool
 
                 feeds.append(temp)
             }
@@ -316,5 +317,47 @@ class FeedModel
         let results = try? context.executeFetchRequest(request) as! [NSManagedObject]
         return results
     }
+    
+    func alreadyExistsPost(post: Post) -> Bool
+    {
+        if let results = getManagedPostWithTitle(post.title)
+        {
+            return !results.isEmpty
+        }
+        
+        return false
+    }
+    
+    func setCheckedPostAtIndex(index: Int)
+    {
+        if let results = getManagedPosts()
+        {
+            results[index].setValue(true, forKey: "checked")
+            do
+            {
+                try context.save()
+            }
+            catch _
+            {}
+        }
+    }
+    
+    func setCheckedPost(post: Post)
+    {
+        if let results = getManagedPostWithTitle(post.title)
+        {
+            results[0].setValue(true, forKey: "checked")
+            do
+            {
+                try context.save()
+            }
+            catch _
+            {}
+        }
+    }
+    
+    
+    
+    
     
 }
