@@ -165,11 +165,15 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
             originalIndexPath = nil
         }
         
-        post.checked = true
-        FeedModel.getSharedInstance().setCheckedPost(post)
-        tableView.beginUpdates()
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-        tableView.endUpdates()
+        if !post.checked
+        {
+            decrementTabBarItemBadge()
+            post.checked = true
+            FeedModel.getSharedInstance().setCheckedPost(post)
+            tableView.beginUpdates()
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+            tableView.endUpdates()
+        }
         
         return indexPath
     }
@@ -180,8 +184,6 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
         {
             tableView.selectRowAtIndexPath(oip, animated: true, scrollPosition: .Top)
         }
-        
-        decrementTabBarItemBadge()
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
@@ -193,17 +195,26 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     {
         if editingStyle == .Delete
         {
+            var post: Post
+            
             if resultSearchController.active
             {
-                FeedModel.getSharedInstance().deletePost(filteredTableData[indexPath.row])
+                post = filteredTableData[indexPath.row]
+                FeedModel.getSharedInstance().deletePost(post)
                 filteredTableData.removeAtIndex(indexPath.row)
             }
             else
             {
-                FeedModel.getSharedInstance().deletePostAtIndex(indexPath.row)
+                post = postArray[indexPath.row]
+                FeedModel.getSharedInstance().deletePost(post)
+                postArray.removeAtIndex(indexPath.row)
             }
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            if !post.checked
+            {
+                decrementTabBarItemBadge()
+            }
         }
     }
     
@@ -247,6 +258,8 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
             tableView.reloadRowsAtIndexPaths([index], withRowAnimation: .Right)
             tableView.endUpdates()
         }
+        
+        self.setEditing(false, animated: true)
     }
     
     func unreadPost(post: Post)
@@ -269,6 +282,11 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
         }
         
         return deleteAction
+    }
+    
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return indexPath != tableView.indexPathForSelectedRow
     }
     
     //MARK: - Searching Result Updating

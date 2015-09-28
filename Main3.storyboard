@@ -258,7 +258,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.40784314269999999" blue="0.28627452250000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.44179894180000001" green="0.038160358649999997" blue="0.076577287369999997" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -321,15 +321,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="0.75060961069999999" blue="0.55052633120000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="PvD-W8-uY8" rowHeight="69" style="IBUITableViewCellStyleDefault" id="gHN-Fr-qz7">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="PvD-W8-uY8" rowHeight="69" style="IBUITableViewCellStyleDefault" id="gHN-Fr-qz7">
                                 <rect key="frame" x="0.0" y="86" width="600" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHN-Fr-qz7" id="hkh-zi-dWc">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PvD-W8-uY8">
-                                            <rect key="frame" x="15" y="0.0" width="550" height="68"/>
+                                            <rect key="frame" x="15" y="0.0" width="570" height="68"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -365,7 +365,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.40784314269999999" blue="0.28627452250000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.71839404110000005" green="0.062733530999999995" blue="0.1182418391" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.44179894180000001" green="0.038160358649999997" blue="0.076577287369999997" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

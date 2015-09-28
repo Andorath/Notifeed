@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum FeedParserError: ErrorType
+{
+    case UnableToConnect
+    case InvalidURL
+}
+
 class FeedParser: NSObject, NSXMLParserDelegate
 {
     private var parser: NSXMLParser = NSXMLParser()
@@ -17,7 +23,7 @@ class FeedParser: NSObject, NSXMLParserDelegate
     var postArray: [Post] = []
     var post = Post()
     
-    func parseLink(link: String) -> [Post]
+    func parseLink(link: String) throws -> [Post]
     {
         postArray = []
         
@@ -27,6 +33,11 @@ class FeedParser: NSObject, NSXMLParserDelegate
             parser.delegate = self
             
             parser.parse()
+        }
+        
+        if postArray.isEmpty
+        {
+            throw FeedParserError.InvalidURL
         }
         
         return postArray

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchResultsUpdating
+class PostsViewController: UITableViewController, UISearchResultsUpdating
 {
     var selectedFeed: Feed? {
         didSet {
@@ -51,11 +51,21 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
     {
         if let feed = selectedFeed
         {
-            postArray = FeedParser().parseLink(feed.link)
-            if postArray.isEmpty
+            do
+            {
+                try postArray = FeedParser().parseLink(feed.link)
+            }
+            catch FeedParserError.InvalidURL
             {
                 showInvalidURLAlert()
             }
+            catch FeedParserError.UnableToConnect
+            {
+                showUnableToConnectAlert()
+            }
+            catch
+            {}
+            
             updateInterfaceBySections()
         }
     }
@@ -74,6 +84,24 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
                                                                         navController.popViewControllerAnimated(true)
                                                                     }
                                                                 })
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showUnableToConnectAlert()
+    {
+        let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert unable to connect"),
+                                                message: NSLocalizedString("Unable to connect to the URL. Check the status of the connection or the status f the URL.", comment: "Messaggio alert unable to connect"),
+                                                preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
+            style: .Default){
+                alert in
+                if let navController = self.navigationController
+                {
+                    navController.popViewControllerAnimated(true)
+                }
+            })
         
         presentViewController(alertController, animated: true, completion: nil)
     }
@@ -198,6 +226,11 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return indexPath != tableView.indexPathForSelectedRow
+    }
+    
     // MARK: - Animazioni
 
     func showCheckMarkOverlay()
@@ -205,7 +238,7 @@ class PostsViewController: UITableViewController, NSXMLParserDelegate, UISearchR
         let contentView = PKHUDImageView(image: PKHUDAssets.checkmarkImage)
         PKHUD.sharedHUD.contentView = contentView
         PKHUD.sharedHUD.show()
-        PKHUD.sharedHUD.hide(afterDelay: 1)
+        PKHUD.sharedHUD.hide(afterDelay: 0.5)
     }
     
     //MARK: - Searching Result Updating
