@@ -114,12 +114,19 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="RiU-eY-uRz"/>
+                    <navigationItem key="navigationItem" id="RiU-eY-uRz">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="expand.png" id="QOi-aP-Gzh">
+                            <connections>
+                                <action selector="safariViewAction:" destination="e8G-XV-ZYB" id="lKm-7E-LJ3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="actionButton" destination="2VL-tj-vWA" id="aNO-ye-UNB"/>
                         <outlet property="browserBackButton" destination="sFp-Hx-Lw5" id="kNc-SL-cyX"/>
                         <outlet property="browserForwardButton" destination="gz6-4L-CwV" id="bSz-em-Cfc"/>
+                        <outlet property="safariViewButton" destination="QOi-aP-Gzh" id="JHW-DH-HdV"/>
                         <outlet property="spinner" destination="JeY-LN-y7B" id="zxq-a5-8RI"/>
                         <outlet property="webView" destination="qgg-JT-Q4a" id="y8c-b1-5lm"/>
                     </connections>
@@ -423,6 +430,7 @@
                                 <action selector="goForward:" destination="bUo-2Q-72t" id="WkJ-u0-a7M"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="7Bh-Dc-kPd"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="mUa-13-60G"/>
                         <barButtonItem systemItem="action" id="kDc-5w-ZmP">
                             <connections>
@@ -436,12 +444,19 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="ubC-sa-boi"/>
+                    <navigationItem key="navigationItem" id="ubC-sa-boi">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="expand.png" id="QHX-fl-dSp">
+                            <connections>
+                                <action selector="safariViewAction:" destination="bUo-2Q-72t" id="ids-XU-02V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="actionButton" destination="kDc-5w-ZmP" id="U8C-kO-Kcg"/>
                         <outlet property="browserBackButton" destination="GoS-aW-vQw" id="otX-eq-jgP"/>
                         <outlet property="browserForwardButton" destination="RqR-s9-IES" id="6tg-5O-pD6"/>
+                        <outlet property="safariViewButton" destination="QHX-fl-dSp" id="DCG-d6-2e3"/>
                         <outlet property="spinner" destination="ul1-WJ-zAv" id="fiL-iw-Rzl"/>
                         <outlet property="webView" destination="IYh-ak-HQB" id="QLX-Y8-0yT"/>
                     </connections>
@@ -455,6 +470,7 @@
         <image name="Back-50.png" width="25" height="25"/>
         <image name="Forward-50.png" width="25" height="25"/>
         <image name="RSSFilled50.png" width="25" height="25"/>
+        <image name="expand.png" width="32" height="32"/>
         <image name="rss-plus.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

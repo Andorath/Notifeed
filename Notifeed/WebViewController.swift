@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class WebViewController: UIViewController, UIWebViewDelegate
 {
@@ -18,6 +19,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var browserBackButton: UIBarButtonItem!
     @IBOutlet weak var browserForwardButton: UIBarButtonItem!
+    @IBOutlet weak var safariViewButton: UIBarButtonItem!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -36,7 +38,26 @@ class WebViewController: UIViewController, UIWebViewDelegate
         
         self.navigationController?.setToolbarHidden(false, animated: false)
         initActivityController()
-        
+        initWebViewLoading()
+        if #available(iOS 9.0, *)
+        {
+            safariViewButton.enabled = true
+        }
+    }
+    
+    func initActivityController()
+    {
+        let pub = NSLocalizedString("Shared with Notifeed - ", comment: "Pubblicità nell'activityController")
+        let safariActivity = MGSOpenWithSafari()
+        activityViewController = UIActivityViewController(activityItems: [pub, post.link], applicationActivities: [safariActivity])
+        activityViewController?.excludedActivityTypes = [UIActivityTypeAssignToContact,
+            UIActivityTypeSaveToCameraRoll,
+            UIActivityTypeAirDrop,
+            UIActivityTypePostToFlickr]
+    }
+    
+    func initWebViewLoading()
+    {
         if let URL = NSURL(string: post.link)
         {
             let request = NSURLRequest(URL: URL)
@@ -44,17 +65,6 @@ class WebViewController: UIViewController, UIWebViewDelegate
         }
         
         //TODO: gestire un errore
-    }
-    
-    func initActivityController()
-    {
-        let pub = NSLocalizedString("Shared with Notifeed -", comment: "Pubblicità nell'activityController")
-        let safariActivity = MGSOpenWithSafari()
-        activityViewController = UIActivityViewController(activityItems: [pub, post.link], applicationActivities: [safariActivity])
-        activityViewController?.excludedActivityTypes = [UIActivityTypeAssignToContact,
-            UIActivityTypeSaveToCameraRoll,
-            UIActivityTypeAirDrop,
-            UIActivityTypePostToFlickr]
     }
     
     func showActivityIndicator()
@@ -120,5 +130,25 @@ class WebViewController: UIViewController, UIWebViewDelegate
         }
         
     }
+    
+    @available(iOS 9.0, *)
+    @IBAction func safariViewAction(sender: AnyObject)
+    {
+        if let url = NSURL(string: post.link)
+        {
+            let svc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
+            svc.delegate = self
+            self.modalPresentationStyle = .FormSheet
+            self.presentViewController(svc, animated: true, completion: nil)
+        }
+    }
+}
 
+@available(iOS 9.0, *)
+extension WebViewController: SFSafariViewControllerDelegate
+{
+    func safariViewControllerDidFinish(controller: SFSafariViewController)
+    {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
