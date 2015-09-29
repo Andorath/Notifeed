@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MGSEmptyDetailViewController" customModule="Notifeed" customModuleProvider="target">
@@ -15,19 +16,73 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifeed" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Nlf-D4-QQ0">
-                    <rect key="frame" x="80" y="278" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="D8C-5o-9lX">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTW-mA-Ph2">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3xG-TK-sAI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Il7-GT-u4w">
+                                <rect key="frame" x="209" y="278" width="183" height="43"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XKx-js-nTu">
+                                    <rect key="frame" x="0.0" y="0.0" width="183" height="43"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifeed" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Nlf-D4-QQ0">
+                                            <rect key="frame" x="0.0" y="0.0" width="183" height="43"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="183" id="Lap-gX-TzE"/>
+                                                <constraint firstAttribute="height" constant="43" id="O9K-uP-OUF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="46"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Nlf-D4-QQ0" firstAttribute="top" secondItem="XKx-js-nTu" secondAttribute="top" id="5Mg-t3-maq"/>
+                                        <constraint firstItem="Nlf-D4-QQ0" firstAttribute="leading" secondItem="XKx-js-nTu" secondAttribute="leading" id="Cwr-50-QZJ"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nlf-D4-QQ0" secondAttribute="width" id="1qm-Sd-ImQ"/>
+                                    <constraint firstAttribute="width" secondItem="Nlf-D4-QQ0" secondAttribute="height" multiplier="183:43" id="JGv-pV-LLG"/>
+                                    <constraint firstAttribute="height" secondItem="Nlf-D4-QQ0" secondAttribute="height" id="hyq-SN-tlD"/>
+                                </constraints>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JGv-pV-LLG"/>
+                                    </mask>
+                                </variation>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Il7-GT-u4w" firstAttribute="centerX" secondItem="3xG-TK-sAI" secondAttribute="centerX" id="NdB-5o-kiO"/>
+                            <constraint firstItem="Il7-GT-u4w" firstAttribute="centerY" secondItem="3xG-TK-sAI" secondAttribute="centerY" id="aZC-hO-LKp"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="Nlf-D4-QQ0" secondAttribute="centerY" constant="0.5" id="69n-ar-XdZ"/>
-                <constraint firstItem="Nlf-D4-QQ0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="QgY-ca-KDG"/>
-                <constraint firstItem="Nlf-D4-QQ0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dSq-cz-nxQ"/>
+                <constraint firstAttribute="trailing" secondItem="VTW-mA-Ph2" secondAttribute="trailing" id="EoF-6D-g6I"/>
+                <constraint firstItem="VTW-mA-Ph2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HxZ-Ma-dDO"/>
+                <constraint firstItem="VTW-mA-Ph2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Zk7-oM-aeY"/>
+                <constraint firstAttribute="trailing" secondItem="D8C-5o-9lX" secondAttribute="trailing" id="aOt-A3-sOC"/>
+                <constraint firstAttribute="bottom" secondItem="VTW-mA-Ph2" secondAttribute="bottom" id="aie-cB-ju4"/>
+                <constraint firstItem="D8C-5o-9lX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cYc-ki-pOU"/>
+                <constraint firstAttribute="bottom" secondItem="D8C-5o-9lX" secondAttribute="bottom" id="dDV-76-TwE"/>
+                <constraint firstItem="D8C-5o-9lX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="e7w-2w-NVd"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="view_background.png" width="768" height="1024"/>
+    </resources>
 </document>
