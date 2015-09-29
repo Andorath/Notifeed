@@ -166,21 +166,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gsy-b4-3YZ">
-                                            <rect key="frame" x="99" y="13" width="38" height="24"/>
+                                            <rect key="frame" x="66" y="13" width="38" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="1" green="0.29803922772407532" blue="0.15294118225574493" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="87A-yB-eHA">
-                                            <rect key="frame" x="99" y="37" width="50" height="19"/>
+                                            <rect key="frame" x="66" y="37" width="50" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="feed_icon.png" id="eYU-Cn-MZH">
-                                            <rect key="frame" x="15" y="0.0" width="69" height="69"/>
+                                            <rect key="frame" x="15" y="16" width="36" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -304,7 +304,7 @@
         <image name="Back-50.png" width="25" height="25"/>
         <image name="Forward-50.png" width="25" height="25"/>
         <image name="RSSFilled50.png" width="25" height="25"/>
-        <image name="feed_icon.png" width="70" height="70"/>
+        <image name="feed_icon.png" width="36" height="36"/>
         <image name="rss-plus.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

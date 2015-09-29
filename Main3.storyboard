@@ -69,7 +69,7 @@
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-JT-Q4a">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="e8G-XV-ZYB" id="vgJ-bV-2Zu"/>
                                 </connections>
@@ -398,7 +398,7 @@
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IYh-ak-HQB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="bUo-2Q-72t" id="0EA-NJ-0pb"/>
                                 </connections>
