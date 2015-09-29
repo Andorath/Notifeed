@@ -28,8 +28,8 @@ public class PKHUD: NSObject
         userInteractionOnUnderlyingViewsEnabled = false
         window.frameView.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin]
     }
-    
-    public var dimsBackground = true
+    //TODO: era true
+    public var dimsBackground = false
     public var userInteractionOnUnderlyingViewsEnabled: Bool {
         get {
             return !window.userInteractionEnabled
@@ -50,6 +50,8 @@ public class PKHUD: NSObject
     
     public func show() {
         window.showFrameView()
+        //Inserito io questo rigo
+        dimsBackground = contentView is PKHUDSystemActivityIndicatorView ? true : false
         if dimsBackground {
             window.showBackground(animated: true)
         }
