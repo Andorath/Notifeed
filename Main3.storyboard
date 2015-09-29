@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uZU-2p-g96">
     <dependencies>
-        <deployment version="2304" identifier="iOS"/>
+        <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <scene sceneID="OCz-5L-VbL">
             <objects>
                 <splitViewController extendedLayoutIncludesOpaqueBars="YES" id="6ad-2b-Ngr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feeds" image="RSSFilled50.png" id="dtV-1K-wbh">
+                    <tabBarItem key="tabBarItem" title="Feeds" image="rss_tab.png" id="dtV-1K-wbh">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="0.40784314274787903" blue="0.28627452254295349" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,7 +41,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qAQ-Bj-e6h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.40784313729999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.40784314274787903" blue="0.28627452254295349" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.44179894180000001" green="0.038160358649999997" blue="0.076577287369999997" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -53,7 +53,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1m-bP-7NO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-816" y="-1366"/>
+            <point key="canvasLocation" x="-794" y="-1062"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="wJ4-Uc-1MO">
@@ -133,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zta-iT-4bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="-215"/>
+            <point key="canvasLocation" x="7" y="-305"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Yqk-Rg-gPv">
@@ -172,21 +172,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gsy-b4-3YZ">
-                                            <rect key="frame" x="55" y="13" width="38" height="24"/>
+                                            <rect key="frame" x="66" y="13" width="38" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="1" green="0.29803922772407532" blue="0.15294118225574493" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="87A-yB-eHA">
-                                            <rect key="frame" x="55" y="37" width="50" height="19"/>
+                                            <rect key="frame" x="66" y="37" width="50" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="RSSFilled50.png" id="eYU-Cn-MZH">
-                                            <rect key="frame" x="15" y="22" width="25" height="25"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="feed_icon.png" id="eYU-Cn-MZH">
+                                            <rect key="frame" x="15" y="16" width="36" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -212,7 +212,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blw-EF-fE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-79" y="-1366"/>
+            <point key="canvasLocation" x="-57" y="-1062"/>
         </scene>
         <!--Archived-->
         <scene sceneID="S7a-Tl-BCl">
@@ -280,7 +280,7 @@
         <scene sceneID="sp1-7y-FEf">
             <objects>
                 <splitViewController extendedLayoutIncludesOpaqueBars="YES" id="R0c-Kh-gU0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Archived" image="RSSFilled50.png" id="YD6-yx-d1O">
+                    <tabBarItem key="tabBarItem" title="Archived" image="archive.png" id="YD6-yx-d1O">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="0.40784314274787903" blue="0.28627452254295349" alpha="1" colorSpace="calibratedRGB"/>
@@ -316,7 +316,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsA-X8-LnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-816" y="-218"/>
+            <point key="canvasLocation" x="-794" y="-308"/>
         </scene>
         <!--News-->
         <scene sceneID="IIO-Fh-Kao">
@@ -360,7 +360,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFz-T5-1vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682" y="-1366"/>
+            <point key="canvasLocation" x="704" y="-1062"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tfq-gF-dkz">
@@ -470,12 +470,15 @@
         <image name="Back-50.png" width="25" height="25"/>
         <image name="Forward-50.png" width="25" height="25"/>
         <image name="RSSFilled50.png" width="25" height="25"/>
+        <image name="archive.png" width="32" height="32"/>
         <image name="expand.png" width="32" height="32"/>
+        <image name="feed_icon.png" width="36" height="36"/>
         <image name="rss-plus.png" width="32" height="32"/>
+        <image name="rss_tab.png" width="25" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="51K-aA-x8O"/>
         <segue reference="oYU-p2-fvR"/>
+        <segue reference="aea-W3-mwj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -34,6 +34,11 @@
 		A9B212D71BB1F491009E150C /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B212D61BB1F491009E150C /* FeedParser.swift */; settings = {ASSET_TAGS = (); }; };
 		A9BCB26C1BB7042600A9BC29 /* ArchivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9CB854F1BBADF670091DA38 /* expand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB854E1BBADF670091DA38 /* expand@2x.png */; settings = {ASSET_TAGS = (); }; };
+		A9CB85551BBAF7F20091DA38 /* archive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB85541BBAF7F20091DA38 /* archive@2x.png */; settings = {ASSET_TAGS = (); }; };
+		A9CB85631BBB005E0091DA38 /* rss_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB85621BBB005E0091DA38 /* rss_tab@2x.png */; settings = {ASSET_TAGS = (); }; };
+		A9CB85711BBB20D20091DA38 /* feed_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB85701BBB20D20091DA38 /* feed_icon@2x.png */; settings = {ASSET_TAGS = (); }; };
+		A9CB85751BBB26850091DA38 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB85741BBB26850091DA38 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		A9CB85771BBB2C000091DA38 /* navigation_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB85761BBB2C000091DA38 /* navigation_bar@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A9CDB9A21B2A4AED00A02411 /* MGSAddFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDB9A11B2A4AED00A02411 /* MGSAddFeedTableViewController.swift */; };
 		A9DD3AC71B1EF376006FC61D /* MGSPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AC61B1EF376006FC61D /* MGSPost.swift */; };
 		A9DD3AD21B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */; };
@@ -98,6 +103,11 @@
 		A9B212D61BB1F491009E150C /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
 		A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchivedViewController.swift; sourceTree = "<group>"; };
 		A9CB854E1BBADF670091DA38 /* expand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expand@2x.png"; sourceTree = "<group>"; };
+		A9CB85541BBAF7F20091DA38 /* archive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archive@2x.png"; sourceTree = "<group>"; };
+		A9CB85621BBB005E0091DA38 /* rss_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss_tab@2x.png"; sourceTree = "<group>"; };
+		A9CB85701BBB20D20091DA38 /* feed_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feed_icon@2x.png"; sourceTree = "<group>"; };
+		A9CB85741BBB26850091DA38 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A9CB85761BBB2C000091DA38 /* navigation_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_bar@2x.png"; sourceTree = "<group>"; };
 		A9CDB9A11B2A4AED00A02411 /* MGSAddFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSAddFeedTableViewController.swift; sourceTree = "<group>"; };
 		A9DD3AC61B1EF376006FC61D /* MGSPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSPost.swift; path = Notifeed/MGSPost.swift; sourceTree = "<group>"; };
 		A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSEmptyDetailViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +280,7 @@
 				A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */,
 				A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */,
 				A9B212D61BB1F491009E150C /* FeedParser.swift */,
+				A9CB85741BBB26850091DA38 /* Extensions.swift */,
 			);
 			name = "Utility Class";
 			sourceTree = "<group>";
@@ -277,9 +288,13 @@
 		A9FA352D1B20533D008E68A7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9CB85761BBB2C000091DA38 /* navigation_bar@2x.png */,
+				A9CB85621BBB005E0091DA38 /* rss_tab@2x.png */,
+				A9CB85541BBAF7F20091DA38 /* archive@2x.png */,
 				A9CB854E1BBADF670091DA38 /* expand@2x.png */,
 				A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */,
 				A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */,
+				A9CB85701BBB20D20091DA38 /* feed_icon@2x.png */,
 				A9FA352B1B205335008E68A7 /* RSSFilled50@2x.png */,
 				A9F1D9CD1B24B92600AB8D77 /* Back-50@2x.png */,
 				A9F1D9CF1B24B92D00AB8D77 /* Forward-50@2x.png */,
@@ -386,7 +401,11 @@
 				A98ED8E81BB5BA570043B5DC /* Main3.storyboard in Resources */,
 				A97621CE1BB2AF1F0003672E /* Info.plist in Resources */,
 				A9DECF271B1F9CD20056A031 /* Main.storyboard in Resources */,
+				A9CB85711BBB20D20091DA38 /* feed_icon@2x.png in Resources */,
+				A9CB85551BBAF7F20091DA38 /* archive@2x.png in Resources */,
 				A968D4EB1BB1B44500BB8C22 /* Main2.storyboard in Resources */,
+				A9CB85631BBB005E0091DA38 /* rss_tab@2x.png in Resources */,
+				A9CB85771BBB2C000091DA38 /* navigation_bar@2x.png in Resources */,
 				A9F1D9CA1B24A00900AB8D77 /* rss-plus@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +447,7 @@
 				A9F230F61BB0BD5C00BD5434 /* Feed.swift in Sources */,
 				A9751DAE1B24E2B0009BD779 /* MGSOpenWithSafari.swift in Sources */,
 				A96627C11BB1682100B44B0B /* FeedViewController.swift in Sources */,
+				A9CB85751BBB26850091DA38 /* Extensions.swift in Sources */,
 				A92F29771B25EFB50045102C /* UIAppearance+Swift.m in Sources */,
 				A9F230F41BB0BD0C00BD5434 /* Post.swift in Sources */,
 				A9F1D9CC1B24A84A00AB8D77 /* MGSWebViewController.swift in Sources */,
