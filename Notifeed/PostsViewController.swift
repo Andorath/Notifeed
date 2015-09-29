@@ -19,6 +19,8 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     
     var filteredTableData = [Post]()
     var resultSearchController = UISearchController()
+    
+    var originalIndexPath: NSIndexPath?
 
     override func viewDidLoad()
     {
@@ -59,10 +61,6 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
             {
                 showInvalidURLAlert()
             }
-            catch FeedParserError.UnableToConnect
-            {
-                showUnableToConnectAlert()
-            }
             catch
             {}
             
@@ -73,7 +71,7 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     func showInvalidURLAlert()
     {
         let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
-                                                message: NSLocalizedString("Invalid URL! Please insert a valid URL for an RSS Feed.", comment: "Messaggio alert url invalido"),
+                                                message: NSLocalizedString("Unable to connect! Check the status of the URL or be sure if the URL is an RSS feed URL.", comment: "Messaggio alert url invalido"),
                                                 preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
@@ -84,24 +82,6 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
                                                                         navController.popViewControllerAnimated(true)
                                                                     }
                                                                 })
-        
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func showUnableToConnectAlert()
-    {
-        let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert unable to connect"),
-                                                message: NSLocalizedString("Unable to connect to the URL. Check the status of the connection or the status f the URL.", comment: "Messaggio alert unable to connect"),
-                                                preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
-            style: .Default){
-                alert in
-                if let navController = self.navigationController
-                {
-                    navController.popViewControllerAnimated(true)
-                }
-            })
         
         presentViewController(alertController, animated: true, completion: nil)
     }
@@ -144,6 +124,35 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
         else
         {
             return postArray.count
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+    {
+        var post: Post
+        
+        if self.resultSearchController.active
+        {
+            post = filteredTableData[indexPath.row]
+            if let index = postArray.indexOf(post)
+            {
+                originalIndexPath = NSIndexPath(forRow: index, inSection: 0)
+            }
+        }
+        else
+        {
+            post = postArray[indexPath.row]
+            originalIndexPath = nil
+        }
+        
+        return indexPath
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if let oip = originalIndexPath
+        {
+            tableView.selectRowAtIndexPath(oip, animated: true, scrollPosition: .Top)
         }
     }
 

@@ -75,11 +75,6 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
         return controller
     }
     
-    override func viewDidAppear(animated: Bool)
-    {
-        //TODO: resettare i badge sul Tab Item
-    }
-    
     func updateInterfaceByCell()
     {
         tableView.reloadData()
