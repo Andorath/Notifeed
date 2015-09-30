@@ -53,6 +53,7 @@
 		A9F230F11BB0B9A000BD5434 /* FeedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230F01BB0B9A000BD5434 /* FeedModelTests.swift */; settings = {ASSET_TAGS = (); }; };
 		A9F230F41BB0BD0C00BD5434 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230F31BB0BD0C00BD5434 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
 		A9F230F61BB0BD5C00BD5434 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230F51BB0BD5C00BD5434 /* Feed.swift */; settings = {ASSET_TAGS = (); }; };
+		A9F25E711BBBF38A00337DEA /* post_icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9F25E701BBBF38A00337DEA /* post_icon2@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A9FA352A1B204523008E68A7 /* Notifeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9FA35281B204523008E68A7 /* Notifeed.xcdatamodeld */; };
 		A9FA352C1B205335008E68A7 /* RSSFilled50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9FA352B1B205335008E68A7 /* RSSFilled50@2x.png */; };
 		A9FA352F1B205A37008E68A7 /* MGSFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */; };
@@ -124,6 +125,7 @@
 		A9F230F01BB0B9A000BD5434 /* FeedModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedModelTests.swift; sourceTree = "<group>"; };
 		A9F230F31BB0BD0C00BD5434 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A9F230F51BB0BD5C00BD5434 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		A9F25E701BBBF38A00337DEA /* post_icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post_icon2@2x.png"; sourceTree = "<group>"; };
 		A9FA35291B204523008E68A7 /* Notifeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notifeed.xcdatamodel; sourceTree = "<group>"; };
 		A9FA352B1B205335008E68A7 /* RSSFilled50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RSSFilled50@2x.png"; path = "Notifeed/RSSFilled50@2x.png"; sourceTree = "<group>"; };
 		A9FA352E1B205A37008E68A7 /* MGSFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSFeedTableViewController.swift; path = Notifeed/MGSFeedTableViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				A9CB854E1BBADF670091DA38 /* expand@2x.png */,
 				A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */,
 				A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */,
+				A9F25E701BBBF38A00337DEA /* post_icon2@2x.png */,
 				A9CB857E1BBB4B5A0091DA38 /* post_icon@2x.png */,
 				A9CB85701BBB20D20091DA38 /* feed_icon@2x.png */,
 				A9FA352B1B205335008E68A7 /* RSSFilled50@2x.png */,
@@ -402,6 +405,7 @@
 				A9EF4D501BB84FDD00AAB95D /* archived_dot@2x.png in Resources */,
 				A9751DB01B24E506009BD779 /* SafariActivity@2x.png in Resources */,
 				A9F1D9D01B24B92D00AB8D77 /* Forward-50@2x.png in Resources */,
+				A9F25E711BBBF38A00337DEA /* post_icon2@2x.png in Resources */,
 				A98ED8E81BB5BA570043B5DC /* Main3.storyboard in Resources */,
 				A97621CE1BB2AF1F0003672E /* Info.plist in Resources */,
 				A9CB85711BBB20D20091DA38 /* feed_icon@2x.png in Resources */,

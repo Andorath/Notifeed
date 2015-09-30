@@ -158,7 +158,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="post_icon.png" id="ReB-GC-p9e">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="post_icon2.png" id="ReB-GC-p9e">
                                             <rect key="frame" x="15" y="16" width="36" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -481,12 +481,13 @@
         <image name="expand.png" width="32" height="32"/>
         <image name="feed_icon.png" width="36" height="36"/>
         <image name="post_icon.png" width="36" height="36"/>
+        <image name="post_icon2.png" width="36" height="36"/>
         <image name="rss-plus.png" width="32" height="32"/>
         <image name="rss_tab.png" width="25" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6C8-P6-m0d"/>
-        <segue reference="aea-W3-mwj"/>
+        <segue reference="51K-aA-x8O"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
 </document>
