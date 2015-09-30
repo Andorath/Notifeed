@@ -4,6 +4,7 @@
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Feeds-->
@@ -376,17 +377,25 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ubC-sa-boi">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="expand.png" id="QHX-fl-dSp">
-                            <connections>
-                                <action selector="safariViewAction:" destination="bUo-2Q-72t" id="ids-XU-02V"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" image="expand.png" id="QHX-fl-dSp">
+                                <connections>
+                                    <action selector="safariViewAction:" destination="bUo-2Q-72t" id="ids-XU-02V"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" systemItem="trash" id="KFT-kU-1sC">
+                                <connections>
+                                    <action selector="cleanViewController:" destination="bUo-2Q-72t" id="1Iz-5n-F6Y"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="actionButton" destination="kDc-5w-ZmP" id="U8C-kO-Kcg"/>
                         <outlet property="browserBackButton" destination="GoS-aW-vQw" id="otX-eq-jgP"/>
                         <outlet property="browserForwardButton" destination="RqR-s9-IES" id="6tg-5O-pD6"/>
+                        <outlet property="cleanButton" destination="KFT-kU-1sC" id="9bu-QC-bTC"/>
                         <outlet property="safariViewButton" destination="QHX-fl-dSp" id="DCG-d6-2e3"/>
                         <outlet property="spinner" destination="ul1-WJ-zAv" id="fiL-iw-Rzl"/>
                         <outlet property="webView" destination="IYh-ak-HQB" id="QLX-Y8-0yT"/>
@@ -456,17 +465,25 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="6wW-Ht-b09">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="expand.png" id="SwO-a1-o76">
-                            <connections>
-                                <action selector="safariViewAction:" destination="fFK-p6-p4F" id="wcS-8F-gRl"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" image="expand.png" id="SwO-a1-o76">
+                                <connections>
+                                    <action selector="safariViewAction:" destination="fFK-p6-p4F" id="wcS-8F-gRl"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" systemItem="trash" id="rHm-l6-reL">
+                                <connections>
+                                    <action selector="cleanViewController:" destination="fFK-p6-p4F" id="3Rd-aA-NwZ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="actionButton" destination="dEh-Ru-OLQ" id="SqK-ze-HbE"/>
                         <outlet property="browserBackButton" destination="s2W-Pr-rYs" id="g1R-jo-Rmh"/>
                         <outlet property="browserForwardButton" destination="xNm-77-8CN" id="PjP-cy-Dfa"/>
+                        <outlet property="cleanButton" destination="rHm-l6-reL" id="jDQ-wO-xKb"/>
                         <outlet property="safariViewButton" destination="SwO-a1-o76" id="Nrf-Zg-WOv"/>
                         <outlet property="spinner" destination="bBS-db-KzK" id="20E-T8-5eo"/>
                         <outlet property="webView" destination="hXc-K1-xyr" id="Gmb-2d-ily"/>

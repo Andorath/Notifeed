@@ -20,6 +20,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
     @IBOutlet weak var browserBackButton: UIBarButtonItem!
     @IBOutlet weak var browserForwardButton: UIBarButtonItem!
     @IBOutlet weak var safariViewButton: UIBarButtonItem!
+    @IBOutlet weak var cleanButton: UIBarButtonItem!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -39,9 +40,23 @@ class WebViewController: UIViewController, UIWebViewDelegate
         self.navigationController?.setToolbarHidden(false, animated: false)
         initActivityController()
         initWebViewLoading()
+        
         if #available(iOS 9.0, *)
         {
             safariViewButton.enabled = true
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItems?.removeFirst()
+        }
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        {
+            cleanButton.enabled = true
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItems?.removeLast()
         }
     }
     
@@ -131,6 +146,8 @@ class WebViewController: UIViewController, UIWebViewDelegate
         
     }
     
+    // MARK: IBAction Utility
+    
     @available(iOS 9.0, *)
     @IBAction func safariViewAction(sender: AnyObject)
     {
@@ -142,6 +159,24 @@ class WebViewController: UIViewController, UIWebViewDelegate
             self.presentViewController(svc, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func cleanViewController(sender: AnyObject)
+    {
+        if let split = self.splitViewController
+        {
+            let count = split.viewControllers.count
+            if let nav = split.viewControllers[count-1] as? UINavigationController
+            {
+                if nav.topViewController is WebViewController
+                {
+                    nav.setToolbarHidden(true, animated: true)
+                    nav.setViewControllers([MGSEmptyDetailViewController()], animated: true)
+                }
+            }
+        }
+    }
+    
+    
 }
 
 @available(iOS 9.0, *)
