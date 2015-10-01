@@ -61,6 +61,10 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
             {
                 showInvalidURLAlert()
             }
+            catch FeedParserError.UnknownFeedFormat
+            {
+                showUnknownFeedFormatAlert()
+            }
             catch
             {}
             
@@ -73,6 +77,24 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
         let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
                                                 message: NSLocalizedString("Unable to connect! Check the status of the URL or be sure if the URL is an RSS feed URL.", comment: "Messaggio alert url invalido"),
                                                 preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
+                                                style: .Default){
+                                                                    alert in
+                                                                    if let navController = self.navigationController
+                                                                    {
+                                                                        navController.popViewControllerAnimated(true)
+                                                                    }
+                                                                })
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showUnknownFeedFormatAlert()
+    {
+        let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert formato invalido"),
+                                                                         message: NSLocalizedString("Format of feed set for \(selectedFeed?.title) is not suported! Notifeed can read only RSS and Atom format.", comment: "Messaggio alert url invalido"),
+                                                                         preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
                                                 style: .Default){
