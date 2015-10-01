@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -18,6 +18,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="D8C-5o-9lX">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
                 </imageView>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTW-mA-Ph2">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -33,20 +34,25 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifeed" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Nlf-D4-QQ0">
                                             <rect key="frame" x="0.0" y="0.0" width="183" height="43"/>
+                                            <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="183" id="Lap-gX-TzE"/>
-                                                <constraint firstAttribute="height" constant="43" id="O9K-uP-OUF"/>
+                                                <constraint firstAttribute="height" constant="43" id="NXV-ZU-5lJ"/>
+                                                <constraint firstAttribute="width" constant="183" id="XJU-RB-vPs"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="46"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <animations/>
                                     <constraints>
-                                        <constraint firstItem="Nlf-D4-QQ0" firstAttribute="top" secondItem="XKx-js-nTu" secondAttribute="top" id="5Mg-t3-maq"/>
-                                        <constraint firstItem="Nlf-D4-QQ0" firstAttribute="leading" secondItem="XKx-js-nTu" secondAttribute="leading" id="Cwr-50-QZJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="Nlf-D4-QQ0" secondAttribute="bottom" id="7vT-t4-jxb"/>
+                                        <constraint firstAttribute="trailing" secondItem="Nlf-D4-QQ0" secondAttribute="trailing" id="BHF-h3-aDk"/>
+                                        <constraint firstItem="Nlf-D4-QQ0" firstAttribute="top" secondItem="XKx-js-nTu" secondAttribute="top" id="gMc-Hz-F3W"/>
+                                        <constraint firstItem="Nlf-D4-QQ0" firstAttribute="leading" secondItem="XKx-js-nTu" secondAttribute="leading" id="yqo-fB-IIj"/>
                                     </constraints>
                                 </view>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Nlf-D4-QQ0" secondAttribute="width" id="1qm-Sd-ImQ"/>
                                     <constraint firstAttribute="width" secondItem="Nlf-D4-QQ0" secondAttribute="height" multiplier="183:43" id="JGv-pV-LLG"/>
@@ -57,19 +63,24 @@
                                 </vibrancyEffect>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="1qm-Sd-ImQ"/>
                                         <exclude reference="JGv-pV-LLG"/>
+                                        <exclude reference="hyq-SN-tlD"/>
                                     </mask>
                                 </variation>
                             </visualEffectView>
                         </subviews>
+                        <animations/>
                         <constraints>
                             <constraint firstItem="Il7-GT-u4w" firstAttribute="centerX" secondItem="3xG-TK-sAI" secondAttribute="centerX" id="NdB-5o-kiO"/>
                             <constraint firstItem="Il7-GT-u4w" firstAttribute="centerY" secondItem="3xG-TK-sAI" secondAttribute="centerY" id="aZC-hO-LKp"/>
                         </constraints>
                     </view>
+                    <animations/>
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
             </subviews>
+            <animations/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="VTW-mA-Ph2" secondAttribute="trailing" id="EoF-6D-g6I"/>
                 <constraint firstItem="VTW-mA-Ph2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HxZ-Ma-dDO"/>

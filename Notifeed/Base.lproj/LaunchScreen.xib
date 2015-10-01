@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -14,6 +14,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="33n-xi-Vpq">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                    <animations/>
                 </imageView>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Svy-0C-Arm">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
@@ -29,6 +30,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Marco Salafia. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                                             <rect key="frame" x="0.0" y="0.0" width="441" height="21"/>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="441" id="Kfb-hc-82M"/>
                                                 <constraint firstAttribute="height" constant="21" id="XOV-ob-Pl1"/>
@@ -38,6 +40,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" id="0Pj-x0-iz9"/>
                                         <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="UgR-4a-4M8" secondAttribute="top" id="68I-T8-1BB"/>
@@ -45,12 +48,14 @@
                                         <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="UgR-4a-4M8" secondAttribute="leading" id="jFr-f4-cv6"/>
                                     </constraints>
                                 </view>
+                                <animations/>
                                 <vibrancyEffect>
                                     <blurEffect style="extraLight"/>
                                 </vibrancyEffect>
                             </visualEffectView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NotifeedLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="s2n-sh-Za3">
                                 <rect key="frame" x="137" y="205" width="207" height="69"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="207" id="5bJ-8I-59a">
                                         <variation key="heightClass=regular-widthClass=regular" constant="433"/>
@@ -67,6 +72,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <animations/>
                         <constraints>
                             <constraint firstItem="s2n-sh-Za3" firstAttribute="centerX" secondItem="Ybl-pe-XZI" secondAttribute="centerX" id="3qd-A7-tFR"/>
                             <constraint firstAttribute="trailing" secondItem="LMT-93-ZlO" secondAttribute="trailing" constant="19" id="71J-0a-6J4"/>
@@ -75,9 +81,11 @@
                             <constraint firstItem="s2n-sh-Za3" firstAttribute="centerY" secondItem="Ybl-pe-XZI" secondAttribute="centerY" id="apG-Zc-MfS"/>
                         </constraints>
                     </view>
+                    <animations/>
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="33n-xi-Vpq" secondAttribute="trailing" id="2vr-Xe-zHZ"/>

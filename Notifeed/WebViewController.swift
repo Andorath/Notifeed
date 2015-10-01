@@ -147,6 +147,21 @@ class WebViewController: UIViewController, UIWebViewDelegate
     }
     
     // MARK: IBAction Utility
+    @IBAction func cleanViewController(sender: AnyObject)
+    {
+        if let split = self.splitViewController
+        {
+            let count = split.viewControllers.count
+            if let nav = split.viewControllers[count-1] as? UINavigationController
+            {
+                if nav.topViewController is WebViewController
+                {
+                    nav.setToolbarHidden(true, animated: true)
+                    nav.setViewControllers([MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)], animated: true)
+                }
+            }
+        }
+    }
     
     @available(iOS 9.0, *)
     @IBAction func safariViewAction(sender: AnyObject)
@@ -159,23 +174,6 @@ class WebViewController: UIViewController, UIWebViewDelegate
             self.presentViewController(svc, animated: true, completion: nil)
         }
     }
-    
-    @IBAction func cleanViewController(sender: AnyObject)
-    {
-        if let split = self.splitViewController
-        {
-            let count = split.viewControllers.count
-            if let nav = split.viewControllers[count-1] as? UINavigationController
-            {
-                if nav.topViewController is WebViewController
-                {
-                    nav.setToolbarHidden(true, animated: true)
-                    nav.setViewControllers([MGSEmptyDetailViewController()], animated: true)
-                }
-            }
-        }
-    }
-    
     
 }
 
