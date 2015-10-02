@@ -16,22 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var splitViewController: UISplitViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
-    {        
-        //setSplitViewController()
+    {
         setAllSplitController()
         setCustomAppearance()
         updateAchivedTabBadge()
         return true
     }
-    
-    func setSplitViewController()
-    {
-        splitViewController = self.window?.rootViewController as? UISplitViewController
-        splitViewController?.delegate = self
-        let cnt = splitViewController!.viewControllers.count
-        (splitViewController?.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
-        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
-    }
+
     
     func setAllSplitController()
     {

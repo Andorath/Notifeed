@@ -49,15 +49,6 @@ class WebViewController: UIViewController, UIWebViewDelegate
         {
             self.navigationItem.rightBarButtonItems?.removeFirst()
         }
-        
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad
-        {
-            cleanButton.enabled = true
-        }
-        else
-        {
-            self.navigationItem.rightBarButtonItems?.removeLast()
-        }
     }
     
     func initActivityController()
@@ -78,8 +69,40 @@ class WebViewController: UIViewController, UIWebViewDelegate
             let request = NSURLRequest(URL: URL)
             webView.loadRequest(request)
         }
+        else
+        {
+            showInvalidURLAlert()
+        }
+    }
+    
+    func showInvalidURLAlert()
+    {
+        let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
+                                                message: NSLocalizedString("Invalid URL format! Insert a correct one.", comment: "Messaggio alert url invalido"),
+                                                preferredStyle: UIAlertControllerStyle.Alert)
         
-        //TODO: gestire un errore
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
+                                  style: .Default){
+                                      alert in
+                                      if let navController = self.navigationController
+                                      {
+                                          navController.popViewControllerAnimated(true)
+                                      }
+                                  })
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad && traitCollection.horizontalSizeClass == .Regular
+        {
+            cleanButton.enabled = true
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItems?.removeLast()
+        }
     }
     
     func showActivityIndicator()
@@ -172,6 +195,10 @@ class WebViewController: UIViewController, UIWebViewDelegate
             svc.delegate = self
             self.modalPresentationStyle = .FormSheet
             self.presentViewController(svc, animated: true, completion: nil)
+        }
+        else
+        {
+            showInvalidURLAlert()
         }
     }
     

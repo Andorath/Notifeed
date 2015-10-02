@@ -75,7 +75,7 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     func showInvalidURLAlert()
     {
         let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
-                                                message: NSLocalizedString("Unable to connect! Check the status of the URL or be sure if the URL is an RSS feed URL.", comment: "Messaggio alert url invalido"),
+                                                message: NSLocalizedString("Unable to connect! Check the status of the URL.", comment: "Messaggio alert url invalido"),
                                                 preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),

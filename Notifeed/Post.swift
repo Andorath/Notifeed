@@ -16,6 +16,11 @@ class Post: NSObject
     var eName: String = String()
     var checked: Bool = false
     
+    override var description: String {
+        
+        return "[Title: \(title), Description: \(postDescription), Link: \(link)]"
+    }
+    
     convenience init(title: String, link: String, postDescription: String, eName: String)
     {
         self.init()

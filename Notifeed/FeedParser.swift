@@ -49,14 +49,13 @@ class FeedParser: NSObject, NSXMLParserDelegate
             parser.parse()
         }
         
-        if postArray.isEmpty
-        {
-            throw FeedParserError.InvalidURL
-        }
-        
         if currentFeedType == .Unknown
         {
             throw FeedParserError.UnknownFeedFormat
+        }
+        else if postArray.isEmpty
+        {
+            throw FeedParserError.InvalidURL
         }
         
         return postArray
@@ -69,13 +68,14 @@ class FeedParser: NSObject, NSXMLParserDelegate
             
             //Determiniamo il tipo di Feed
             if elementName == FeedType.RSS2.rawValue {self.currentFeedType = .RSS2; return}
-            if elementName == FeedType.Atom.rawValue {self.currentFeedType = .Atom; return}
-            if elementName == FeedType.RSS1.rawValue {self.currentFeedType = .RSS1; return}
+            else if elementName == FeedType.Atom.rawValue {self.currentFeedType = .Atom; return}
+            else if elementName == FeedType.RSS1.rawValue {self.currentFeedType = .RSS1; return}
             
             //Determiniamo il tipo di elemento (tag) che stimao analizzando
             if self.currentFeedType == .RSS2 { self.parseStartOfRSS2Element(elementName) }
-            else if self.currentFeedType == .Atom { self.parseStartOfAtomElement(elementName) }
+            else if self.currentFeedType == .Atom { self.parseStartOfAtomElement(elementName, attributeDict: attributeDict) }
             else if self.currentFeedType == .RSS1 { self.parseStartOfRSS2Element(elementName) } //Lo stesso di RSS2 dovrebbe funzionare
+            else { parser.abortParsing() }
     }
     
     func parseStartOfRSS2Element(elementName: String)
@@ -86,11 +86,16 @@ class FeedParser: NSObject, NSXMLParserDelegate
         }
     }
     
-    func parseStartOfAtomElement(elementName: String)
+    func parseStartOfAtomElement(elementName: String, attributeDict: [String : String])
     {
         if elementName == "entry"
         {
             isItemTag = true
+        }
+        else if elementName == "link"
+        {
+            //TODO: Verificare se questa cosa copre tutti i casi d'uso dello standard
+            currentPost.link = attributeDict["href"]!
         }
     }
     
@@ -141,8 +146,8 @@ class FeedParser: NSObject, NSXMLParserDelegate
     func checkAtomFoundCharacters(data: String)
     {
         if currentPost.eName == "title" && isItemTag { currentPost.title += data }
-        else if currentPost.eName == "link" { currentPost.link = data }
-        else if currentPost.eName == "summary" { currentPost.postDescription += data }
+        else if currentPost.eName == "summary" ||
+                currentPost.eName == "subtitle" { currentPost.postDescription += data }
     }
     
     
