@@ -24,11 +24,11 @@ class WebViewController: UIViewController, UIWebViewDelegate
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    var post: Post = Post()
+    var post: Post?
         {
         didSet
         {
-            self.title = post.title
+            self.title = post!.title
         }
         
     }
@@ -53,25 +53,31 @@ class WebViewController: UIViewController, UIWebViewDelegate
     
     func initActivityController()
     {
-        let pub = NSLocalizedString("Shared with Notifeed - ", comment: "Pubblicità nell'activityController")
-        let safariActivity = MGSOpenWithSafari()
-        activityViewController = UIActivityViewController(activityItems: [pub, post.link], applicationActivities: [safariActivity])
-        activityViewController?.excludedActivityTypes = [UIActivityTypeAssignToContact,
-            UIActivityTypeSaveToCameraRoll,
-            UIActivityTypeAirDrop,
-            UIActivityTypePostToFlickr]
+        if let link = post?.link
+        {
+            let pub = NSLocalizedString("Shared with Notifeed - ", comment: "Pubblicità nell'activityController")
+            let safariActivity = MGSOpenWithSafari()
+            activityViewController = UIActivityViewController(activityItems: [pub, link], applicationActivities: [safariActivity])
+            activityViewController?.excludedActivityTypes = [UIActivityTypeAssignToContact,
+                UIActivityTypeSaveToCameraRoll,
+                UIActivityTypeAirDrop,
+                UIActivityTypePostToFlickr]
+        }
     }
     
     func initWebViewLoading()
     {
-        if let URL = NSURL(string: post.link)
+        if let link = post?.link
         {
-            let request = NSURLRequest(URL: URL)
-            webView.loadRequest(request)
-        }
-        else
-        {
-            showInvalidURLAlert()
+            if let URL = NSURL(string: link)
+            {
+                let request = NSURLRequest(URL: URL)
+                webView.loadRequest(request)
+            }
+            else
+            {
+                showInvalidURLAlert()
+            }
         }
     }
     
@@ -189,7 +195,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
     @available(iOS 9.0, *)
     @IBAction func safariViewAction(sender: AnyObject)
     {
-        if let url = NSURL(string: post.link)
+        if let url = NSURL(string: post!.link)
         {
             let svc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
             svc.delegate = self

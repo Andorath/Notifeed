@@ -7,10 +7,10 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Feeds-->
+        <!--feedSplitViewController-->
         <scene sceneID="OCz-5L-VbL">
             <objects>
-                <splitViewController extendedLayoutIncludesOpaqueBars="YES" id="6ad-2b-Ngr" sceneMemberID="viewController">
+                <splitViewController title="feedSplitViewController" extendedLayoutIncludesOpaqueBars="YES" id="6ad-2b-Ngr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feeds" image="rss_tab.png" id="dtV-1K-wbh">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="-794" y="601"/>
         </scene>
-        <!--Archived-->
+        <!--archivedSplitViewController-->
         <scene sceneID="sp1-7y-FEf">
             <objects>
-                <splitViewController extendedLayoutIncludesOpaqueBars="YES" id="R0c-Kh-gU0" sceneMemberID="viewController">
+                <splitViewController title="archivedSplitViewController" extendedLayoutIncludesOpaqueBars="YES" id="R0c-Kh-gU0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Archived" image="archive.png" id="YD6-yx-d1O">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -240,7 +240,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mVK-Qe-a70">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DV4-DN-WKJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="feedDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DV4-DN-WKJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gcq-aP-3B6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -317,7 +317,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Tfq-gF-dkz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LA9-GC-o06" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="archivedDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LA9-GC-o06" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0kR-tw-pMc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -534,8 +534,8 @@
         <image name="vertical_separetor2.png" width="3" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oYU-p2-fvR"/>
-        <segue reference="51K-aA-x8O"/>
+        <segue reference="6C8-P6-m0d"/>
+        <segue reference="aea-W3-mwj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
 </document>
