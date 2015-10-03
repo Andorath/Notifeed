@@ -93,7 +93,7 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     func showUnknownFeedFormatAlert()
     {
         let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert formato invalido"),
-                                                                         message: NSLocalizedString("Format of feed set for \(selectedFeed?.title) is not suported! Notifeed can read only RSS and Atom format.", comment: "Messaggio alert url invalido"),
+                                                                         message: NSLocalizedString("Format of feed set for \(selectedFeed!.title) is not suported! Notifeed can read only RSS and Atom format.", comment: "Messaggio alert url invalido"),
                                                                          preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
@@ -101,6 +101,7 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
                                                                     alert in
                                                                     if let navController = self.navigationController
                                                                     {
+                                                                        print("sono qui")
                                                                         navController.popViewControllerAnimated(true)
                                                                     }
                                                                 })

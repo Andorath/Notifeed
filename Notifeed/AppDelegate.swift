@@ -92,7 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
     {
-        print(secondaryViewController)
         if let _ = (secondaryViewController as? UINavigationController)?.topViewController as? MGSEmptyDetailViewController
         {
             return true

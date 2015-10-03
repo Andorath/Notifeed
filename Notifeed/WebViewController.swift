@@ -14,6 +14,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
     var activityViewController: UIActivityViewController?
     
     var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+    var auxiliaryBarButtonItem: UIBarButtonItem?
     
     @IBOutlet var webView: UIWebView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
@@ -48,6 +49,32 @@ class WebViewController: UIViewController, UIWebViewDelegate
         else
         {
             self.navigationItem.rightBarButtonItems?.removeFirst()
+        }
+        
+        if traitCollection.horizontalSizeClass == .Regular
+        {
+            cleanButton.enabled = true
+        }
+        else
+        {
+            auxiliaryBarButtonItem = self.navigationItem.rightBarButtonItems?.removeLast()
+        }
+    }
+    
+    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+    {
+        if previousTraitCollection?.horizontalSizeClass == .Regular
+        {
+            auxiliaryBarButtonItem = self.navigationItem.rightBarButtonItems?.removeLast()
+        }
+        else if previousTraitCollection?.horizontalSizeClass == .Compact && traitCollection.horizontalSizeClass == .Regular
+        {
+            if let button = auxiliaryBarButtonItem
+            {
+                self.navigationItem.rightBarButtonItems?.append(button)
+                cleanButton = button
+                cleanButton.enabled = true
+            }
         }
     }
     
@@ -84,31 +111,22 @@ class WebViewController: UIViewController, UIWebViewDelegate
     func showInvalidURLAlert()
     {
         let alertController = UIAlertController(title: NSLocalizedString("Warning!", comment: "Attenzione alert url invalido"),
-                                                message: NSLocalizedString("Invalid URL format! Insert a correct one.", comment: "Messaggio alert url invalido"),
+                                                message: NSLocalizedString("Invalid URl found.", comment: "Messaggio alert url invalido"),
                                                 preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
-                                  style: .Default){
-                                      alert in
-                                      if let navController = self.navigationController
-                                      {
-                                          navController.popViewControllerAnimated(true)
-                                      }
-                                  })
+                                                style: .Default){
+                                                    alert in
+                                                    if let navController = self.navigationController
+                                                    {
+                                                        print("ereoto")
+                                                        navController.popViewControllerAnimated(true)
+                                                    
+                                                    }
+                                                    self.hideActivityIndicator()
+                                                })
         
         presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    override func viewWillAppear(animated: Bool)
-    {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad && traitCollection.horizontalSizeClass == .Regular
-        {
-            cleanButton.enabled = true
-        }
-        else
-        {
-            self.navigationItem.rightBarButtonItems?.removeLast()
-        }
     }
     
     func showActivityIndicator()

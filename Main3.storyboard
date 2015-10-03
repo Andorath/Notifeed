@@ -96,7 +96,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gsy-b4-3YZ">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" id="Gsy-b4-3YZ">
                                             <rect key="frame" x="66" y="13" width="38" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
@@ -162,7 +162,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sqr-nn-S9b">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="16" id="sqr-nn-S9b">
                                             <rect key="frame" x="33" y="0.0" width="552" height="99"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
@@ -279,7 +279,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PvD-W8-uY8">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="16" id="PvD-W8-uY8">
                                             <rect key="frame" x="33" y="0.0" width="552" height="99"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
@@ -386,7 +386,6 @@
                                 <action selector="goForward:" destination="bUo-2Q-72t" id="WkJ-u0-a7M"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="7Bh-Dc-kPd"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="mUa-13-60G"/>
                         <barButtonItem systemItem="action" id="kDc-5w-ZmP">
                             <connections>
@@ -477,7 +476,6 @@
                                 <action selector="goForward:" destination="fFK-p6-p4F" id="AB7-c1-PhD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="8WZ-g1-sZj"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="GZ0-5o-neq"/>
                         <barButtonItem systemItem="action" id="dEh-Ru-OLQ">
                             <connections>
@@ -534,8 +532,8 @@
         <image name="vertical_separetor2.png" width="3" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6C8-P6-m0d"/>
-        <segue reference="aea-W3-mwj"/>
+        <segue reference="51K-aA-x8O"/>
+        <segue reference="oYU-p2-fvR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
 </document>
