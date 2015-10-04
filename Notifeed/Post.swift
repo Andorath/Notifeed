@@ -13,7 +13,6 @@ class Post: NSObject
     var title: String = String()
     var postDescription: String = String()
     var link: String = String()
-    var eName: String = String()
     var checked: Bool = false
     
     override var description: String {
@@ -21,13 +20,12 @@ class Post: NSObject
         return "[Title: \(title), Description: \(postDescription), Link: \(link)]"
     }
     
-    convenience init(title: String, link: String, postDescription: String, eName: String)
+    convenience init(title: String, link: String, postDescription: String)
     {
         self.init()
         self.title = title
         self.link = link
         self.postDescription = postDescription
-        self.eName = eName
     }
     
     convenience init(post: Post)
@@ -36,6 +34,5 @@ class Post: NSObject
         title = post.title
         postDescription = post.postDescription
         link = post.link
-        eName = post.eName
     }
 }

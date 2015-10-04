@@ -36,6 +36,7 @@ class FeedParser: NSObject, NSXMLParserDelegate
     var selectedIndex : Int? = nil
     var postArray: [Post] = []
     var currentPost = Post()
+    var eName: String = ""
     
     func parseLink(link: String) throws -> [Post]
     {
@@ -64,7 +65,7 @@ class FeedParser: NSObject, NSXMLParserDelegate
     // MARK: - NSXMLParser
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
-            currentPost.eName = elementName
+            eName = elementName
             
             //Determiniamo il tipo di Feed
             if elementName == FeedType.RSS2.rawValue {self.currentFeedType = .RSS2; return}
@@ -94,7 +95,6 @@ class FeedParser: NSObject, NSXMLParserDelegate
         }
         else if elementName == "link"
         {
-            //TODO: Verificare se questa cosa copre tutti i casi d'uso dello standard
             currentPost.link = attributeDict["href"]!
         }
     }
@@ -138,16 +138,16 @@ class FeedParser: NSObject, NSXMLParserDelegate
     
     func checkRSS2FoundCharacters(data: String)
     {
-        if currentPost.eName == "title" && isItemTag { currentPost.title += data }
-        else if currentPost.eName == "description" { currentPost.postDescription += data }
-        else if currentPost.eName == "link" { currentPost.link = data }
+        if eName == "title" && isItemTag { currentPost.title += data }
+        else if eName == "description" { currentPost.postDescription += data }
+        else if eName == "link" { currentPost.link = data }
     }
     
     func checkAtomFoundCharacters(data: String)
     {
-        if currentPost.eName == "title" && isItemTag { currentPost.title += data }
-        else if currentPost.eName == "summary" ||
-                currentPost.eName == "subtitle" { currentPost.postDescription += data }
+        if eName == "title" && isItemTag { currentPost.title += data }
+        else if eName == "summary" ||
+                eName == "subtitle" { currentPost.postDescription += data }
     }
     
     

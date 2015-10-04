@@ -235,7 +235,6 @@ class FeedModel
         managedPost.setValue(post.title, forKey: "title")
         managedPost.setValue(post.link, forKey: "link")
         managedPost.setValue(post.postDescription, forKey: "postDescription")
-        managedPost.setValue(post.eName, forKey: "eName")
         managedPost.setValue(NSDate(), forKey: "creazione")
         
         do {
@@ -259,7 +258,6 @@ class FeedModel
                 temp.title = managedPost.valueForKey("title") as! String
                 temp.link = managedPost.valueForKey("link") as! String
                 temp.postDescription = managedPost.valueForKey("postDescription") as! String
-                temp.eName = managedPost.valueForKey("eName") as! String
                 temp.checked = managedPost.valueForKey("checked") as! Bool
 
                 feeds.append(temp)

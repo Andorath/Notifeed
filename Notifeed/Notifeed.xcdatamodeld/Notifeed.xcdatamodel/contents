@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Automatic">
     <entity name="Feed" representedClassName="NSManagedObject" syncable="YES">
         <attribute name="creazione" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,13 +8,12 @@
     <entity name="Post" syncable="YES">
         <attribute name="checked" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="creazione" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="eName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Feed" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Post" positionX="-63" positionY="9" width="128" height="135"/>
+        <element name="Post" positionX="-63" positionY="9" width="128" height="120"/>
     </elements>
 </model>
