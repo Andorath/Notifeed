@@ -297,7 +297,8 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
 
     func showCheckMarkOverlay()
     {
-        let contentView = PKHUDImageView(image: PKHUDAssets.checkmarkImage)
+        let contentView = PKHUDTitleView(title: NSLocalizedString("Archived", comment: "Archiviato!"),
+            image: PKHUDAssets.checkmarkImage)
         PKHUD.sharedHUD.contentView = contentView
         PKHUD.sharedHUD.show()
         PKHUD.sharedHUD.hide(afterDelay: 0.5)
