@@ -25,9 +25,18 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
         resultSearchController = getResultSearchController()
+        initInterfaceComponent()
         showActivityIndicator()
+    }
+    
+    func initInterfaceComponent()
+    {
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: "scanSelectedFeed", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl?.backgroundColor = UIColor.whiteColor()
+        if let _ = refreshControl { self.tableView.addSubview(refreshControl!) }
     }
     
     override func viewDidAppear(animated: Bool)
@@ -69,6 +78,7 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
             {}
             
             updateInterfaceBySections()
+            refreshControl?.endRefreshing()
         }
     }
     
