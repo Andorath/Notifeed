@@ -36,6 +36,16 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     func setUserInterfaceComponents()
     {
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        checkEditButton()
+    }
+    
+    func checkEditButton()
+    {
+        if tableView.editing && tableView.numberOfRowsInSection(0) == 0
+        {
+            setEditing(false, animated: true)
+        }
+        self.navigationItem.leftBarButtonItem?.enabled = tableView.numberOfRowsInSection(0) != 0
     }
 
     override func didReceiveMemoryWarning()
@@ -48,12 +58,14 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         tableView.reloadData()
         filteredTableData = FeedModel.getSharedInstance().getFeeds()
+        checkEditButton()
     }
     
     func updateInterfaceBySections()
     {
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
         filteredTableData = FeedModel.getSharedInstance().getFeeds()
+        checkEditButton()
     }
 
     @IBAction func addFeedAction(sender: AnyObject)
@@ -106,10 +118,14 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
 
         return cell
     }
-
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
     {
-        return true
+        if self.editing
+        {
+            return UITableViewCellEditingStyle.Delete
+        }
+        return UITableViewCellEditingStyle.None
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
@@ -127,6 +143,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
             }
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            checkEditButton()
         }
     }
     
@@ -188,6 +205,11 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
+        if resultSearchController.active
+        {
+            return false
+        }
+        
         return true
     }
     
