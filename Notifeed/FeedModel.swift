@@ -79,6 +79,9 @@ class FeedModel
         feedMO.setValue(feed.title, forKey: "title")
         feedMO.setValue(feed.link, forKey: "link")
         feedMO.setValue(feed.creazione, forKey: "creazione")
+        feedMO.setValue(feed.position, forKey: "position")
+        feedMO.setValue(feed.category?.rawValue, forKey: "category")
+        
         do {
             try context.save()
         } catch _ {
@@ -108,6 +111,8 @@ class FeedModel
                 }
                 catch _
                 {}
+                
+                if let feedsMO = getManagedFeeds() { updatePositions(feedsMO) }
             }
         }
         else
@@ -120,7 +125,7 @@ class FeedModel
     {
         let request = NSFetchRequest(entityName: "Feed")
         request.returnsObjectsAsFaults = false
-        let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "position", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
         let results = try! context.executeFetchRequest(request) as? [NSManagedObject]
@@ -145,6 +150,8 @@ class FeedModel
                 }
                 catch _
                 {}
+                
+                if let feedsMO = getManagedFeeds() { updatePositions(feedsMO) }
             }
         }
         else
@@ -161,6 +168,35 @@ class FeedModel
         request.predicate = predicate
         let results = try? context.executeFetchRequest(request) as! [NSManagedObject]
         return results
+    }
+    
+    func moveFeedFromIndex(sourceIndex: Int, toIndex destinationIndex: Int)
+    {
+        if var managedFeeds = getManagedFeeds()
+        {
+            let movingFeed = managedFeeds[sourceIndex]
+            
+            managedFeeds.removeAtIndex(sourceIndex)
+            managedFeeds.insert(movingFeed, atIndex: destinationIndex)
+            
+            updatePositions(managedFeeds)
+        }
+    }
+    
+    func updatePositions(managedFeeds: [NSManagedObject])
+    {
+        var i = 0
+        for feedMO in managedFeeds
+        {
+            feedMO.setValue(i++, forKey: "position")
+        }
+        
+        do
+        {
+            try context.save()
+        }
+        catch _
+        {}
     }
     
     // MARK: - Getting Data

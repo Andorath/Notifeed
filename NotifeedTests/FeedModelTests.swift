@@ -66,13 +66,13 @@ class FeedModelTests: XCTestCase
     
     func testAddFeed()
     {
-        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate()))
-        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate()))
-        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate()))
+        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate(), position: 0))
+        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate(), position: 1))
+        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate(), position: 2))
         
         let request = NSFetchRequest(entityName: "Feed")
         request.returnsObjectsAsFaults = false
-        let sortDescriptor = NSSortDescriptor(key: "creazione", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "position", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
         let results = try! context!.executeFetchRequest(request) as? [NSManagedObject]
@@ -82,9 +82,9 @@ class FeedModelTests: XCTestCase
     
     func testDeleteFeed()
     {
-        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate()))
-        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate()))
-        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate()))
+        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate(), position: 0))
+        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate(), position: 1))
+        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate(), position: 2))
         
         var request = NSFetchRequest(entityName: "Feed")
         request.returnsObjectsAsFaults = false
@@ -135,9 +135,9 @@ class FeedModelTests: XCTestCase
             XCTAssertTrue(true)
         }
         
-        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate()))
-        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate()))
-        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate()))
+        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate(), position: 0))
+        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate(), position: 1))
+        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate(), position: 2))
         
         var request = NSFetchRequest(entityName: "Feed")
         request.returnsObjectsAsFaults = false
@@ -162,6 +162,7 @@ class FeedModelTests: XCTestCase
         request.predicate = predicate
         results = try? context!.executeFetchRequest(request)
         
+        print(results?.count)
         XCTAssertTrue(results?.count == 0)
         
         do
@@ -203,9 +204,9 @@ class FeedModelTests: XCTestCase
         managedFeed = model!.getManagedFeedForIndex(3)
         XCTAssertTrue(managedFeed == nil)
         
-        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate()))
-        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate()))
-        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate()))
+        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate(), position: 0))
+        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate(), position: 1))
+        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate(), position: 2))
         
         managedFeed = model!.getManagedFeedForIndex(1)
         let title = managedFeed!.valueForKey("title") as! String
@@ -227,6 +228,25 @@ class FeedModelTests: XCTestCase
         feed = model!.getFeeds()[0]
         
         XCTAssertTrue(feed.link == "url2")
+    }
+    
+    func testMoveFeedFromIndexToIndex()
+    {
+        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate(), position: 0))
+        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate(), position: 1))
+        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate(), position: 2))
+        model!.addFeed(Feed(title: "D", link: "url4", creazione: NSDate(), position: 3))
+        model!.addFeed(Feed(title: "E", link: "url5", creazione: NSDate(), position: 4))
+        
+        FeedModel.getSharedInstance().moveFeedFromIndex(3, toIndex: 1)
+        
+        let feeds = FeedModel.getSharedInstance().getFeeds()
+        
+        XCTAssertTrue(feeds[0].title == "A")
+        XCTAssertTrue(feeds[1].title == "D")
+        XCTAssertTrue(feeds[2].title == "B")
+        XCTAssertTrue(feeds[3].title == "C")
+        XCTAssertTrue(feeds[4].title == "E")
     }
     
     func testAddPost()

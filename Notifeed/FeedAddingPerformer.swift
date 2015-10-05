@@ -48,10 +48,8 @@ class FeedAddingPerformer: NSObject, FeedAddingDelegate, UITextFieldDelegate
         // TODO: Verificare che funzioni il dismiss
         alertController!.addAction(UIAlertAction(title: NSLocalizedString("Cancel",
                                                                    comment: "Annulla popup creazione nuovo feed"),
-                                                                   style: UIAlertActionStyle.Default) {
-                                                                       action in
-                                                                       self.alertController!.dismissViewControllerAnimated(true,completion: nil)
-                                                                    })
+                                                                   style: UIAlertActionStyle.Default,
+                                                                   handler: nil))
         
         let addFeed = getAddAction()
         alertController!.addAction(addFeed)
@@ -107,7 +105,8 @@ class FeedAddingPerformer: NSObject, FeedAddingDelegate, UITextFieldDelegate
             {
                 if let linkNoSpaces = alertController!.textFields?[1].text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                 {
-                    let feed = Feed(title: titleNoSpaces, link: linkNoSpaces, creazione: NSDate())
+                    let count = FeedModel.getSharedInstance().getFeeds().count
+                    let feed = Feed(title: titleNoSpaces, link: linkNoSpaces, creazione: NSDate(), position: count)
                     FeedModel.getSharedInstance().addFeed(feed)
                     delegator!.updateInterfaceByCell()
                 }

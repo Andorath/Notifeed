@@ -17,6 +17,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         super.viewDidLoad()
         resultSearchController = getResultSearchController()
+        setUserInterfaceComponents()
     }
     
     func getResultSearchController() -> UISearchController
@@ -30,6 +31,11 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
         self.tableView.tableHeaderView = controller.searchBar
         
         return controller
+    }
+    
+    func setUserInterfaceComponents()
+    {
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning()
@@ -178,6 +184,16 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
                                                 }
         
         return deleteAction
+    }
+    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+    {
+        FeedModel.getSharedInstance().moveFeedFromIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
     
     //MARK: - Searching Result Updating

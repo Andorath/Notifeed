@@ -7,15 +7,19 @@
 //
 
 import Foundation
-//TODO: Levare questo commento
-//Era conforme a CustomStringConvertible ??? Non so cosa sia, lo avrà messo il convertitore
-//automatico a Swift 2
+
+enum FeedCategory : String
+{
+    case Technology = "technology"
+}
 
 class Feed : NSObject
 {
     var title: String
     var link: String
     var creazione: NSDate
+    var position: Int?
+    var category: FeedCategory?
     
     override var description: String
         {
@@ -29,6 +33,23 @@ class Feed : NSObject
         self.title = title
         self.link = link
         self.creazione = creazione
+    }
+    
+    init(title: String, link: String, creazione: NSDate, position: Int)
+    {
+        self.title = title
+        self.link = link
+        self.creazione = creazione
+        self.position = position
+    }
+    
+    init(title: String, link: String, creazione: NSDate, position: Int, category: FeedCategory)
+    {
+        self.title = title
+        self.link = link
+        self.creazione = creazione
+        self.position = position
+        self.category = category
     }
     
     convenience override init()
