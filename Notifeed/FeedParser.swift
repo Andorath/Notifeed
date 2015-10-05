@@ -24,6 +24,20 @@ enum FeedType: String
     case RSS1 = "rdf:RDF"
     case Unknown = "unknown"
     
+    func getDateFormat() -> PostDateFormat
+    {
+        switch self
+        {
+            case .RSS2:
+                return .RFC822
+            
+            case .Atom, .RSS1:
+                return .ISO8601
+            
+            default:
+                return .RFC822
+        }
+    }
 }
 
 class FeedParser: NSObject, NSXMLParserDelegate
@@ -141,6 +155,7 @@ class FeedParser: NSObject, NSXMLParserDelegate
         if eName == "title" && isItemTag { currentPost.title += data }
         else if eName == "description" { currentPost.postDescription += data }
         else if eName == "link" { currentPost.link = data }
+        else if eName == "pubDate" && isItemTag { currentPost.published = NSDate.dateFromString(data, format: currentFeedType.getDateFormat())}
     }
     
     func checkAtomFoundCharacters(data: String)
@@ -148,10 +163,7 @@ class FeedParser: NSObject, NSXMLParserDelegate
         if eName == "title" && isItemTag { currentPost.title += data }
         else if eName == "summary" ||
                 eName == "subtitle" { currentPost.postDescription += data }
+        else if eName == "updated" && isItemTag { currentPost.published = NSDate.dateFromString(data, format: currentFeedType.getDateFormat())}
     }
-    
-    
-    
-    
     
 }

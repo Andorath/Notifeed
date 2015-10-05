@@ -116,17 +116,29 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
         var post: Post
         
         if self.resultSearchController.active
         {
             post = filteredTableData[indexPath.row]
             cell.textLabel?.text = post.title
+            
+            if let date = post.published
+            {
+                cell.detailTextLabel?.text = formatter.stringFromDate(date)
+            }
         }
         else
         {
             post = postArray[indexPath.row]
             cell.textLabel?.text = post.title
+            
+            if let date = post.published
+            {
+                cell.detailTextLabel?.text = formatter.stringFromDate(date)
+            }
         }
         
         cell.accessoryView = post.checked ? nil : getDot()

@@ -10,10 +10,11 @@
         <attribute name="creazione" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="published" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Feed" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Post" positionX="-63" positionY="9" width="128" height="120"/>
+        <element name="Post" positionX="-63" positionY="9" width="128" height="135"/>
     </elements>
 </model>

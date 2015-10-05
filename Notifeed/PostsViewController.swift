@@ -101,7 +101,6 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
                                                                     alert in
                                                                     if let navController = self.navigationController
                                                                     {
-                                                                        print("sono qui")
                                                                         navController.popViewControllerAnimated(true)
                                                                     }
                                                                 })
@@ -183,15 +182,26 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        
         if self.resultSearchController.active
         {
-            cell.textLabel?.text = filteredTableData[indexPath.row].title
+            let post = filteredTableData[indexPath.row]
+            cell.textLabel?.text = post.title
+            if let date = post.published
+            {
+                cell.detailTextLabel?.text = formatter.stringFromDate(date)
+            }
         }
         else
         {
-            cell.textLabel?.text = postArray[indexPath.row].title
-            
-            return cell
+            let post = postArray[indexPath.row]
+            cell.textLabel?.text = post.title
+            if let date = post.published
+            {
+                cell.detailTextLabel?.text = formatter.stringFromDate(date)
+            }
         }
         
         return cell
