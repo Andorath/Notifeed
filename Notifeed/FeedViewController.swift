@@ -231,6 +231,20 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
 
     // MARK: - Navigation
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+    {
+        if Reachability.isConnectedToNetwork() { return true }
+        else
+        {
+            Reachability.showNoConnectionAlert(self, actionHandler: nil)
+            if let selectedIndex = self.tableView.indexPathForSelectedRow
+            {
+                self.tableView.deselectRowAtIndexPath(selectedIndex, animated: true)
+            }
+            return false
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if let segueId = segue.identifier

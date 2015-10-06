@@ -60,25 +60,36 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     
     func scanSelectedFeed()
     {
-        if let feed = selectedFeed
+        if Reachability.isConnectedToNetwork()
         {
-            do
+        
+            if let feed = selectedFeed
             {
-                try postArray = FeedParser().parseLink(feed.link)
+                do
+                {
+                    try postArray = FeedParser().parseLink(feed.link)
+                }
+                catch FeedParserError.InvalidURL
+                {
+                    showInvalidURLAlert()
+                }
+                catch FeedParserError.UnknownFeedFormat
+                {
+                    showUnknownFeedFormatAlert()
+                }
+                catch
+                {}
+                
+                updateInterfaceBySections()
+                refreshControl?.endRefreshing()
             }
-            catch FeedParserError.InvalidURL
-            {
-                showInvalidURLAlert()
+        }
+        else
+        {
+            Reachability.showNoConnectionAlert(self) {
+                [unowned self] action in
+                self.navigationController?.popViewControllerAnimated(true)
             }
-            catch FeedParserError.UnknownFeedFormat
-            {
-                showUnknownFeedFormatAlert()
-            }
-            catch
-            {}
-            
-            updateInterfaceBySections()
-            refreshControl?.endRefreshing()
         }
     }
     
@@ -324,6 +335,20 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
     }
 
     // MARK: - Navigation
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+    {
+        if Reachability.isConnectedToNetwork() { return true }
+        else
+        {
+            Reachability.showNoConnectionAlert(self, actionHandler: nil)
+            if let selectedIndex = self.tableView.indexPathForSelectedRow
+            {
+                self.tableView.deselectRowAtIndexPath(selectedIndex, animated: true)
+            }
+            return false
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {

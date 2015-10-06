@@ -94,16 +94,26 @@ class WebViewController: UIViewController, UIWebViewDelegate
     
     func initWebViewLoading()
     {
-        if let link = post?.link
+        if Reachability.isConnectedToNetwork()
         {
-            if let URL = NSURL(string: link)
+            if let link = post?.link
             {
-                let request = NSURLRequest(URL: URL)
-                webView.loadRequest(request)
+                if let URL = NSURL(string: link)
+                {
+                    let request = NSURLRequest(URL: URL)
+                    webView.loadRequest(request)
+                }
+                else
+                {
+                    showInvalidURLAlert()
+                }
             }
-            else
-            {
-                showInvalidURLAlert()
+        }
+        else
+        {
+            Reachability.showNoConnectionAlert(self) {
+                [unowned self] action in
+                self.navigationController?.popViewControllerAnimated(true)
             }
         }
     }
@@ -174,7 +184,14 @@ class WebViewController: UIViewController, UIWebViewDelegate
     
     @IBAction func refreshPage(sender: UIBarButtonItem)
     {
-        webView.reload()
+        if Reachability.isConnectedToNetwork()
+        {
+            webView.reload()
+        }
+        else
+        {
+            Reachability.showNoConnectionAlert(self, actionHandler: nil)
+        }
     }
     
     //MARK: - Activity
