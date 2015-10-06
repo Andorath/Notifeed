@@ -227,9 +227,10 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
-        let unreadAction = getUnreadRowAction()
         let deleteAction = getDeleteRowAction()
+        if !postArray[indexPath.row].checked { return [deleteAction] }
         
+        let unreadAction = getUnreadRowAction()
         return [deleteAction, unreadAction]
     }
     

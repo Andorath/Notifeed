@@ -118,15 +118,6 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
 
         return cell
     }
-    
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
-    {
-        if self.editing
-        {
-            return UITableViewCellEditingStyle.Delete
-        }
-        return UITableViewCellEditingStyle.None
-    }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
