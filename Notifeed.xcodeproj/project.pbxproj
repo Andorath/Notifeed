@@ -12,6 +12,17 @@
 		A92F29771B25EFB50045102C /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F29761B25EFB50045102C /* UIAppearance+Swift.m */; };
 		A9377DF51BB2FBFB00633AFF /* FeedEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */; settings = {ASSET_TAGS = (); }; };
 		A94067731BB4867C005EFA09 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94067721BB4867C005EFA09 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A9562E331BC5B15A0015EA0C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
+		A9562E361BC5B15A0015EA0C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9562E351BC5B15A0015EA0C /* TodayViewController.swift */; };
+		A9562E391BC5B15A0015EA0C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9562E371BC5B15A0015EA0C /* MainInterface.storyboard */; };
+		A9562E3D1BC5B15A0015EA0C /* Notifeed Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A9562E301BC5B15A0015EA0C /* Notifeed Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A9562E441BC5B5130015EA0C /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230EC1BB0B93D00BD5434 /* FeedModel.swift */; settings = {ASSET_TAGS = (); }; };
+		A9562E451BC5B5160015EA0C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230F31BB0BD0C00BD5434 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
+		A9562E461BC5B5180015EA0C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230F51BB0BD5C00BD5434 /* Feed.swift */; settings = {ASSET_TAGS = (); }; };
+		A963B8CC1BC5BB7000C5803B /* Notifeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9FA35281B204523008E68A7 /* Notifeed.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		A963B8CD1BC5BDC100C5803B /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908F5651BBDC54C0011B6AA /* FeedParser.swift */; settings = {ASSET_TAGS = (); }; };
+		A963B8CE1BC5C96100C5803B /* PostDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90962F21BC16358005AAFEC /* PostDateFormat.swift */; settings = {ASSET_TAGS = (); }; };
+		A963B8D01BC5CFEC00C5803B /* vertical_separetor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9F25E821BBC37F400337DEA /* vertical_separetor@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A96627C11BB1682100B44B0B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96627C01BB1682100B44B0B /* FeedViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A96627C31BB16A2800B44B0B /* FeedAddingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */; settings = {ASSET_TAGS = (); }; };
 		A9751DAE1B24E2B0009BD779 /* MGSOpenWithSafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9751DAD1B24E2B0009BD779 /* MGSOpenWithSafari.swift */; };
@@ -29,6 +40,8 @@
 		A99342BA1B1CA7E2001CF4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99342B91B1CA7E2001CF4EA /* Images.xcassets */; };
 		A9960F5B1B21E80B007DDD39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */; };
 		A9B212D51BB1EEA6009E150C /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B212D41BB1EEA6009E150C /* PostsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A9B7ABE91BC6AD01008DACF2 /* FeedDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7ABE81BC6AD01008DACF2 /* FeedDataBase.swift */; settings = {ASSET_TAGS = (); }; };
+		A9B7ABEA1BC6AF27008DACF2 /* FeedDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7ABE81BC6AD01008DACF2 /* FeedDataBase.swift */; settings = {ASSET_TAGS = (); }; };
 		A9BCB26C1BB7042600A9BC29 /* ArchivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9CB854F1BBADF670091DA38 /* expand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB854E1BBADF670091DA38 /* expand@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A9CB85551BBAF7F20091DA38 /* archive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB85541BBAF7F20091DA38 /* archive@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -60,6 +73,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A9562E3B1BC5B15A0015EA0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A99342A01B1CA7E1001CF4EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9562E2F1BC5B15A0015EA0C;
+			remoteInfo = "Notifeed Widget";
+		};
 		A99342C31B1CA7E2001CF4EA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A99342A01B1CA7E1001CF4EA /* Project object */;
@@ -69,6 +89,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A9562E411BC5B15A0015EA0C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A9562E3D1BC5B15A0015EA0C /* Notifeed Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A908F5651BBDC54C0011B6AA /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
 		A90962F21BC16358005AAFEC /* PostDateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDateFormat.swift; sourceTree = "<group>"; };
@@ -77,6 +111,13 @@
 		A92F29761B25EFB50045102C /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEditingPerformer.swift; sourceTree = "<group>"; };
 		A94067721BB4867C005EFA09 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		A9562E301BC5B15A0015EA0C /* Notifeed Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notifeed Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A9562E351BC5B15A0015EA0C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		A9562E381BC5B15A0015EA0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A9562E3A1BC5B15A0015EA0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9562E421BC5B1950015EA0C /* Notifeed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Notifeed.entitlements; sourceTree = "<group>"; };
+		A9562E431BC5B19E0015EA0C /* Notifeed Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Notifeed Widget.entitlements"; sourceTree = "<group>"; };
 		A96627C01BB1682100B44B0B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAddingPerformer.swift; sourceTree = "<group>"; };
 		A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
@@ -100,6 +141,7 @@
 		A99342C21B1CA7E2001CF4EA /* NotifeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotifeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99342C71B1CA7E2001CF4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B212D41BB1EEA6009E150C /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		A9B7ABE81BC6AD01008DACF2 /* FeedDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDataBase.swift; sourceTree = "<group>"; };
 		A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchivedViewController.swift; sourceTree = "<group>"; };
 		A9CB854E1BBADF670091DA38 /* expand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expand@2x.png"; sourceTree = "<group>"; };
 		A9CB85541BBAF7F20091DA38 /* archive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archive@2x.png"; sourceTree = "<group>"; };
@@ -108,7 +150,6 @@
 		A9CB85741BBB26850091DA38 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A9CB85761BBB2C000091DA38 /* navigation_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_bar@2x.png"; sourceTree = "<group>"; };
 		A9CB857C1BBB403B0091DA38 /* view_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "view_background@2x.png"; sourceTree = "<group>"; };
-		A9DACFBB1BC319A700657311 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSEmptyDetailViewController.swift; path = ../MGSEmptyDetailViewController.swift; sourceTree = "<group>"; };
 		A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGSEmptyDetailViewController.xib; sourceTree = "<group>"; };
 		A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archived_dot@2x.png"; sourceTree = "<group>"; };
@@ -132,6 +173,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A9562E2D1BC5B15A0015EA0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9562E331BC5B15A0015EA0C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A99342A51B1CA7E1001CF4EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +205,25 @@
 				A92F29761B25EFB50045102C /* UIAppearance+Swift.m */,
 			);
 			name = Workaround;
+			sourceTree = "<group>";
+		};
+		A9562E311BC5B15A0015EA0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9562E341BC5B15A0015EA0C /* Notifeed Widget */ = {
+			isa = PBXGroup;
+			children = (
+				A9562E431BC5B19E0015EA0C /* Notifeed Widget.entitlements */,
+				A9562E351BC5B15A0015EA0C /* TodayViewController.swift */,
+				A9562E371BC5B15A0015EA0C /* MainInterface.storyboard */,
+				A9562E3A1BC5B15A0015EA0C /* Info.plist */,
+			);
+			path = "Notifeed Widget";
 			sourceTree = "<group>";
 		};
 		A9751DB11B24E716009BD779 /* View Controllers */ = {
@@ -195,7 +263,9 @@
 				A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */,
 				A97621C21BB2AF1F0003672E /* PKHUD */,
 				A99342AA1B1CA7E1001CF4EA /* Notifeed */,
+				A9562E341BC5B15A0015EA0C /* Notifeed Widget */,
 				A99342C51B1CA7E2001CF4EA /* NotifeedTests */,
+				A9562E311BC5B15A0015EA0C /* Frameworks */,
 				A99342A91B1CA7E1001CF4EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -205,6 +275,7 @@
 			children = (
 				A99342A81B1CA7E1001CF4EA /* Notifeed.app */,
 				A99342C21B1CA7E2001CF4EA /* NotifeedTests.xctest */,
+				A9562E301BC5B15A0015EA0C /* Notifeed Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,7 +283,7 @@
 		A99342AA1B1CA7E1001CF4EA /* Notifeed */ = {
 			isa = PBXGroup;
 			children = (
-				A9DACFBB1BC319A700657311 /* MyPlayground.playground */,
+				A9562E421BC5B1950015EA0C /* Notifeed.entitlements */,
 				A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */,
 				A9F230EB1BB0B91F00BD5434 /* Model */,
 				A9751DB11B24E716009BD779 /* View Controllers */,
@@ -256,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F230EC1BB0B93D00BD5434 /* FeedModel.swift */,
+				A9B7ABE81BC6AD01008DACF2 /* FeedDataBase.swift */,
 				A9F230F31BB0BD0C00BD5434 /* Post.swift */,
 				A9F230F51BB0BD5C00BD5434 /* Feed.swift */,
 			);
@@ -306,6 +378,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A9562E2F1BC5B15A0015EA0C /* Notifeed Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9562E3E1BC5B15A0015EA0C /* Build configuration list for PBXNativeTarget "Notifeed Widget" */;
+			buildPhases = (
+				A9562E2C1BC5B15A0015EA0C /* Sources */,
+				A9562E2D1BC5B15A0015EA0C /* Frameworks */,
+				A9562E2E1BC5B15A0015EA0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Notifeed Widget";
+			productName = "Notifeed Widget";
+			productReference = A9562E301BC5B15A0015EA0C /* Notifeed Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A99342A71B1CA7E1001CF4EA /* Notifeed */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A99342CC1B1CA7E2001CF4EA /* Build configuration list for PBXNativeTarget "Notifeed" */;
@@ -314,10 +403,12 @@
 				A99342A51B1CA7E1001CF4EA /* Frameworks */,
 				A99342A61B1CA7E1001CF4EA /* Resources */,
 				A9A3B0F11B209F46001465E7 /* ShellScript */,
+				A9562E411BC5B15A0015EA0C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A9562E3C1BC5B15A0015EA0C /* PBXTargetDependency */,
 			);
 			name = Notifeed;
 			productName = Notifeed;
@@ -353,9 +444,23 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Marco Salafia";
 				TargetAttributes = {
+					A9562E2F1BC5B15A0015EA0C = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = AH9ECCRA8U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					A99342A71B1CA7E1001CF4EA = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = AH9ECCRA8U;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A99342C11B1CA7E2001CF4EA = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -378,11 +483,21 @@
 			targets = (
 				A99342A71B1CA7E1001CF4EA /* Notifeed */,
 				A99342C11B1CA7E2001CF4EA /* NotifeedTests */,
+				A9562E2F1BC5B15A0015EA0C /* Notifeed Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A9562E2E1BC5B15A0015EA0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A963B8D01BC5CFEC00C5803B /* vertical_separetor@2x.png in Resources */,
+				A9562E391BC5B15A0015EA0C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A99342A61B1CA7E1001CF4EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,6 +556,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A9562E2C1BC5B15A0015EA0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A963B8CD1BC5BDC100C5803B /* FeedParser.swift in Sources */,
+				A9562E451BC5B5160015EA0C /* Post.swift in Sources */,
+				A9562E461BC5B5180015EA0C /* Feed.swift in Sources */,
+				A9562E361BC5B15A0015EA0C /* TodayViewController.swift in Sources */,
+				A963B8CE1BC5C96100C5803B /* PostDateFormat.swift in Sources */,
+				A9562E441BC5B5130015EA0C /* FeedModel.swift in Sources */,
+				A9B7ABEA1BC6AF27008DACF2 /* FeedDataBase.swift in Sources */,
+				A963B8CC1BC5BB7000C5803B /* Notifeed.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A99342A41B1CA7E1001CF4EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +595,7 @@
 				A97621D01BB2AF1F0003672E /* PKHUDAssets.swift in Sources */,
 				A9B212D51BB1EEA6009E150C /* PostsViewController.swift in Sources */,
 				A9F230ED1BB0B93D00BD5434 /* FeedModel.swift in Sources */,
+				A9B7ABE91BC6AD01008DACF2 /* FeedDataBase.swift in Sources */,
 				A90962F31BC16358005AAFEC /* PostDateFormat.swift in Sources */,
 				A99342AE1B1CA7E1001CF4EA /* AppDelegate.swift in Sources */,
 				A9377DF51BB2FBFB00633AFF /* FeedEditingPerformer.swift in Sources */,
@@ -483,6 +614,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A9562E3C1BC5B15A0015EA0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9562E2F1BC5B15A0015EA0C /* Notifeed Widget */;
+			targetProxy = A9562E3B1BC5B15A0015EA0C /* PBXContainerItemProxy */;
+		};
 		A99342C41B1CA7E2001CF4EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A99342A71B1CA7E1001CF4EA /* Notifeed */;
@@ -491,6 +627,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A9562E371BC5B15A0015EA0C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9562E381BC5B15A0015EA0C /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -503,6 +647,37 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A9562E3F1BC5B15A0015EA0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Notifeed Widget/Notifeed Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Notifeed Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.Notifeed.Notifeed-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A9562E401BC5B15A0015EA0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Notifeed Widget/Notifeed Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Notifeed Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.Notifeed.Notifeed-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		A99342CA1B1CA7E2001CF4EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -592,8 +767,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Notifeed/Notifeed.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Notifeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -611,8 +788,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Notifeed/Notifeed.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Notifeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -662,6 +841,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A9562E3E1BC5B15A0015EA0C /* Build configuration list for PBXNativeTarget "Notifeed Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9562E3F1BC5B15A0015EA0C /* Debug */,
+				A9562E401BC5B15A0015EA0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A99342A31B1CA7E1001CF4EA /* Build configuration list for PBXProject "Notifeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

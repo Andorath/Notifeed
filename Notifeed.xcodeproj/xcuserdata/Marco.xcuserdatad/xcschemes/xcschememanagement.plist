@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Notifeed Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Notifeed.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>A9562E2F1BC5B15A0015EA0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A99342A71B1CA7E1001CF4EA</key>
 		<dict>
 			<key>primary</key>

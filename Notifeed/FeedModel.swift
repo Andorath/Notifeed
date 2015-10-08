@@ -22,18 +22,15 @@ class FeedModel
 {
     static private var sharedInstance: FeedModel?
     
-    let del: AppDelegate
-    let context: NSManagedObjectContext
+    var context: NSManagedObjectContext
     
     private init()
     {
-        del = UIApplication.sharedApplication().delegate as! AppDelegate
-        context = del.managedObjectContext!
+        context = FeedDataBase.sharedInstance.managedObjectContext!
     }
     
     private init(context: NSManagedObjectContext)
     {
-        del = UIApplication.sharedApplication().delegate as! AppDelegate
         self.context = context
     }
     
@@ -197,6 +194,8 @@ class FeedModel
         }
         catch _
         {}
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("MGSPositionChanged", object: nil)
     }
     
     // MARK: - Getting Data
@@ -423,7 +422,5 @@ class FeedModel
             {}
         }
     }
-    
-    
     
 }
