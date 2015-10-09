@@ -196,6 +196,21 @@ class FeedModelTests: XCTestCase
         XCTAssertTrue(feeds.count == 3)
     }
     
+    func testGetFeedWithTitle()
+    {
+        model!.addFeed(Feed(title: "A", link: "url1", creazione: NSDate()))
+        model!.addFeed(Feed(title: "B", link: "url2", creazione: NSDate()))
+        model!.addFeed(Feed(title: "C", link: "url3", creazione: NSDate()))
+        
+        var feed = model!.getFeedWithTitle("B")
+        
+        XCTAssertTrue(feed?.title == "B")
+        
+        feed = model!.getFeedWithTitle("D")
+        
+        XCTAssertNil(feed)
+    }
+    
     func testGetManagedFeedForIndex()
     {
         var managedFeed = model!.getManagedFeedForIndex(0)

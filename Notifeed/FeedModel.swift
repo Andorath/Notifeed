@@ -222,11 +222,35 @@ class FeedModel
                 temp.title = feedMO.valueForKey("title") as! String
                 temp.link = feedMO.valueForKey("link") as! String
                 temp.creazione = feedMO.valueForKey("creazione") as! NSDate
+                temp.position = feedMO.valueForKey("position") as? Int
                 feeds.append(temp)
             }
         }
         
         return feeds
+    }
+    
+    func getFeedWithTitle(title: String) -> Feed?
+    {
+        guard let managedFeeds = getManagedFeedsWithTitle(title) else
+        {
+            return nil
+        }
+        
+        guard !managedFeeds.isEmpty else
+        {
+            return nil
+        }
+        
+        let feedMO = managedFeeds[0]
+        
+        let feed = Feed()
+        feed.title = feedMO.valueForKey("title") as! String
+        feed.link = feedMO.valueForKey("link") as! String
+        feed.creazione = feedMO.valueForKey("creazione") as! NSDate
+        feed.position = feedMO.valueForKey("position") as? Int
+        
+        return feed
     }
     
     func getManagedFeedForIndex(index: Int) -> NSManagedObject?

@@ -19,6 +19,8 @@
 		A9562E441BC5B5130015EA0C /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230EC1BB0B93D00BD5434 /* FeedModel.swift */; settings = {ASSET_TAGS = (); }; };
 		A9562E451BC5B5160015EA0C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230F31BB0BD0C00BD5434 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
 		A9562E461BC5B5180015EA0C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F230F51BB0BD5C00BD5434 /* Feed.swift */; settings = {ASSET_TAGS = (); }; };
+		A95B4D921BC7D2430018C7CA /* UpdateButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A95B4D911BC7D2430018C7CA /* UpdateButton@2x.png */; settings = {ASSET_TAGS = (); }; };
+		A95B4D941BC7DAE80018C7CA /* WidgetHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95B4D931BC7DAE80018C7CA /* WidgetHeaderCell.swift */; settings = {ASSET_TAGS = (); }; };
 		A963B8CC1BC5BB7000C5803B /* Notifeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9FA35281B204523008E68A7 /* Notifeed.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		A963B8CD1BC5BDC100C5803B /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908F5651BBDC54C0011B6AA /* FeedParser.swift */; settings = {ASSET_TAGS = (); }; };
 		A963B8CE1BC5C96100C5803B /* PostDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90962F21BC16358005AAFEC /* PostDateFormat.swift */; settings = {ASSET_TAGS = (); }; };
@@ -52,6 +54,8 @@
 		A9CB857D1BBB403B0091DA38 /* view_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CB857C1BBB403B0091DA38 /* view_background@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A9DD3AD21B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */; };
 		A9DD3AD31B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */; };
+		A9EAB6411BC7FC3400FA30BE /* WidgetFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAB6401BC7FC3400FA30BE /* WidgetFooterCell.swift */; settings = {ASSET_TAGS = (); }; };
+		A9EAB6451BC8282D00FA30BE /* MenuAction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9EAB6441BC8282D00FA30BE /* MenuAction@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A9EF4D501BB84FDD00AAB95D /* archived_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A9F0DD331BC3FCD0006481C3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F0DD321BC3FCD0006481C3 /* Reachability.swift */; settings = {ASSET_TAGS = (); }; };
 		A9F1D9CA1B24A00900AB8D77 /* rss-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */; };
@@ -118,6 +122,8 @@
 		A9562E3A1BC5B15A0015EA0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9562E421BC5B1950015EA0C /* Notifeed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Notifeed.entitlements; sourceTree = "<group>"; };
 		A9562E431BC5B19E0015EA0C /* Notifeed Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Notifeed Widget.entitlements"; sourceTree = "<group>"; };
+		A95B4D911BC7D2430018C7CA /* UpdateButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UpdateButton@2x.png"; sourceTree = "<group>"; };
+		A95B4D931BC7DAE80018C7CA /* WidgetHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetHeaderCell.swift; sourceTree = "<group>"; };
 		A96627C01BB1682100B44B0B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A96627C21BB16A2800B44B0B /* FeedAddingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAddingPerformer.swift; sourceTree = "<group>"; };
 		A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
@@ -152,6 +158,8 @@
 		A9CB857C1BBB403B0091DA38 /* view_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "view_background@2x.png"; sourceTree = "<group>"; };
 		A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MGSEmptyDetailViewController.swift; path = ../MGSEmptyDetailViewController.swift; sourceTree = "<group>"; };
 		A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGSEmptyDetailViewController.xib; sourceTree = "<group>"; };
+		A9EAB6401BC7FC3400FA30BE /* WidgetFooterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetFooterCell.swift; sourceTree = "<group>"; };
+		A9EAB6441BC8282D00FA30BE /* MenuAction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuAction@2x.png"; sourceTree = "<group>"; };
 		A9EF4D4F1BB84FDD00AAB95D /* archived_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "archived_dot@2x.png"; sourceTree = "<group>"; };
 		A9F0DD321BC3FCD0006481C3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A9F1D9C91B24A00900AB8D77 /* rss-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-plus@2x.png"; sourceTree = "<group>"; };
@@ -218,8 +226,11 @@
 		A9562E341BC5B15A0015EA0C /* Notifeed Widget */ = {
 			isa = PBXGroup;
 			children = (
+				A9C923851BC6F3F4000F5655 /* Images */,
 				A9562E431BC5B19E0015EA0C /* Notifeed Widget.entitlements */,
 				A9562E351BC5B15A0015EA0C /* TodayViewController.swift */,
+				A95B4D931BC7DAE80018C7CA /* WidgetHeaderCell.swift */,
+				A9EAB6401BC7FC3400FA30BE /* WidgetFooterCell.swift */,
 				A9562E371BC5B15A0015EA0C /* MainInterface.storyboard */,
 				A9562E3A1BC5B15A0015EA0C /* Info.plist */,
 			);
@@ -323,6 +334,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9C923851BC6F3F4000F5655 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A95B4D911BC7D2430018C7CA /* UpdateButton@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		A9F230EB1BB0B91F00BD5434 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +370,7 @@
 		A9FA352D1B20533D008E68A7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9EAB6441BC8282D00FA30BE /* MenuAction@2x.png */,
 				A9F25E7A1BBC205900337DEA /* NotifeedLogo@2x.png */,
 				A9CB857C1BBB403B0091DA38 /* view_background@2x.png */,
 				A9CB85761BBB2C000091DA38 /* navigation_bar@2x.png */,
@@ -495,6 +515,7 @@
 			files = (
 				A963B8D01BC5CFEC00C5803B /* vertical_separetor@2x.png in Resources */,
 				A9562E391BC5B15A0015EA0C /* MainInterface.storyboard in Resources */,
+				A95B4D921BC7D2430018C7CA /* UpdateButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9960F5B1B21E80B007DDD39 /* LaunchScreen.xib in Resources */,
+				A9EAB6451BC8282D00FA30BE /* MenuAction@2x.png in Resources */,
 				A9FA352C1B205335008E68A7 /* RSSFilled50@2x.png in Resources */,
 				A9F25E7B1BBC205900337DEA /* NotifeedLogo@2x.png in Resources */,
 				A9DD3AD31B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib in Resources */,
@@ -560,8 +582,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9EAB6411BC7FC3400FA30BE /* WidgetFooterCell.swift in Sources */,
 				A963B8CD1BC5BDC100C5803B /* FeedParser.swift in Sources */,
 				A9562E451BC5B5160015EA0C /* Post.swift in Sources */,
+				A95B4D941BC7DAE80018C7CA /* WidgetHeaderCell.swift in Sources */,
 				A9562E461BC5B5180015EA0C /* Feed.swift in Sources */,
 				A9562E361BC5B15A0015EA0C /* TodayViewController.swift in Sources */,
 				A963B8CE1BC5C96100C5803B /* PostDateFormat.swift in Sources */,
@@ -655,7 +679,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = "Notifeed Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.Notifeed.Notifeed-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -670,7 +694,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Notifeed Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stain.Notifeed.Notifeed-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";

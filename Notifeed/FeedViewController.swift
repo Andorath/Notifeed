@@ -13,6 +13,24 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     var filteredTableData = [Feed]()
     var resultSearchController = UISearchController()
     
+    let userDefaults = NSUserDefaults(suiteName: "group.notifeedcontainer")
+    var favoriteFeed : Feed? {
+        get {
+            guard let title = userDefaults?.valueForKey("favoriteFeed") as? String else
+            {
+                return nil
+            }
+            
+            return FeedModel.getSharedInstance().getFeedWithTitle(title)
+        }
+        
+        set {
+            let title = newValue?.title
+            userDefaults?.setValue(title, forKey: "favoriteFeed")
+            userDefaults?.synchronize()
+        }
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -125,11 +143,19 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
         {
             if resultSearchController.active
             {
+                if let fav = favoriteFeed
+                {
+                    if fav.title == filteredTableData[indexPath.row].title { favoriteFeed = nil }
+                }
                 try! FeedModel.getSharedInstance().deleteFeed(filteredTableData[indexPath.row])
                 filteredTableData.removeAtIndex(indexPath.row)
             }
             else
             {
+                if let fav = favoriteFeed
+                {
+                    if fav.title == FeedModel.getSharedInstance().getFeeds()[indexPath.row].title { favoriteFeed = nil }
+                }
                 try! FeedModel.getSharedInstance().deleteFeedAtIndex(indexPath.row)
             }
             
@@ -142,8 +168,9 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         let editAction = getEditRowAction()
         let deleteAction = getDeleteRowAction()
+        let menuAction = getMenuAction()
         
-        return [deleteAction, editAction]
+        return [deleteAction, editAction, menuAction]
     }
     
     func getEditRowAction() -> UITableViewRowAction
@@ -192,6 +219,40 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
                                                 }
         
         return deleteAction
+    }
+    
+    func getMenuAction() -> UITableViewRowAction
+    {
+        func showMenuSheet(action: UITableViewRowAction, indexPath: NSIndexPath)
+        {
+            let menuSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            
+            menuSheet.addAction(UIAlertAction(title: NSLocalizedString("Set this Feed as Favorite", comment: "Comando imposta preferito"),
+                                              style: .Default) {
+                                                    [weak self] action in
+                                                    if self?.resultSearchController.active ?? false
+                                                    {
+                                                        self?.favoriteFeed = self?.filteredTableData[indexPath.row]
+                                                    }
+                                                    else
+                                                    {
+                                                        self?.favoriteFeed = FeedModel.getSharedInstance().getFeeds()[indexPath.row]
+                                                    }
+                                                
+                                                    self?.tableView.setEditing(false, animated: true)
+                                              })
+            
+            menuSheet.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Comando annulla menu"),
+                                              style: UIAlertActionStyle.Cancel,
+                                              handler: nil))
+            
+            self.presentViewController(menuSheet, animated: true, completion: nil)
+        }
+        
+        let menuAction = UITableViewRowAction(style: .Normal, title: "       ", handler: showMenuSheet)
+        menuAction.backgroundColor = UIColor(patternImage: UIImage(named: "MenuAction.png")!)
+        
+        return menuAction
     }
     
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
