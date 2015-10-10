@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fG2-EY-zGH">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="LEU-zQ-kWg">
+            <objects>
+                <tableViewController id="fG2-EY-zGH" customClass="TodayViewController" customModule="Notifeed_Widget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="35" sectionFooterHeight="35" id="cVt-qz-hji">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="60" id="eK6-fC-Z6H" customClass="WidgetHeaderCell" customModule="Notifeed_Widget" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="35" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eK6-fC-Z6H" id="u1u-nX-SLA">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrX-pJ-QSj">
+                                            <rect key="frame" x="8" y="15" width="30" height="30"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="aPt-ea-7NU"/>
+                                                <constraint firstAttribute="height" constant="30" id="xYT-jU-6f7"/>
+                                            </constraints>
+                                            <state key="normal" image="UpdateButton.png"/>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lxo-kO-7WW">
+                                            <rect key="frame" x="0.0" y="58" width="320" height="1"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="8hs-nL-0et">
+                                            <rect key="frame" x="60" y="12" width="200" height="35"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="3hz-5q-svW"/>
+                                                <constraint firstAttribute="width" constant="200" id="i1y-eI-7EK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="28"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="Lxo-kO-7WW" firstAttribute="top" secondItem="8hs-nL-0et" secondAttribute="bottom" constant="11" id="0lr-aK-x0f"/>
+                                        <constraint firstItem="8hs-nL-0et" firstAttribute="centerX" secondItem="u1u-nX-SLA" secondAttribute="centerX" id="5oY-qA-Rnb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Lxo-kO-7WW" secondAttribute="trailing" constant="-8" id="K96-WZ-UOs"/>
+                                        <constraint firstItem="CrX-pJ-QSj" firstAttribute="centerY" secondItem="u1u-nX-SLA" secondAttribute="centerY" id="QR7-hw-93u"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Lxo-kO-7WW" secondAttribute="bottom" constant="-8" id="SIp-ZK-VUI"/>
+                                        <constraint firstItem="CrX-pJ-QSj" firstAttribute="leading" secondItem="u1u-nX-SLA" secondAttribute="leadingMargin" id="Wi8-G9-wbs"/>
+                                        <constraint firstItem="8hs-nL-0et" firstAttribute="centerY" secondItem="u1u-nX-SLA" secondAttribute="centerY" id="bDd-36-oxg"/>
+                                        <constraint firstItem="Lxo-kO-7WW" firstAttribute="leading" secondItem="u1u-nX-SLA" secondAttribute="leadingMargin" constant="-8" id="eQr-Oi-hru"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="titleLabel" destination="8hs-nL-0et" id="Hrg-HT-dko"/>
+                                    <outlet property="updateButton" destination="CrX-pJ-QSj" id="4q4-9s-RPg"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="wcell" textLabel="Ccu-Sk-QVk" detailTextLabel="HzO-Ee-Khg" imageView="RuV-rK-lX3" style="IBUITableViewCellStyleSubtitle" id="1jy-ml-sQh">
+                                <rect key="frame" x="0.0" y="95" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1jy-ml-sQh" id="bSn-w7-uk7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="16" id="Ccu-Sk-QVk">
+                                            <rect key="frame" x="33" y="30" width="36" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HzO-Ee-Khg">
+                                            <rect key="frame" x="33" y="54" width="41" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="vertical_separetor.png" id="RuV-rK-lX3">
+                                            <rect key="frame" x="15" y="9" width="3" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="footerCell" rowHeight="45" id="z6Q-j1-oFe" customClass="WidgetFooterCell" customModule="Notifeed_Widget" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="195" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z6Q-j1-oFe" id="p7a-3d-seo">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8V-vi-1SR">
+                                            <rect key="frame" x="55" y="7" width="211" height="30"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WNh-sY-ESl">
+                                                <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCE-fw-yBP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="SDi-Sf-Ji1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2H-Pr-Yo2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
+                                                                    <animations/>
+                                                                    <state key="normal" title="Button"/>
+                                                                </button>
+                                                            </subviews>
+                                                            <animations/>
+                                                        </view>
+                                                        <animations/>
+                                                        <vibrancyEffect>
+                                                            <blurEffect style="light"/>
+                                                        </vibrancyEffect>
+                                                    </visualEffectView>
+                                                </subviews>
+                                                <animations/>
+                                            </view>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="211" id="AiD-To-B8n"/>
+                                                <constraint firstAttribute="height" constant="30" id="gM9-sF-mfv"/>
+                                            </constraints>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="g8V-vi-1SR" firstAttribute="centerX" secondItem="p7a-3d-seo" secondAttribute="centerX" id="3K3-C4-d4K"/>
+                                        <constraint firstItem="g8V-vi-1SR" firstAttribute="centerY" secondItem="p7a-3d-seo" secondAttribute="centerY" id="ld5-mp-4pg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="expandButton" destination="C2H-Pr-Yo2" id="e98-lP-Mf2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fG2-EY-zGH" id="pV3-Pp-WON"/>
+                            <outlet property="delegate" destination="fG2-EY-zGH" id="OXN-UE-oGo"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="600"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkZ-4I-pxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="493" y="187"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="UpdateButton.png" width="55" height="55"/>
+        <image name="vertical_separetor.png" width="3" height="80"/>
+    </resources>
+</document>
