@@ -149,7 +149,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
             {
                 if let fav = favoriteFeed
                 {
-                    if fav.title == filteredTableData[indexPath.row].title { favoriteFeed = nil }
+                    if fav == filteredTableData[indexPath.row] { favoriteFeed = nil }
                 }
                 try! FeedModel.getSharedInstance().deleteFeed(filteredTableData[indexPath.row])
                 filteredTableData.removeAtIndex(indexPath.row)
@@ -158,7 +158,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
             {
                 if let fav = favoriteFeed
                 {
-                    if fav.title == FeedModel.getSharedInstance().getFeeds()[indexPath.row].title { favoriteFeed = nil }
+                    if fav == FeedModel.getSharedInstance().getFeeds()[indexPath.row] { favoriteFeed = nil }
                 }
                 try! FeedModel.getSharedInstance().deleteFeedAtIndex(indexPath.row)
             }
@@ -212,15 +212,36 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     
     func getDeleteRowAction() -> UITableViewRowAction
     {
+        func showDeleteControlAlert(action: UITableViewRowAction, indexPath: NSIndexPath)
+        {
+            let controlAlert = UIAlertController(title: NSLocalizedString("Warning!", comment: "Titolo Warning del control"),
+                                                 message: NSLocalizedString("Are yoy sure you want to delete this Feed?", comment: "Messaggio warning delete control"),
+                                                 preferredStyle: .ActionSheet)
+            
+            controlAlert.addAction(UIAlertAction(title: NSLocalizedString("Delete this Feed", comment: "Messaggio delete control action"),
+                                                 style: .Destructive) {
+                                                     [weak self] action in
+                                                      self!.tableView.dataSource?.tableView!(self!.tableView,
+                                                                                            commitEditingStyle: .Delete,
+                                                                                            forRowAtIndexPath: indexPath)
+                                                 })
+            
+            controlAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel delete contrl action"),
+                                                 style: .Cancel,
+                                                 handler: nil))
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! FeedCell
+            controlAlert.popoverPresentationController?.sourceView = cell.titleLabel
+            controlAlert.popoverPresentationController?.permittedArrowDirections = .Down
+            
+            self.tableView.setEditing(false, animated: true)
+            
+            self.presentViewController(controlAlert, animated: true, completion: nil)
+        }
+        
         let deleteLabel = NSLocalizedString("Delete", comment: "Azione elimina")
-        let tv: UITableView? = tableView
-        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: deleteLabel)
-                                                {
-                                                    (action, index) in
-                                                    tv!.dataSource?.tableView!(tv!,
-                                                                               commitEditingStyle: .Delete,
-                                                                               forRowAtIndexPath: index)
-                                                }
+
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: deleteLabel, handler: showDeleteControlAlert)
         
         return deleteAction
     }
