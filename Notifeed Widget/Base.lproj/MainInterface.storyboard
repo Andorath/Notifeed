@@ -115,46 +115,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8V-vi-1SR">
-                                            <rect key="frame" x="55" y="7" width="211" height="30"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WNh-sY-ESl">
-                                                <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCE-fw-yBP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="SDi-Sf-Ji1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2H-Pr-Yo2">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="30"/>
-                                                                    <animations/>
-                                                                    <state key="normal" title="Button"/>
-                                                                </button>
-                                                            </subviews>
-                                                            <animations/>
-                                                        </view>
-                                                        <animations/>
-                                                        <vibrancyEffect>
-                                                            <blurEffect style="light"/>
-                                                        </vibrancyEffect>
-                                                    </visualEffectView>
-                                                </subviews>
-                                                <animations/>
-                                            </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2H-Pr-Yo2">
+                                            <rect key="frame" x="54" y="7" width="211" height="30"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="211" id="AiD-To-B8n"/>
-                                                <constraint firstAttribute="height" constant="30" id="gM9-sF-mfv"/>
+                                                <constraint firstAttribute="width" constant="211" id="G7W-Oo-yQP"/>
+                                                <constraint firstAttribute="height" constant="30" id="Gra-e1-Q25"/>
                                             </constraints>
-                                            <blurEffect style="light"/>
-                                        </visualEffectView>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="g8V-vi-1SR" firstAttribute="centerX" secondItem="p7a-3d-seo" secondAttribute="centerX" id="3K3-C4-d4K"/>
-                                        <constraint firstItem="g8V-vi-1SR" firstAttribute="centerY" secondItem="p7a-3d-seo" secondAttribute="centerY" id="ld5-mp-4pg"/>
+                                        <constraint firstItem="C2H-Pr-Yo2" firstAttribute="centerX" secondItem="p7a-3d-seo" secondAttribute="centerX" id="VQL-uT-jNl"/>
+                                        <constraint firstItem="C2H-Pr-Yo2" firstAttribute="centerY" secondItem="p7a-3d-seo" secondAttribute="centerY" id="ftp-TQ-ZVi"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>

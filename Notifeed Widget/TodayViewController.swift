@@ -145,9 +145,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
-        guard let _ = postArray else { return nil }
+        guard let _ = postArray else { return UIView(frame: CGRectMake(0, 0, 0, 0)) }
         
-        guard !postArray!.isEmpty else { return nil }
+        guard !postArray!.isEmpty else { return UIView(frame: CGRectMake(0, 0, 0, 0)) }
         
         let footerCell = tableView.dequeueReusableCellWithIdentifier("footerCell") as! WidgetFooterCell
         footerCell.expandButton.addTarget(self, action: "toggleExpand", forControlEvents: .TouchUpInside)
