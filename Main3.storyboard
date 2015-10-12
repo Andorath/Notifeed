@@ -11,10 +11,10 @@
             <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Light</string>
             <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Light</string>
             <string>HelveticaNeue-Thin</string>
         </mutableArray>
     </customFonts>
@@ -315,7 +315,7 @@
         <!--News-->
         <scene sceneID="IIO-Fh-Kao">
             <objects>
-                <tableViewController id="jby-eD-Xkg" customClass="PostsViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="postViewController" id="jby-eD-Xkg" customClass="PostsViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="T3g-dX-bkv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

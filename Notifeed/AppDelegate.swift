@@ -88,6 +88,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Saves changes in the application's managed object context before the application terminates.
         FeedDataBase.sharedInstance.saveContext()
     }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
+    {
+        let urlString = "\(url)"
+        
+        if urlString == "mgsnotifeed://"
+        {
+            let userDefaults = NSUserDefaults(suiteName: "group.notifeedcontainer")
+            if let title = userDefaults?.valueForKey("favoriteFeed") as? String, let tabVC = self.window?.rootViewController as? UITabBarController
+            {
+                if let splitVC = tabVC.viewControllers?[0] as? UISplitViewController
+                {
+                    let favoriteFeed = FeedModel.getSharedInstance().getFeedWithTitle(title)
+                    
+                    if let navigationVC = splitVC.viewControllers[0] as? UINavigationController
+                    {
+                        if let feedVC = navigationVC.viewControllers[0] as? FeedViewController
+                        {
+                            let storyboard = UIStoryboard(name: "Main3", bundle: nil)
+                            let favoriteVC = storyboard.instantiateViewControllerWithIdentifier("postViewController") as! PostsViewController
+                            favoriteVC.selectedFeed = favoriteFeed
+                            
+                            tabVC.selectedIndex = 0
+                            
+                            navigationVC.setViewControllers([feedVC, favoriteVC], animated: true)
+                        }
+                    }
+                }
+            }
+        }
+        
+        return true
+    }
 
     // MARK: - Split view
     

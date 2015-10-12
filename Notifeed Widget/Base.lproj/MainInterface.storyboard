@@ -56,21 +56,35 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzN-iF-dC5">
+                                            <rect key="frame" x="282" y="15" width="30" height="30"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="11v-E8-Jr8"/>
+                                                <constraint firstAttribute="height" constant="30" id="dsh-Dw-zcf"/>
+                                            </constraints>
+                                            <state key="normal" image="GoToApp_Icon.png"/>
+                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="Lxo-kO-7WW" firstAttribute="top" secondItem="8hs-nL-0et" secondAttribute="bottom" constant="11" id="0lr-aK-x0f"/>
                                         <constraint firstItem="8hs-nL-0et" firstAttribute="centerX" secondItem="u1u-nX-SLA" secondAttribute="centerX" id="5oY-qA-Rnb"/>
+                                        <constraint firstItem="Lxo-kO-7WW" firstAttribute="top" secondItem="OzN-iF-dC5" secondAttribute="bottom" constant="13" id="8FP-f7-yMo"/>
+                                        <constraint firstItem="OzN-iF-dC5" firstAttribute="trailing" secondItem="u1u-nX-SLA" secondAttribute="trailingMargin" id="9LA-IG-Dme"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Lxo-kO-7WW" secondAttribute="trailing" constant="-8" id="K96-WZ-UOs"/>
+                                        <constraint firstItem="OzN-iF-dC5" firstAttribute="centerY" secondItem="u1u-nX-SLA" secondAttribute="centerY" id="KZZ-uY-kzm"/>
                                         <constraint firstItem="CrX-pJ-QSj" firstAttribute="centerY" secondItem="u1u-nX-SLA" secondAttribute="centerY" id="QR7-hw-93u"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Lxo-kO-7WW" secondAttribute="bottom" constant="-8" id="SIp-ZK-VUI"/>
                                         <constraint firstItem="CrX-pJ-QSj" firstAttribute="leading" secondItem="u1u-nX-SLA" secondAttribute="leadingMargin" id="Wi8-G9-wbs"/>
                                         <constraint firstItem="8hs-nL-0et" firstAttribute="centerY" secondItem="u1u-nX-SLA" secondAttribute="centerY" id="bDd-36-oxg"/>
                                         <constraint firstItem="Lxo-kO-7WW" firstAttribute="leading" secondItem="u1u-nX-SLA" secondAttribute="leadingMargin" constant="-8" id="eQr-Oi-hru"/>
+                                        <constraint firstItem="OzN-iF-dC5" firstAttribute="top" secondItem="u1u-nX-SLA" secondAttribute="topMargin" constant="7" id="yvb-jX-CEw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
+                                    <outlet property="goToAppButton" destination="OzN-iF-dC5" id="Dvh-DS-I5Q"/>
                                     <outlet property="titleLabel" destination="8hs-nL-0et" id="Hrg-HT-dko"/>
                                     <outlet property="updateButton" destination="CrX-pJ-QSj" id="4q4-9s-RPg"/>
                                 </connections>
@@ -157,6 +171,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GoToApp_Icon.png" width="55" height="55"/>
         <image name="UpdateButton.png" width="55" height="55"/>
         <image name="vertical_separator_today.png" width="3" height="80"/>
     </resources>

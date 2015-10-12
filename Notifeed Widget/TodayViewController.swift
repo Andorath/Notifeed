@@ -125,6 +125,14 @@ class TodayViewController: UITableViewController, NCWidgetProviding
         tableView.reloadData()
     }
     
+    func goToApp()
+    {
+        if let url = NSURL(string: "mgsnotifeed://")
+        {
+            self.extensionContext?.openURL(url, completionHandler: nil)
+        }
+    }
+    
     // MARK: - TableView Delegate and Datasource
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -132,6 +140,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding
         let headerCell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! WidgetHeaderCell
         headerCell.titleLabel.text = favoriteFeed?.title ?? "--"
         headerCell.updateButton.addTarget(self, action: "updateInterface", forControlEvents: .TouchUpInside)
+        headerCell.goToAppButton.addTarget(self, action: "goToApp", forControlEvents: .TouchUpInside)
         
         return headerCell
     }
