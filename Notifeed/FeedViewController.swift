@@ -225,26 +225,47 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         func showMenuSheet(action: UITableViewRowAction, indexPath: NSIndexPath)
         {
+            func getFavoriteFeedActionForFeedAtIndex(index: Int) -> UIAlertAction
+            {
+                let currentFeed = self.resultSearchController.active ?
+                                  self.filteredTableData[index] :
+                                  FeedModel.getSharedInstance().getFeeds()[index]
+                
+                if currentFeed.title == favoriteFeed?.title
+                {
+                    let unfavoriteAction = UIAlertAction(title: NSLocalizedString("Remove this Feed As Favorite", comment: "Comando rimuovi Feed"),
+                                                        style: UIAlertActionStyle.Destructive) {
+                                                            [weak self] action in
+                                                            self?.favoriteFeed = nil
+                                                    }
+                    
+                    return unfavoriteAction
+                }
+                else
+                {
+                    let favoriteAction = UIAlertAction(title: NSLocalizedString("Set this Feed as Favorite", comment: "Comando imposta preferito"),
+                        style: .Default) {
+                            [weak self] action in
+                            self?.favoriteFeed = currentFeed
+                    }
+                    
+                    return favoriteAction
+                }
+            }
+            
             let menuSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
             
-            menuSheet.addAction(UIAlertAction(title: NSLocalizedString("Set this Feed as Favorite", comment: "Comando imposta preferito"),
-                                              style: .Default) {
-                                                    [weak self] action in
-                                                    if self?.resultSearchController.active ?? false
-                                                    {
-                                                        self?.favoriteFeed = self?.filteredTableData[indexPath.row]
-                                                    }
-                                                    else
-                                                    {
-                                                        self?.favoriteFeed = FeedModel.getSharedInstance().getFeeds()[indexPath.row]
-                                                    }
-                                                
-                                                    self?.tableView.setEditing(false, animated: true)
-                                              })
+            menuSheet.addAction(getFavoriteFeedActionForFeedAtIndex(indexPath.row))
             
             menuSheet.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Comando annulla menu"),
                                               style: UIAlertActionStyle.Cancel,
                                               handler: nil))
+            
+            menuSheet.popoverPresentationController?.sourceView = tableView.cellForRowAtIndexPath(indexPath)?.textLabel
+            menuSheet.popoverPresentationController?.permittedArrowDirections = .Down
+            
+            
+            self.tableView.setEditing(false, animated: true)
             
             self.presentViewController(menuSheet, animated: true, completion: nil)
         }

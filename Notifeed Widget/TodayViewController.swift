@@ -80,7 +80,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     {
         // Perform any setup necessary in order to update the view.
         favoriteFeed = getFavoriteFeed()
-        postArray = favoriteFeed != nil ? scanFavoriteFeed(favoriteFeed!) : []
+        postArray = favoriteFeed != nil ? scanFavoriteFeed(favoriteFeed!) : nil
         tableView.reloadData()
         self.updatePreferredContentSize()
         NSLog("ereoto")
@@ -94,7 +94,11 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     
     func getFavoriteFeed() -> Feed?
     {
-        let title = userDefaults?.valueForKey("favoriteFeed") as! String
+        guard let title = userDefaults?.valueForKey("favoriteFeed") as? String else
+        {
+            return nil
+        }
+        
         return FeedModel.getSharedInstance().getFeedWithTitle(title)
     }
     
@@ -108,7 +112,15 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     
     func updatePreferredContentSize()
     {
-        preferredContentSize = CGSizeMake(0, CGFloat(tableView(tableView, numberOfRowsInSection: 0)) * tableView.rowHeight + tableView.sectionHeaderHeight + tableView.sectionFooterHeight)
+        guard let posts = postArray else
+        {
+            preferredContentSize = CGSizeMake(0, tableView.sectionHeaderHeight)
+            return
+        }
+        
+        preferredContentSize = posts.isEmpty ? CGSizeMake(0, tableView.sectionHeaderHeight) :
+                                               CGSizeMake(0, CGFloat(tableView(tableView, numberOfRowsInSection: 0)) * tableView.rowHeight + tableView.sectionHeaderHeight + tableView.sectionFooterHeight)
+        print(preferredContentSize)
     }
     
     func updateInterface()
@@ -133,6 +145,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
+        guard let _ = postArray else { return nil }
+        
+        guard !postArray!.isEmpty else { return nil }
+        
         let footerCell = tableView.dequeueReusableCellWithIdentifier("footerCell") as! WidgetFooterCell
         footerCell.expandButton.addTarget(self, action: "toggleExpand", forControlEvents: .TouchUpInside)
         let title = expanded ? NSLocalizedString("Show less", comment: "Mstra meno widget") :
@@ -146,7 +162,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     {
         guard let posts = postArray else { NSLog("Nessun Post!"); return 0 }
         
-        return (min(posts.count, expanded ? maxNumberOfRows : defaultNumRows)) ?? 0
+        guard !postArray!.isEmpty else { return 0 }
+        
+        return min(posts.count, expanded ? maxNumberOfRows : defaultNumRows)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
