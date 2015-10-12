@@ -58,3 +58,13 @@ class Feed : NSObject
     }
     
 }
+
+func == (left: Feed, right: Feed) -> Bool
+{
+    return left.title == right.title
+}
+
+func != (left: Feed, right: Feed) -> Bool
+{
+    return left.title != right.title
+}

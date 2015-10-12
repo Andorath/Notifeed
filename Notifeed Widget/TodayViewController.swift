@@ -44,9 +44,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     }
     
     func setUpExpandButton()
-    {
-//        updateExpandButtonTitle()
-//        expandButton.addTarget(self, action: "toggleExpand", forControlEvents: .TouchUpInside)        
+    {      
         tableView.sectionFooterHeight = 45
     }
     
@@ -78,16 +76,11 @@ class TodayViewController: UITableViewController, NCWidgetProviding
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void))
     {
-        // Perform any setup necessary in order to update the view.
         favoriteFeed = getFavoriteFeed()
         postArray = favoriteFeed != nil ? scanFavoriteFeed(favoriteFeed!) : nil
         tableView.reloadData()
         self.updatePreferredContentSize()
         NSLog("ereoto")
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
 
         completionHandler(NCUpdateResult.NewData)
     }
@@ -151,8 +144,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding
         
         let footerCell = tableView.dequeueReusableCellWithIdentifier("footerCell") as! WidgetFooterCell
         footerCell.expandButton.addTarget(self, action: "toggleExpand", forControlEvents: .TouchUpInside)
+        
         let title = expanded ? NSLocalizedString("Show less", comment: "Mstra meno widget") :
                                NSLocalizedString("Show More", comment: "Mostra di più widget")
+        
         footerCell.expandButton.setTitle(title, forState: .Normal)
         
         return footerCell

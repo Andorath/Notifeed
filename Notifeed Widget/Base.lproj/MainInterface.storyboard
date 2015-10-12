@@ -98,7 +98,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="vertical_separetor.png" id="RuV-rK-lX3">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="vertical_separator_today.png" id="RuV-rK-lX3">
                                             <rect key="frame" x="15" y="9" width="3" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
@@ -158,6 +158,6 @@
     </scenes>
     <resources>
         <image name="UpdateButton.png" width="55" height="55"/>
-        <image name="vertical_separetor.png" width="3" height="80"/>
+        <image name="vertical_separator_today.png" width="3" height="80"/>
     </resources>
 </document>

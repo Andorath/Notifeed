@@ -44,3 +44,13 @@ class Post: NSObject
         published = post.published
     }
 }
+
+func == (left: Post, right: Post) -> Bool
+{
+    return left.title == right.title
+}
+
+func != (left: Post, right: Post) -> Bool
+{
+    return left.title != right.title
+}
