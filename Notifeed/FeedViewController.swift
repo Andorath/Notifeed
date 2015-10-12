@@ -117,22 +117,26 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell 
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! FeedCell
+        
+        let currentFeed: Feed
+        
         if self.resultSearchController.active
         {
-            cell.textLabel?.text = filteredTableData[indexPath.row].title
-            cell.detailTextLabel?.text = filteredTableData[indexPath.row].link
+            currentFeed = filteredTableData[indexPath.row]
+            cell.titleLabel.text = currentFeed.title
+            cell.linkLabel.text = currentFeed.link
         }
         else
         {
-            let feed = FeedModel.getSharedInstance().getFeeds()[indexPath.row]
+            currentFeed = FeedModel.getSharedInstance().getFeeds()[indexPath.row]
             
-            cell.textLabel?.text = feed.title
-            cell.detailTextLabel?.text = feed.link
-            
-            return cell
+            cell.titleLabel.text = currentFeed.title
+            cell.linkLabel.text = currentFeed.link
         }
+        
+        cell.favoriteIcon.image = favoriteFeed?.title == currentFeed.title ?
+                                  UIImage(named: "FavoriteFeed.png") : nil
 
         return cell
     }
@@ -225,11 +229,11 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         func showMenuSheet(action: UITableViewRowAction, indexPath: NSIndexPath)
         {
-            func getFavoriteFeedActionForFeedAtIndex(index: Int) -> UIAlertAction
+            func getFavoriteFeedActionForFeedAtIndex() -> UIAlertAction
             {
                 let currentFeed = self.resultSearchController.active ?
-                                  self.filteredTableData[index] :
-                                  FeedModel.getSharedInstance().getFeeds()[index]
+                                  self.filteredTableData[indexPath.row] :
+                                  FeedModel.getSharedInstance().getFeeds()[indexPath.row]
                 
                 if currentFeed.title == favoriteFeed?.title
                 {
@@ -237,6 +241,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
                                                         style: UIAlertActionStyle.Destructive) {
                                                             [weak self] action in
                                                             self?.favoriteFeed = nil
+                                                            self?.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .None)
                                                     }
                     
                     return unfavoriteAction
@@ -247,6 +252,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
                         style: .Default) {
                             [weak self] action in
                             self?.favoriteFeed = currentFeed
+                            self?.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .None)
                     }
                     
                     return favoriteAction
@@ -255,13 +261,14 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
             
             let menuSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
             
-            menuSheet.addAction(getFavoriteFeedActionForFeedAtIndex(indexPath.row))
+            menuSheet.addAction(getFavoriteFeedActionForFeedAtIndex())
             
             menuSheet.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Comando annulla menu"),
                                               style: UIAlertActionStyle.Cancel,
                                               handler: nil))
             
-            menuSheet.popoverPresentationController?.sourceView = tableView.cellForRowAtIndexPath(indexPath)?.textLabel
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! FeedCell
+            menuSheet.popoverPresentationController?.sourceView = cell.titleLabel
             menuSheet.popoverPresentationController?.permittedArrowDirections = .Down
             
             
