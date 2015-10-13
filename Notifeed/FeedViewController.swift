@@ -250,12 +250,12 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
     {
         func showMenuSheet(action: UITableViewRowAction, indexPath: NSIndexPath)
         {
-            func getFavoriteFeedActionForFeedAtIndex() -> UIAlertAction
+            let currentFeed = self.resultSearchController.active ?
+                              self.filteredTableData[indexPath.row] :
+                              FeedModel.getSharedInstance().getFeeds()[indexPath.row]
+            
+            func getFavoriteFeedAction() -> UIAlertAction
             {
-                let currentFeed = self.resultSearchController.active ?
-                                  self.filteredTableData[indexPath.row] :
-                                  FeedModel.getSharedInstance().getFeeds()[indexPath.row]
-                
                 if currentFeed.title == favoriteFeed?.title
                 {
                     let unfavoriteAction = UIAlertAction(title: NSLocalizedString("Remove this Feed As Favorite", comment: "Comando rimuovi Feed"),
@@ -280,17 +280,52 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
                 }
             }
             
+            func getShareFeedAction() -> UIAlertAction?
+            {
+                if let url = NSURL(string: currentFeed.link)
+                {
+                    let string = currentFeed.title + " - " + "\(url)"
+                    
+                    let activityViewController = UIActivityViewController(activityItems: [string], applicationActivities: nil)
+                    activityViewController.excludedActivityTypes = [UIActivityTypeAssignToContact,
+                        UIActivityTypeSaveToCameraRoll,
+                        UIActivityTypeAirDrop,
+                        UIActivityTypePostToFlickr]
+                    
+                    let shareAction = UIAlertAction(title: NSLocalizedString("Share this Feed", comment: "Comando condividi Feed"),
+                                                    style: .Default) {
+                                                       [unowned self] action in
+                                                        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+                                                        {
+                                                            self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
+                                                        }
+                                                        else if UIDevice.currentDevice().userInterfaceIdiom == .Pad
+                                                        {
+                                                            let popup = UIPopoverController(contentViewController: activityViewController)
+                                                            let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! FeedCell
+                                                            popup.presentPopoverFromRect(cell.titleLabel.frame, inView: cell, permittedArrowDirections: [.Down, .Up], animated: true)
+                                                        }
+                                                }
+                    return shareAction
+                }
+                
+                return nil
+            }
+            
             let menuSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
             
-            menuSheet.addAction(getFavoriteFeedActionForFeedAtIndex())
+            menuSheet.addAction(getFavoriteFeedAction())
+            
+            if let shareAction = getShareFeedAction() { menuSheet.addAction(shareAction) }
             
             menuSheet.addAction(UIAlertAction(title: NSLocalizedString("Annulla", comment: "Comando annulla menu"),
                                               style: UIAlertActionStyle.Cancel,
                                               handler: nil))
             
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! FeedCell
+            menuSheet.popoverPresentationController?.sourceRect = cell.titleLabel.frame
             menuSheet.popoverPresentationController?.sourceView = cell.titleLabel
-            menuSheet.popoverPresentationController?.permittedArrowDirections = .Down
+            menuSheet.popoverPresentationController?.permittedArrowDirections = .Unknown
             
             
             self.tableView.setEditing(false, animated: true)

@@ -92,30 +92,30 @@ class FeedEditingPerformer: NSObject, FeedEditingDelegate, UITextFieldDelegate
     
     func editActionHandler(action: UIAlertAction)
     {
-        if let titleNoSpaces = alertController!.textFields?[0].text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        if let titleNoSpaces = alertController!.textFields?[0].text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()),
+           let linkNoSpaces = alertController!.textFields?[1].text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         {
             if titleNoSpaces.isEmpty
             {
                 showEmptyTitleAlert()
             }
+            else if linkNoSpaces.isEmpty
+            {
+                showEmptyLinkAlert()
+            }
             else
             {
-                if let linkNoSpaces = alertController!.textFields?[1].text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-                {
-                    
-                    let newFeed = Feed(title: titleNoSpaces, link: linkNoSpaces, creazione: NSDate())
-                    FeedModel.getSharedInstance().editFeed(feed!, withNewFeed: newFeed)
-                    delegator!.updateInterfaceBySections()
-                }
+                let newFeed = Feed(title: titleNoSpaces, link: linkNoSpaces, creazione: NSDate())
+                FeedModel.getSharedInstance().editFeed(feed!, withNewFeed: newFeed)
+                delegator!.updateInterfaceBySections()
             }
-            
         }
     }
     
     func showEmptyTitleAlert()
     {
         let emptyNameAlert = UIAlertController(title: NSLocalizedString("Warning!", comment: "Titolo popup errore titolo Feed vuoto"),
-                                               message: NSLocalizedString("You can't create a feed with an empty title",
+                                               message: NSLocalizedString("You can't have a feed with an empty title",
                 comment: "Messaggio popup errore prescrizione"),
                                                preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -124,6 +124,20 @@ class FeedEditingPerformer: NSObject, FeedEditingDelegate, UITextFieldDelegate
                                                handler: nil))
         
         delegator!.presentViewController(emptyNameAlert, animated: true, completion: nil)
+    }
+    
+    func showEmptyLinkAlert()
+    {
+        let emptyLinkAlert = UIAlertController(title: NSLocalizedString("Warning!", comment: "Titolo popup errore link Feed vuoto"),
+                                               message: NSLocalizedString("You can't have a feed with an empty link",
+                comment: "Messaggio popup errore prescrizione"),
+                                               preferredStyle: UIAlertControllerStyle.Alert)
+        
+        emptyLinkAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok popup errore creazione feed"),
+                                               style: UIAlertActionStyle.Default,
+                                               handler: nil))
+        
+        delegator!.presentViewController(emptyLinkAlert, animated: true, completion: nil)
     }
     
     func handleTextFieldTextDidChangeNotification (notification: NSNotification)
