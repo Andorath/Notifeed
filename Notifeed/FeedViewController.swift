@@ -231,8 +231,9 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
                                                  handler: nil))
             
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! FeedCell
+            controlAlert.popoverPresentationController?.sourceRect = cell.titleLabel.frame
             controlAlert.popoverPresentationController?.sourceView = cell.titleLabel
-            controlAlert.popoverPresentationController?.permittedArrowDirections = .Down
+            controlAlert.popoverPresentationController?.permittedArrowDirections = .Unknown
             
             self.tableView.setEditing(false, animated: true)
             
