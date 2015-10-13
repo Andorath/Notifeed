@@ -13,6 +13,7 @@
 		A925E5AA1BCC4DF400A59E27 /* vertical_separator_today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A925E5A91BCC4DF400A59E27 /* vertical_separator_today@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A92F29771B25EFB50045102C /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F29761B25EFB50045102C /* UIAppearance+Swift.m */; };
 		A9377DF51BB2FBFB00633AFF /* FeedEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */; settings = {ASSET_TAGS = (); }; };
+		A938704C1BCD937300571ABC /* Launch Notifeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A938704B1BCD937300571ABC /* Launch Notifeed.storyboard */; settings = {ASSET_TAGS = (); }; };
 		A94067731BB4867C005EFA09 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94067721BB4867C005EFA09 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9562E331BC5B15A0015EA0C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
 		A9562E361BC5B15A0015EA0C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9562E351BC5B15A0015EA0C /* TodayViewController.swift */; };
@@ -120,6 +121,7 @@
 		A92F29751B25EFB50045102C /* UIAppearance+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
 		A92F29761B25EFB50045102C /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEditingPerformer.swift; sourceTree = "<group>"; };
+		A938704B1BCD937300571ABC /* Launch Notifeed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Notifeed.storyboard"; sourceTree = "<group>"; };
 		A94067721BB4867C005EFA09 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A9562E301BC5B15A0015EA0C /* Notifeed Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notifeed Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -278,6 +280,7 @@
 			children = (
 				A98ED8E71BB5BA570043B5DC /* Main3.storyboard */,
 				A968D4EA1BB1B44500BB8C22 /* Main2.storyboard */,
+				A938704B1BCD937300571ABC /* Launch Notifeed.storyboard */,
 				A99342BB1B1CA7E2001CF4EA /* LaunchScreen.xib */,
 				A9DD3AD11B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib */,
 				A97621C21BB2AF1F0003672E /* PKHUD */,
@@ -547,6 +550,7 @@
 			files = (
 				A9960F5B1B21E80B007DDD39 /* LaunchScreen.xib in Resources */,
 				A9EAB6451BC8282D00FA30BE /* MenuAction@2x.png in Resources */,
+				A938704C1BCD937300571ABC /* Launch Notifeed.storyboard in Resources */,
 				A9FA352C1B205335008E68A7 /* RSSFilled50@2x.png in Resources */,
 				A9F25E7B1BBC205900337DEA /* NotifeedLogo@2x.png in Resources */,
 				A9DD3AD31B1F8DCD006FC61D /* MGSEmptyDetailViewController.xib in Resources */,

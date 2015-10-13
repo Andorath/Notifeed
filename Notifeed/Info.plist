@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1542</string>
+	<string>1545</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -39,7 +39,7 @@
 		<true/>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Launch Notifeed</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main3</string>
 	<key>UIRequiredDeviceCapabilities</key>
