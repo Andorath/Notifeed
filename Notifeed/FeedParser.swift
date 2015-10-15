@@ -58,19 +58,29 @@ class FeedParser: NSObject, NSXMLParserDelegate
         
         if let url = NSURL(string: link)
         {
-            parser = NSXMLParser(contentsOfURL: url)!
-            parser.delegate = self
+            let request = NSURLRequest(URL: url)
+            var response: NSURLResponse? = NSURLResponse()
             
-            parser.parse()
+            guard let data = try? NSURLConnection.sendSynchronousRequest(request, returningResponse: &response) else
+            {
+                throw FeedParserError.UnableToConnect
+            }
+            parser = NSXMLParser(data: data)
+            self.parser.delegate = self
+            self.parser.parse()
+            
+            if currentFeedType == .Unknown
+            {
+                throw FeedParserError.UnknownFeedFormat
+            }
+            else if postArray.isEmpty
+            {
+                throw FeedParserError.InvalidURL
+            }
         }
-        
-        if currentFeedType == .Unknown
+        else
         {
-            throw FeedParserError.UnknownFeedFormat
-        }
-        else if postArray.isEmpty
-        {
-            throw FeedParserError.InvalidURL
+            throw FeedParserError.UnableToConnect
         }
         
         return postArray
@@ -95,6 +105,7 @@ class FeedParser: NSObject, NSXMLParserDelegate
     
     func parseStartOfRSS2Element(elementName: String)
     {
+        print("Element: \(elementName)")
         if elementName == "item"
         {
             isItemTag = true
@@ -164,6 +175,28 @@ class FeedParser: NSObject, NSXMLParserDelegate
         else if eName == "summary" ||
                 eName == "subtitle" { currentPost.postDescription += data }
         else if eName == "updated" && isItemTag { currentPost.published = NSDate.dateFromString(data, format: currentFeedType.getDateFormat())}
+    }
+    
+    // MARK: - Metodi supplementari
+    
+    func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError)
+    {
+        NSLog("ERRORE NELLA VALIDAZIONE!")
+    }
+    
+    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError)
+    {
+        NSLog("ERRORE DURANTE IL PARSING!")
+    }
+    
+    func parserDidStartDocument(parser: NSXMLParser)
+    {
+        NSLog("BEGIN PARSING...")
+    }
+    
+    func parserDidEndDocument(parser: NSXMLParser)
+    {
+        NSLog("PARSING END.")
     }
     
 }

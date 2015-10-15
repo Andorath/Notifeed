@@ -79,6 +79,10 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating, ADBan
                 {
                     showUnknownFeedFormatAlert()
                 }
+                catch FeedParserError.UnableToConnect
+                {
+                    showUnableToConnectAlert()
+                }
                 catch
                 {}
                 
@@ -127,6 +131,25 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating, ADBan
                                                                         navController.popViewControllerAnimated(true)
                                                                     }
                                                                 })
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func showUnableToConnectAlert()
+    {
+        
+        let alertController = UIAlertController(title: NSLocalizedString("Error!", comment: "Errore unable to connect"),
+                                                message: NSLocalizedString("Unable to connect to the link. Check the URL status, your internet connection or check if you have inserted an URL with the right format.", comment: "Messsaggio unable to connect"),
+                                                preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Action invalid url alert"),
+                                                style: .Default){
+                                                    alert in
+                                                    if let navController = self.navigationController
+                                                    {
+                                                        navController.popViewControllerAnimated(true)
+                                                    }
+                                                })
         
         presentViewController(alertController, animated: true, completion: nil)
     }
