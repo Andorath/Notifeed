@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import iAd
 
-class FeedViewController: UITableViewController, UISearchResultsUpdating
+class FeedViewController: UITableViewController, UISearchResultsUpdating, ADBannerViewDelegate
 {
     var filteredTableData = [Feed]()
     var resultSearchController = UISearchController()
@@ -36,6 +37,7 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
         super.viewDidLoad()
         resultSearchController = getResultSearchController()
         setUserInterfaceComponents()
+        setStoreProperties()
     }
     
     func getResultSearchController() -> UISearchController
@@ -65,7 +67,16 @@ class FeedViewController: UITableViewController, UISearchResultsUpdating
         }
         self.navigationItem.leftBarButtonItem?.enabled = tableView.numberOfRowsInSection(0) != 0
     }
+    
+    // MARK: - Metodi di Store e Purchaing
+    
+    func setStoreProperties()
+    {
+        self.canDisplayBannerAds = NotifeedStore.sharedInstance.canShowiAd()
+    }
 
+    // MARK: -
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()

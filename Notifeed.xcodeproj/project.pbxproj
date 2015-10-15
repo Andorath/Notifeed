@@ -14,6 +14,8 @@
 		A92F29771B25EFB50045102C /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F29761B25EFB50045102C /* UIAppearance+Swift.m */; };
 		A9377DF51BB2FBFB00633AFF /* FeedEditingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */; settings = {ASSET_TAGS = (); }; };
 		A938704C1BCD937300571ABC /* Launch Notifeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A938704B1BCD937300571ABC /* Launch Notifeed.storyboard */; settings = {ASSET_TAGS = (); }; };
+		A938704E1BCD9A9600571ABC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A938704D1BCD9A9600571ABC /* iAd.framework */; };
+		A93870511BCD9AEF00571ABC /* NotifeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93870501BCD9AEF00571ABC /* NotifeedStore.swift */; settings = {ASSET_TAGS = (); }; };
 		A94067731BB4867C005EFA09 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94067721BB4867C005EFA09 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9562E331BC5B15A0015EA0C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
 		A9562E361BC5B15A0015EA0C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9562E351BC5B15A0015EA0C /* TodayViewController.swift */; };
@@ -122,6 +124,8 @@
 		A92F29761B25EFB50045102C /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		A9377DF41BB2FBFB00633AFF /* FeedEditingPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEditingPerformer.swift; sourceTree = "<group>"; };
 		A938704B1BCD937300571ABC /* Launch Notifeed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Notifeed.storyboard"; sourceTree = "<group>"; };
+		A938704D1BCD9A9600571ABC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A93870501BCD9AEF00571ABC /* NotifeedStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifeedStore.swift; sourceTree = "<group>"; };
 		A94067721BB4867C005EFA09 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A9562E301BC5B15A0015EA0C /* Notifeed Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notifeed Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -203,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A938704E1BCD9A9600571ABC /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +230,18 @@
 			name = Workaround;
 			sourceTree = "<group>";
 		};
+		A938704F1BCD9ACC00571ABC /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A93870501BCD9AEF00571ABC /* NotifeedStore.swift */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		A9562E311BC5B15A0015EA0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A938704D1BCD9A9600571ABC /* iAd.framework */,
 				A9562E321BC5B15A0015EA0C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -305,6 +319,7 @@
 		A99342AA1B1CA7E1001CF4EA /* Notifeed */ = {
 			isa = PBXGroup;
 			children = (
+				A938704F1BCD9ACC00571ABC /* Store */,
 				A9562E421BC5B1950015EA0C /* Notifeed.entitlements */,
 				A99342AD1B1CA7E1001CF4EA /* AppDelegate.swift */,
 				A9F230EB1BB0B91F00BD5434 /* Model */,
@@ -645,6 +660,7 @@
 				A97621D31BB2AF1F0003672E /* WindowRootViewController.swift in Sources */,
 				A97621D11BB2AF1F0003672E /* PKHUDContentView.swift in Sources */,
 				A97621D01BB2AF1F0003672E /* PKHUDAssets.swift in Sources */,
+				A93870511BCD9AEF00571ABC /* NotifeedStore.swift in Sources */,
 				A9B212D51BB1EEA6009E150C /* PostsViewController.swift in Sources */,
 				A9F230ED1BB0B93D00BD5434 /* FeedModel.swift in Sources */,
 				A9B7ABE91BC6AD01008DACF2 /* FeedDataBase.swift in Sources */,
