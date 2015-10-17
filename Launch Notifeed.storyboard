@@ -47,13 +47,13 @@
                                             </variation>
                                         </imageView>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPx-cA-cLp">
-                                            <rect key="frame" x="80" y="561" width="441" height="21"/>
+                                            <rect key="frame" x="29" y="561" width="543" height="21"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gfn-Ri-37u">
-                                                <rect key="frame" x="0.0" y="0.0" width="441" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="543" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Marco Salafia. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WhA-1G-dX0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="441" height="21"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Marco Salafia. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="WhA-1G-dX0">
+                                                        <rect key="frame" x="8" y="0.0" width="527" height="21"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="441" id="D8l-I0-XDk"/>
@@ -62,14 +62,20 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="D8l-I0-XDk"/>
+                                                                <exclude reference="r9x-5b-JWU"/>
+                                                            </mask>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
                                                 <animations/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="WhA-1G-dX0" secondAttribute="trailing" id="25g-ti-zi9">
+                                                    <constraint firstAttribute="trailing" secondItem="WhA-1G-dX0" secondAttribute="trailing" constant="8" id="25g-ti-zi9">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                                                     </constraint>
-                                                    <constraint firstItem="WhA-1G-dX0" firstAttribute="leading" secondItem="gfn-Ri-37u" secondAttribute="leading" id="4Wx-l7-nlM">
+                                                    <constraint firstItem="WhA-1G-dX0" firstAttribute="leading" secondItem="gfn-Ri-37u" secondAttribute="leading" constant="8" id="4Wx-l7-nlM">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                                                     </constraint>
                                                     <constraint firstItem="WhA-1G-dX0" firstAttribute="top" secondItem="gfn-Ri-37u" secondAttribute="top" id="5Nn-Eh-wbM"/>
@@ -91,9 +97,9 @@
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="VHj-jm-dgd" firstAttribute="centerX" secondItem="AWN-rq-QFH" secondAttribute="centerX" id="8lR-lv-6dw"/>
-                                        <constraint firstAttribute="trailing" secondItem="SPx-cA-cLp" secondAttribute="trailing" constant="79" id="BR7-G2-CaP"/>
+                                        <constraint firstAttribute="trailing" secondItem="SPx-cA-cLp" secondAttribute="trailing" constant="28" id="BR7-G2-CaP"/>
                                         <constraint firstItem="VHj-jm-dgd" firstAttribute="centerY" secondItem="AWN-rq-QFH" secondAttribute="centerY" id="Yfe-g5-giT"/>
-                                        <constraint firstItem="SPx-cA-cLp" firstAttribute="leading" secondItem="AWN-rq-QFH" secondAttribute="leading" constant="80" id="owi-Zr-7LD"/>
+                                        <constraint firstItem="SPx-cA-cLp" firstAttribute="leading" secondItem="AWN-rq-QFH" secondAttribute="leading" constant="29" id="owi-Zr-7LD"/>
                                         <constraint firstAttribute="bottom" secondItem="SPx-cA-cLp" secondAttribute="bottom" constant="18" id="zrB-RX-WTC">
                                             <variation key="heightClass=regular-widthClass=regular" constant="8"/>
                                         </constraint>

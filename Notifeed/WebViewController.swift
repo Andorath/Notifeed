@@ -8,9 +8,8 @@
 
 import UIKit
 import SafariServices
-import iAd
 
-class WebViewController: UIViewController, UIWebViewDelegate, ADBannerViewDelegate
+class WebViewController: UIViewController, UIWebViewDelegate
 {
     var activityViewController: UIActivityViewController?
     
@@ -42,7 +41,6 @@ class WebViewController: UIViewController, UIWebViewDelegate, ADBannerViewDelega
         self.navigationController?.setToolbarHidden(false, animated: false)
         initActivityController()
         initWebViewLoading()
-        setStoreProperties()
         
         if #available(iOS 9.0, *)
         {
@@ -150,15 +148,6 @@ class WebViewController: UIViewController, UIWebViewDelegate, ADBannerViewDelega
     {
         spinner.stopAnimating()
     }
-    
-    // MARK: - Metodi di Store e Purchaing
-    
-    func setStoreProperties()
-    {
-        self.canDisplayBannerAds = NotifeedStore.sharedInstance.canShowiAd()
-    }
-    
-    // MARK: -
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

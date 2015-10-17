@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import iAd
 
-class PostsViewController: UITableViewController, UISearchResultsUpdating, ADBannerViewDelegate
+class PostsViewController: UITableViewController, UISearchResultsUpdating
 {
     var selectedFeed: Feed? {
         didSet {
@@ -30,7 +29,6 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating, ADBan
         resultSearchController = getResultSearchController()
         initInterfaceComponent()
         showActivityIndicator()
-        setStoreProperties()
     }
     
     func initInterfaceComponent()
@@ -170,15 +168,6 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating, ADBan
     {
         PKHUD.sharedHUD.hide()
     }
-    
-    // MARK: - Metodi di Store e Purchaing
-    
-    func setStoreProperties()
-    {
-        self.canDisplayBannerAds = NotifeedStore.sharedInstance.canShowiAd()
-    }
-    
-    // MARK: -
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
