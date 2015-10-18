@@ -113,7 +113,6 @@ class BannerViewController: UIViewController
     
     func updateLayout()
     {
-        print("UpdateLayout")
         UIView.animateWithDuration(0.25) {
             [weak self] in
             self!.view.setNeedsLayout()
