@@ -77,7 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let userDefaults = NSUserDefaults(suiteName: "group.notifeedcontainer")
             if let title = userDefaults?.valueForKey("favoriteFeed") as? String, let tabVC = (self.window?.rootViewController as? BannerViewController)?.contentController as? UITabBarController
             {
-                NSLog("\(tabVC)")
                 if let splitVC = tabVC.viewControllers?[0] as? UISplitViewController
                 {
                     let favoriteFeed = FeedModel.getSharedInstance().getFeedWithTitle(title)

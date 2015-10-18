@@ -268,12 +268,12 @@
 		A9751DB11B24E716009BD779 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A98C8A521BD3EF890012FBC1 /* BannerViewController.swift */,
 				A96627C01BB1682100B44B0B /* FeedViewController.swift */,
 				A9B212D41BB1EEA6009E150C /* PostsViewController.swift */,
 				A94067721BB4867C005EFA09 /* WebViewController.swift */,
 				A9BCB26B1BB7042600A9BC29 /* ArchivedViewController.swift */,
 				A9DD3AD01B1F8DCD006FC61D /* MGSEmptyDetailViewController.swift */,
-				A98C8A521BD3EF890012FBC1 /* BannerViewController.swift */,
 				A98C8A541BD40E330012FBC1 /* MGSplitViewController.swift */,
 			);
 			name = "View Controllers";
