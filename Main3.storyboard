@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uZU-2p-g96">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ip3-yD-6ox">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -22,7 +22,7 @@
         <!--feedSplitViewController-->
         <scene sceneID="OCz-5L-VbL">
             <objects>
-                <splitViewController title="feedSplitViewController" extendedLayoutIncludesOpaqueBars="YES" id="6ad-2b-Ngr" sceneMemberID="viewController">
+                <splitViewController title="feedSplitViewController" extendedLayoutIncludesOpaqueBars="YES" id="6ad-2b-Ngr" customClass="MGSplitViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feeds" image="rss_tab.png" id="dtV-1K-wbh">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -70,6 +70,40 @@
             </objects>
             <point key="canvasLocation" x="-794" y="-1062"/>
         </scene>
+        <!--Banner View Controller-->
+        <scene sceneID="ibn-MW-RhH">
+            <objects>
+                <viewController id="Ip3-yD-6ox" customClass="BannerViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="THV-Dg-Sf9"/>
+                        <viewControllerLayoutGuide type="bottom" id="6tF-kC-871"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Upu-3O-3Fo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eau-RO-leW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="uZU-2p-g96" kind="embed" identifier="containerEmbedding" id="etP-bv-wRa"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eau-RO-leW" firstAttribute="leading" secondItem="Upu-3O-3Fo" secondAttribute="leadingMargin" constant="-20" id="03c-nx-BfJ"/>
+                            <constraint firstItem="eau-RO-leW" firstAttribute="top" secondItem="Upu-3O-3Fo" secondAttribute="topMargin" id="3R3-re-UuX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eau-RO-leW" secondAttribute="trailing" constant="-20" id="E28-76-Yr9"/>
+                            <constraint firstItem="6tF-kC-871" firstAttribute="top" secondItem="eau-RO-leW" secondAttribute="bottom" id="EFb-cN-n5g"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dO-r2-XUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3286" y="136"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Yqk-Rg-gPv">
             <objects>
@@ -102,7 +136,7 @@
                         <color key="separatorColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="MZj-7U-ggE" customClass="FeedCell" customModule="Notifeed" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZj-7U-ggE" id="XKd-gu-lub">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="69"/>
@@ -199,7 +233,7 @@
                         <color key="separatorColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="sqr-nn-S9b" detailTextLabel="EWk-Iy-Kj3" imageView="ReB-GC-p9e" style="IBUITableViewCellStyleSubtitle" id="zYQ-rU-HSa">
-                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zYQ-rU-HSa" id="IqG-m0-vs2">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
@@ -271,7 +305,7 @@
         <!--archivedSplitViewController-->
         <scene sceneID="sp1-7y-FEf">
             <objects>
-                <splitViewController title="archivedSplitViewController" extendedLayoutIncludesOpaqueBars="YES" id="R0c-Kh-gU0" sceneMemberID="viewController">
+                <splitViewController title="archivedSplitViewController" extendedLayoutIncludesOpaqueBars="YES" id="R0c-Kh-gU0" customClass="MGSplitViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Archived" image="archive.png" id="YD6-yx-d1O">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -324,7 +358,7 @@
                         <color key="separatorColor" red="1" green="0.75060961069999999" blue="0.55052633120000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="PvD-W8-uY8" detailTextLabel="sMK-hO-lKM" imageView="vsH-hz-NmQ" style="IBUITableViewCellStyleSubtitle" id="gHN-Fr-qz7">
-                                <rect key="frame" x="0.0" y="86" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="66" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHN-Fr-qz7" id="hkh-zi-dWc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
@@ -591,8 +625,8 @@
         <image name="vertical_separetor2.png" width="3" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="51K-aA-x8O"/>
-        <segue reference="oYU-p2-fvR"/>
+        <segue reference="6C8-P6-m0d"/>
+        <segue reference="aea-W3-mwj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
 </document>

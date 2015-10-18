@@ -10,38 +10,17 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var splitViewController: UISplitViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-        setAllSplitController()
         setCustomAppearance()
         updateAchivedTabBadge()
         initUserDefaults()
         return true
-    }
-
-    
-    func setAllSplitController()
-    {
-        if let split1 = (self.window?.rootViewController as? UITabBarController)?.viewControllers?[0] as? UISplitViewController
-        {
-            split1.delegate = self
-            let cnt = split1.viewControllers.count
-            (split1.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
-            split1.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
-        }
-        
-        if let split2 = (self.window?.rootViewController as? UITabBarController)?.viewControllers?[1] as? UISplitViewController
-        {
-            split2.delegate = self
-            let cnt = split2.viewControllers.count
-            (split2.viewControllers[cnt - 1] as! UINavigationController).viewControllers[0] = MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
-            split2.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
-        }
     }
     
     func setCustomAppearance()
@@ -96,8 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         if urlString == "mgsnotifeed://"
         {
             let userDefaults = NSUserDefaults(suiteName: "group.notifeedcontainer")
-            if let title = userDefaults?.valueForKey("favoriteFeed") as? String, let tabVC = self.window?.rootViewController as? UITabBarController
+            if let title = userDefaults?.valueForKey("favoriteFeed") as? String, let tabVC = (self.window?.rootViewController as? BannerViewController)?.contentController as? UITabBarController
             {
+                NSLog("\(tabVC)")
                 if let splitVC = tabVC.viewControllers?[0] as? UISplitViewController
                 {
                     let favoriteFeed = FeedModel.getSharedInstance().getFeedWithTitle(title)
@@ -120,51 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         
         return true
-    }
-
-    // MARK: - Split view
-    
-    func primaryViewControllerForCollapsingSplitViewController(splitViewController: UISplitViewController) -> UIViewController?
-    {
-        return splitViewController.viewControllers[0] as? UINavigationController
-    }
-    
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
-    {
-        if let _ = (secondaryViewController as? UINavigationController)?.topViewController as? MGSEmptyDetailViewController
-        {
-            return true
-        }
-        else if let _ = secondaryViewController as? MGSEmptyDetailViewController
-        {
-            return true
-        }
-        
-        return false
-    }
-    
-    func primaryViewControllerForExpandingSplitViewController(splitViewController: UISplitViewController) -> UIViewController?
-    {
-        if let masterNav = splitViewController.viewControllers[0] as? UINavigationController
-        {
-            return masterNav
-        }
-        
-        return nil
-    }
-    
-    func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController?
-    {
-        if let _ = (primaryViewController as? UINavigationController)?.topViewController as? PostsViewController
-        {
-            return MGSEmptyDetailViewController(nibName: "MGSEmptyDetailViewController", bundle: nil)
-        }
-        else if let vc = (primaryViewController as? UINavigationController)?.topViewController as? MGSEmptyDetailViewController
-        {
-            return vc
-        }
-        
-        return nil
     }
 
 }
