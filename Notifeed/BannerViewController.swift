@@ -20,7 +20,15 @@ class BannerViewManager: NSObject, ADBannerViewDelegate
     {
         super.init()
         
-        bannerView = ADBannerView()
+        if ADBannerView.instancesRespondToSelector("initWithAdType:")
+        {
+            bannerView = ADBannerView(adType: .Banner)
+        }
+        else
+        {
+            bannerView = ADBannerView()
+        }
+        
         bannerView.delegate = self
         bannerViewControllers = []
     }

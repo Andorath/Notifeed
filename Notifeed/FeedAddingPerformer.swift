@@ -125,7 +125,7 @@ class FeedAddingPerformer: NSObject, FeedAddingDelegate, UITextFieldDelegate
         emptyNameAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok popup errore creazione feed"),
                                                style: UIAlertActionStyle.Default,
                                                handler: { action in
-                                                          delegator?.dismissViewControllerAnimated(true, completion: nil)
+                                                          self.delegator?.dismissViewControllerAnimated(true, completion: nil)
                                                         }))
         
         delegator!.presentViewController(emptyNameAlert, animated: true, completion: nil)
@@ -140,7 +140,7 @@ class FeedAddingPerformer: NSObject, FeedAddingDelegate, UITextFieldDelegate
         alreadyExistAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok popup errore creazione feed"),
                                                   style: UIAlertActionStyle.Default,
                                                   handler: { action in
-                                                             delegator?.dismissViewControllerAnimated(true, completion: nil)
+                                                             self.delegator?.dismissViewControllerAnimated(true, completion: nil)
                                                            }))
         
         delegator!.presentViewController(alreadyExistAlert, animated: true, completion: nil)

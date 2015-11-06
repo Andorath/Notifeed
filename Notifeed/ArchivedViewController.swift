@@ -38,26 +38,30 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     
     func incrementTabBarItemBadge()
     {
-        if let badge = splitViewController?.tabBarItem.badgeValue
+        assert(splitViewController?.parentViewController != nil)
+        
+        if let badge = splitViewController?.parentViewController!.tabBarItem.badgeValue
         {
             if let badgeVal = Int(badge)
             {
-                splitViewController?.tabBarItem.badgeValue = String(badgeVal + 1)
+                splitViewController?.parentViewController!.tabBarItem.badgeValue = String(badgeVal + 1)
             }
         }
         else
         {
-            splitViewController?.tabBarItem.badgeValue = String(1)
+            splitViewController?.parentViewController!.tabBarItem.badgeValue = String(1)
         }
     }
     
     func decrementTabBarItemBadge()
     {
-        if let badge = splitViewController?.tabBarItem.badgeValue
+        assert(splitViewController?.parentViewController != nil)
+        
+        if let badge = splitViewController?.parentViewController!.tabBarItem.badgeValue
         {
             if let badgeVal = Int(badge)
             {
-                splitViewController?.tabBarItem.badgeValue = (badgeVal-1 == 0) ? nil : String(badgeVal-1)
+                splitViewController?.parentViewController!.tabBarItem.badgeValue = (badgeVal-1 == 0) ? nil : String(badgeVal-1)
             }
         }
     }

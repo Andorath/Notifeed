@@ -38,7 +38,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
     {
         super.viewDidLoad()
         
-        self.navigationController?.setToolbarHidden(false, animated: false)
+        //self.navigationController?.setToolbarHidden(false, animated: false)
         initActivityController()
         initWebViewLoading()
         
@@ -166,7 +166,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
         hideActivityIndicator()
         
         browserBackButton.enabled = webView.canGoBack
-        browserForwardButton.enabled = browserForwardButton.enabled
+        browserForwardButton.enabled = webView.canGoForward
         
     }
     
