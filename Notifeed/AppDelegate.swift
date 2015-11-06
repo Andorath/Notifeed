@@ -75,9 +75,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if urlString == "mgsnotifeed://"
         {
             let userDefaults = NSUserDefaults(suiteName: "group.notifeedcontainer")
-            if let title = userDefaults?.valueForKey("favoriteFeed") as? String, let tabVC = (self.window?.rootViewController as? BannerViewController)?.contentController as? UITabBarController
+            if let title = userDefaults?.valueForKey("favoriteFeed") as? String, let tabVC = self.window?.rootViewController as? UITabBarController
             {
-                if let splitVC = tabVC.viewControllers?[0] as? UISplitViewController
+                print((tabVC.viewControllers?[0] as? BannerViewController)?.contentController)
+                if let splitVC = (tabVC.viewControllers?[0] as? BannerViewController)?.contentController as? UISplitViewController
                 {
                     let favoriteFeed = FeedModel.getSharedInstance().getFeedWithTitle(title)
                     
