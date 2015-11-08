@@ -461,25 +461,22 @@
                         <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-K1-xyr">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-db-KzK">
+                                <rect key="frame" x="290" y="246" width="20" height="20"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="fFK-p6-p4F" id="SC7-6W-FcE"/>
-                                </connections>
-                            </webView>
+                                <color key="color" red="1" green="0.29803922770000002" blue="0.15294118230000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yp-8O-Mgb">
                                 <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem image="Back-50.png" id="hwN-D7-RFn">
+                                    <barButtonItem enabled="NO" image="Back-50.png" id="hwN-D7-RFn">
                                         <connections>
                                             <action selector="goBack:" destination="fFK-p6-p4F" id="GXO-nK-nyi"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="21" style="plain" systemItem="fixedSpace" id="heo-1t-zdY"/>
-                                    <barButtonItem image="Forward-50.png" id="7VB-Fz-tf0">
+                                    <barButtonItem enabled="NO" image="Forward-50.png" id="7VB-Fz-tf0">
                                         <connections>
                                             <action selector="goForward:" destination="fFK-p6-p4F" id="Els-db-tey"/>
                                         </connections>
@@ -498,11 +495,14 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-db-KzK">
-                                <rect key="frame" x="290" y="246" width="20" height="20"/>
+                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-K1-xyr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
                                 <animations/>
-                                <color key="color" red="1" green="0.29803922770000002" blue="0.15294118230000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fFK-p6-p4F" id="SC7-6W-FcE"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

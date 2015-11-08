@@ -38,7 +38,6 @@ class WebViewController: UIViewController, UIWebViewDelegate
     {
         super.viewDidLoad()
         
-        //self.navigationController?.setToolbarHidden(false, animated: false)
         initActivityController()
         initWebViewLoading()
         
