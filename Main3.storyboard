@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uZU-2p-g96">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uZU-2p-g96">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -74,7 +74,7 @@
         <!--Feeds-->
         <scene sceneID="ibn-MW-RhH">
             <objects>
-                <viewController id="Ip3-yD-6ox" customClass="BannerViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Ip3-yD-6ox" customClass="BannerViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="THV-Dg-Sf9"/>
                         <viewControllerLayoutGuide type="bottom" id="6tF-kC-871"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="eau-RO-leW" firstAttribute="height" secondItem="Upu-3O-3Fo" secondAttribute="height" id="dUn-Nh-kVm"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Feeds" image="rss_tab.png" id="QQF-Vm-QZe">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -136,16 +136,16 @@
         <!--Feeds-->
         <scene sceneID="wGf-vr-5VT">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="fEC-zo-n5e" customClass="FeedViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fEC-zo-n5e" customClass="FeedViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="a4r-OV-ql5">
-                        <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="0.7506096363067627" blue="0.55052632093429565" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="MZj-7U-ggE" customClass="FeedCell" customModule="Notifeed" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZj-7U-ggE" id="XKd-gu-lub">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="69"/>
@@ -218,7 +218,6 @@
                             <outlet property="delegate" destination="fEC-zo-n5e" id="PaV-JJ-ZnA"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Feeds" id="DMB-ak-y9I">
                         <barButtonItem key="rightBarButtonItem" image="add_rss.png" id="hAe-NX-kpk">
                             <connections>
@@ -466,6 +465,14 @@
                                 <animations/>
                                 <color key="color" red="1" green="0.29803922770000002" blue="0.15294118230000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-K1-xyr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fFK-p6-p4F" id="SC7-6W-FcE"/>
+                                </connections>
+                            </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yp-8O-Mgb">
                                 <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <animations/>
@@ -495,25 +502,17 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-K1-xyr">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="fFK-p6-p4F" id="SC7-6W-FcE"/>
-                                </connections>
-                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aGT-gp-i7z" firstAttribute="top" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="2a9-AC-TAA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hXc-K1-xyr" secondAttribute="trailing" constant="-20" id="7n9-vn-u5u"/>
-                            <constraint firstItem="bBS-db-KzK" firstAttribute="centerY" secondItem="hXc-K1-xyr" secondAttribute="centerY" id="BZ1-q0-Jsd"/>
+                            <constraint firstItem="bBS-db-KzK" firstAttribute="centerY" secondItem="hXc-K1-xyr" secondAttribute="centerY" constant="-22" id="BZ1-q0-Jsd"/>
                             <constraint firstItem="1yp-8O-Mgb" firstAttribute="top" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="Dgk-Cb-dF4"/>
                             <constraint firstAttribute="trailing" secondItem="1yp-8O-Mgb" secondAttribute="trailing" id="Pp5-Kk-0xW"/>
                             <constraint firstItem="1yp-8O-Mgb" firstAttribute="leading" secondItem="1L0-V2-9od" secondAttribute="leading" id="Q7R-zY-hUT"/>
-                            <constraint firstItem="1yp-8O-Mgb" firstAttribute="top" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="U2J-U8-QSf"/>
+                            <constraint firstItem="1yp-8O-Mgb" firstAttribute="bottom" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="U2J-U8-QSf"/>
                             <constraint firstItem="aGT-gp-i7z" firstAttribute="top" secondItem="1yp-8O-Mgb" secondAttribute="bottom" id="VME-BG-ZaG"/>
                             <constraint firstItem="hXc-K1-xyr" firstAttribute="top" secondItem="1L0-V2-9od" secondAttribute="topMargin" id="jM3-W4-lFm"/>
                             <constraint firstItem="hXc-K1-xyr" firstAttribute="leading" secondItem="1L0-V2-9od" secondAttribute="leadingMargin" constant="-20" id="mCf-XS-p4s"/>
@@ -620,7 +619,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPG-8B-DeL">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -657,7 +656,7 @@
                                 </items>
                             </toolbar>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fjI-Jl-RJJ">
-                                <rect key="frame" x="290" y="246" width="20" height="20"/>
+                                <rect key="frame" x="290" y="268" width="20" height="20"/>
                                 <animations/>
                                 <color key="color" red="1" green="0.29803922770000002" blue="0.15294118230000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -670,7 +669,7 @@
                             <constraint firstItem="OPG-8B-DeL" firstAttribute="top" secondItem="CGh-W5-dLL" secondAttribute="topMargin" id="LM3-mc-UNz"/>
                             <constraint firstItem="arh-63-fnm" firstAttribute="top" secondItem="Ifq-Do-Ko2" secondAttribute="bottom" id="SMe-UT-ZHj"/>
                             <constraint firstItem="Ifq-Do-Ko2" firstAttribute="top" secondItem="OPG-8B-DeL" secondAttribute="bottom" id="Twe-b8-v20"/>
-                            <constraint firstItem="Ifq-Do-Ko2" firstAttribute="top" secondItem="OPG-8B-DeL" secondAttribute="bottom" id="dAx-ch-TF0"/>
+                            <constraint firstItem="Ifq-Do-Ko2" firstAttribute="bottom" secondItem="OPG-8B-DeL" secondAttribute="bottom" id="dAx-ch-TF0"/>
                             <constraint firstAttribute="trailing" secondItem="Ifq-Do-Ko2" secondAttribute="trailing" id="gEM-mf-ykf"/>
                             <constraint firstItem="arh-63-fnm" firstAttribute="top" secondItem="OPG-8B-DeL" secondAttribute="bottom" id="hek-cv-h6h"/>
                             <constraint firstItem="fjI-Jl-RJJ" firstAttribute="centerY" secondItem="OPG-8B-DeL" secondAttribute="centerY" id="lii-Ga-36B"/>
@@ -737,8 +736,8 @@
         <image name="vertical_separetor2.png" width="3" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oYU-p2-fvR"/>
         <segue reference="51K-aA-x8O"/>
+        <segue reference="6C8-P6-m0d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
 </document>

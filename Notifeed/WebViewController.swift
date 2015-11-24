@@ -40,6 +40,7 @@ class WebViewController: UIViewController, UIWebViewDelegate
         
         initActivityController()
         initWebViewLoading()
+        webView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44, right: 0)
         
         if #available(iOS 9.0, *)
         {
