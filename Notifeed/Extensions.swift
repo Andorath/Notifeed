@@ -20,3 +20,32 @@ extension UINavigationController
                                               barMetrics: UIBarMetrics.Default)
     }
 }
+
+extension UITabBarController
+{
+    public func incrementBadgeForTabAtIndex(index: Int)
+    {
+        if let badge = self.viewControllers?[index].tabBarItem.badgeValue
+        {
+            if let badgeVal = Int(badge)
+            {
+                self.viewControllers?[index].tabBarItem.badgeValue = String(badgeVal + 1)
+            }
+        }
+        else
+        {
+            self.viewControllers?[index].tabBarItem.badgeValue = String(1)
+        }
+    }
+    
+    public func decrementBadgeForTabAtIndex(index: Int)
+    {
+        if let badge = self.viewControllers?[index].tabBarItem.badgeValue
+        {
+            if let badgeVal = Int(badge)
+            {
+                self.viewControllers?[index].tabBarItem.badgeValue = (badgeVal-1 == 0) ? nil : String(badgeVal-1)
+            }
+        }
+    }
+}

@@ -73,17 +73,17 @@
         <!--Feeds-->
         <scene sceneID="ibn-MW-RhH">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Ip3-yD-6ox" customClass="BannerViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ip3-yD-6ox" customClass="BannerViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="THV-Dg-Sf9"/>
                         <viewControllerLayoutGuide type="bottom" id="6tF-kC-871"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Upu-3O-3Fo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eau-RO-leW">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eau-RO-leW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
                                     <segue destination="6ad-2b-Ngr" kind="embed" id="PQl-Ts-05A"/>
                                 </connections>
@@ -91,13 +91,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eau-RO-leW" firstAttribute="centerY" secondItem="Upu-3O-3Fo" secondAttribute="centerY" id="01B-jK-1fp"/>
-                            <constraint firstItem="eau-RO-leW" firstAttribute="centerX" secondItem="Upu-3O-3Fo" secondAttribute="centerX" id="Gln-GS-bXS"/>
-                            <constraint firstItem="eau-RO-leW" firstAttribute="width" secondItem="Upu-3O-3Fo" secondAttribute="width" id="b9k-Jw-Hr9"/>
-                            <constraint firstItem="eau-RO-leW" firstAttribute="height" secondItem="Upu-3O-3Fo" secondAttribute="height" id="dUn-Nh-kVm"/>
+                            <constraint firstAttribute="trailing" secondItem="eau-RO-leW" secondAttribute="trailing" id="gVa-b2-MLh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="eau-RO-leW" secondAttribute="bottom" constant="-49" id="hWU-FY-16s"/>
+                            <constraint firstItem="eau-RO-leW" firstAttribute="leading" secondItem="Upu-3O-3Fo" secondAttribute="leading" id="sbj-QU-p3I"/>
+                            <constraint firstItem="eau-RO-leW" firstAttribute="top" secondItem="Upu-3O-3Fo" secondAttribute="top" id="vRW-E0-7OF"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Feeds" image="rss_tab.png" id="QQF-Vm-QZe">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -316,7 +315,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mVK-Qe-a70">
             <objects>
-                <navigationController storyboardIdentifier="feedDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DV4-DN-WKJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="feedDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="DV4-DN-WKJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gcq-aP-3B6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -399,7 +398,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Tfq-gF-dkz">
             <objects>
-                <navigationController storyboardIdentifier="archivedDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LA9-GC-o06" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="archivedDetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="LA9-GC-o06" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0kR-tw-pMc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -411,8 +410,13 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YBG-OM-aXU">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.71839404106140137" green="0.06273353099822998" blue="0.11824183911085129" alpha="1" colorSpace="calibratedRGB"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="jta-yV-vfZ" kind="relationship" relationship="rootViewController" id="DaG-no-C5C"/>
+                        <segue destination="Mrn-jM-Tgm" kind="relationship" relationship="rootViewController" id="xx8-0i-2Tm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9L-vC-NVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -442,65 +446,48 @@
                                     <outlet property="delegate" destination="fFK-p6-p4F" id="SC7-6W-FcE"/>
                                 </connections>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yp-8O-Mgb">
-                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem enabled="NO" image="Back-50.png" id="hwN-D7-RFn">
-                                        <connections>
-                                            <action selector="goBack:" destination="fFK-p6-p4F" id="GXO-nK-nyi"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="21" style="plain" systemItem="fixedSpace" id="heo-1t-zdY"/>
-                                    <barButtonItem enabled="NO" image="Forward-50.png" id="7VB-Fz-tf0">
-                                        <connections>
-                                            <action selector="goForward:" destination="fFK-p6-p4F" id="Els-db-tey"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="NXF-Zk-k6e"/>
-                                    <barButtonItem systemItem="action" id="mnY-lf-Xbu">
-                                        <connections>
-                                            <action selector="showActivityController:" destination="fFK-p6-p4F" id="cal-uW-bXV"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="J6T-vE-hGW"/>
-                                    <barButtonItem systemItem="refresh" id="K5j-OW-62j">
-                                        <connections>
-                                            <action selector="refreshPage:" destination="fFK-p6-p4F" id="6mE-9p-LTV"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aGT-gp-i7z" firstAttribute="top" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="2a9-AC-TAA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hXc-K1-xyr" secondAttribute="trailing" constant="-20" id="7n9-vn-u5u"/>
-                            <constraint firstItem="bBS-db-KzK" firstAttribute="centerY" secondItem="hXc-K1-xyr" secondAttribute="centerY" constant="-22" id="BZ1-q0-Jsd"/>
-                            <constraint firstItem="1yp-8O-Mgb" firstAttribute="top" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="Dgk-Cb-dF4"/>
-                            <constraint firstAttribute="trailing" secondItem="1yp-8O-Mgb" secondAttribute="trailing" id="Pp5-Kk-0xW"/>
-                            <constraint firstItem="1yp-8O-Mgb" firstAttribute="leading" secondItem="1L0-V2-9od" secondAttribute="leading" id="Q7R-zY-hUT"/>
-                            <constraint firstItem="1yp-8O-Mgb" firstAttribute="bottom" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="U2J-U8-QSf"/>
-                            <constraint firstItem="aGT-gp-i7z" firstAttribute="top" secondItem="1yp-8O-Mgb" secondAttribute="bottom" id="VME-BG-ZaG"/>
-                            <constraint firstItem="hXc-K1-xyr" firstAttribute="top" secondItem="1L0-V2-9od" secondAttribute="topMargin" id="jM3-W4-lFm"/>
-                            <constraint firstItem="hXc-K1-xyr" firstAttribute="leading" secondItem="1L0-V2-9od" secondAttribute="leadingMargin" constant="-20" id="mCf-XS-p4s"/>
-                            <constraint firstItem="bBS-db-KzK" firstAttribute="centerX" secondItem="hXc-K1-xyr" secondAttribute="centerX" id="y9x-P0-u32"/>
+                            <constraint firstItem="hXc-K1-xyr" firstAttribute="leading" secondItem="1L0-V2-9od" secondAttribute="leading" id="CMU-PA-1vC"/>
+                            <constraint firstAttribute="bottom" secondItem="hXc-K1-xyr" secondAttribute="bottom" id="Mbm-ou-Rzm"/>
+                            <constraint firstAttribute="trailing" secondItem="hXc-K1-xyr" secondAttribute="trailing" id="RDG-5L-Cef"/>
+                            <constraint firstItem="bBS-db-KzK" firstAttribute="centerY" secondItem="hXc-K1-xyr" secondAttribute="centerY" constant="-22" id="XFP-Hm-8FH"/>
+                            <constraint firstItem="hXc-K1-xyr" firstAttribute="top" secondItem="vQH-y5-7Uk" secondAttribute="bottom" id="eYF-jG-Npk"/>
+                            <constraint firstItem="bBS-db-KzK" firstAttribute="centerX" secondItem="hXc-K1-xyr" secondAttribute="centerX" id="rR1-ah-s2N"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Dgk-Cb-dF4"/>
                                 <exclude reference="2a9-AC-TAA"/>
                             </mask>
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems>
-                        <barButtonItem enabled="NO" image="Back-50.png" id="s2W-Pr-rYs"/>
+                        <barButtonItem enabled="NO" image="Back-50.png" id="s2W-Pr-rYs">
+                            <connections>
+                                <action selector="goBack:" destination="fFK-p6-p4F" id="csC-4Q-ROb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="WMA-Kk-aBo"/>
-                        <barButtonItem enabled="NO" image="Forward-50.png" id="xNm-77-8CN"/>
+                        <barButtonItem enabled="NO" image="Forward-50.png" id="xNm-77-8CN">
+                            <connections>
+                                <action selector="goForward:" destination="fFK-p6-p4F" id="leG-2L-d3b"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="GZ0-5o-neq"/>
-                        <barButtonItem systemItem="action" id="dEh-Ru-OLQ"/>
+                        <barButtonItem systemItem="action" id="dEh-Ru-OLQ">
+                            <connections>
+                                <action selector="showActivityController:" destination="fFK-p6-p4F" id="EMI-4E-ZBe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="dKu-Jx-KYn"/>
-                        <barButtonItem systemItem="refresh" id="8rT-f1-zsB"/>
+                        <barButtonItem systemItem="refresh" id="8rT-f1-zsB">
+                            <connections>
+                                <action selector="refreshPage:" destination="fFK-p6-p4F" id="p2z-PQ-k9k"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="6wW-Ht-b09">
                         <rightBarButtonItems>
@@ -516,11 +503,11 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="actionButton" destination="mnY-lf-Xbu" id="Uuf-c9-NoC"/>
-                        <outlet property="browserBackButton" destination="hwN-D7-RFn" id="4ok-ya-ZhY"/>
-                        <outlet property="browserForwardButton" destination="7VB-Fz-tf0" id="qbt-3w-Wy6"/>
+                        <outlet property="actionButton" destination="dEh-Ru-OLQ" id="sxG-Wx-a0H"/>
+                        <outlet property="browserBackButton" destination="s2W-Pr-rYs" id="a4q-zs-lCl"/>
+                        <outlet property="browserForwardButton" destination="xNm-77-8CN" id="bjP-jJ-Qjm"/>
                         <outlet property="cleanButton" destination="rHm-l6-reL" id="jDQ-wO-xKb"/>
                         <outlet property="safariViewButton" destination="SwO-a1-o76" id="Nrf-Zg-WOv"/>
                         <outlet property="spinner" destination="bBS-db-KzK" id="20E-T8-5eo"/>
@@ -540,11 +527,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Cdt-36-RWQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cp4-SZ-UXW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHQ-6G-ToX">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHQ-6G-ToX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
                                     <segue destination="R0c-Kh-gU0" kind="embed" id="Qps-T4-CnO"/>
                                 </connections>
@@ -552,13 +539,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BHQ-6G-ToX" firstAttribute="width" secondItem="cp4-SZ-UXW" secondAttribute="width" id="Cmn-br-Els"/>
-                            <constraint firstItem="BHQ-6G-ToX" firstAttribute="centerX" secondItem="cp4-SZ-UXW" secondAttribute="centerX" id="u4V-fH-X1Q"/>
-                            <constraint firstItem="BHQ-6G-ToX" firstAttribute="height" secondItem="cp4-SZ-UXW" secondAttribute="height" id="xT4-lM-dKF"/>
-                            <constraint firstItem="BHQ-6G-ToX" firstAttribute="centerY" secondItem="cp4-SZ-UXW" secondAttribute="centerY" id="xfg-5a-8Ir"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="BHQ-6G-ToX" secondAttribute="bottom" constant="-49" id="4tf-lF-wao"/>
+                            <constraint firstAttribute="trailing" secondItem="BHQ-6G-ToX" secondAttribute="trailing" id="A5U-pb-JdJ"/>
+                            <constraint firstItem="BHQ-6G-ToX" firstAttribute="top" secondItem="cp4-SZ-UXW" secondAttribute="top" id="cJj-bA-Xbc"/>
+                            <constraint firstItem="BHQ-6G-ToX" firstAttribute="leading" secondItem="cp4-SZ-UXW" secondAttribute="leading" id="f8d-1k-ppE"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="Archived" image="archive.png" id="OMn-x3-RZu">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -572,116 +558,99 @@
             <point key="canvasLocation" x="-2520" y="945"/>
         </scene>
         <!--Web View Controller-->
-        <scene sceneID="P3F-u1-Uqd">
+        <scene sceneID="tFH-We-AoP">
             <objects>
-                <viewController storyboardIdentifier="archivedController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jta-yV-vfZ" customClass="WebViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="archivedController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mrn-jM-Tgm" customClass="WebViewController" customModule="Notifeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nXg-B0-MUO"/>
-                        <viewControllerLayoutGuide type="bottom" id="arh-63-fnm"/>
+                        <viewControllerLayoutGuide type="top" id="xLc-Ec-bXB"/>
+                        <viewControllerLayoutGuide type="bottom" id="szW-vm-FHM"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CGh-W5-dLL">
+                    <view key="view" contentMode="scaleToFill" id="VEB-z7-mKX">
                         <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPG-8B-DeL">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7T8-Zf-s8p">
+                                <rect key="frame" x="290" y="246" width="20" height="20"/>
+                                <color key="color" red="1" green="0.29803922770000002" blue="0.15294118230000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DhX-6x-49z">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="delegate" destination="jta-yV-vfZ" id="e8Z-zg-nGg"/>
+                                    <outlet property="delegate" destination="Mrn-jM-Tgm" id="1PE-Dw-tve"/>
                                 </connections>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifq-Do-Ko2">
-                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem image="Back-50.png" id="GVH-Gb-Shq">
-                                        <connections>
-                                            <action selector="goBack:" destination="jta-yV-vfZ" id="5qR-8j-Db5"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="21" style="plain" systemItem="fixedSpace" id="5YI-Xu-CI5"/>
-                                    <barButtonItem image="Forward-50.png" id="Y0O-E0-qWw">
-                                        <connections>
-                                            <action selector="goForward:" destination="jta-yV-vfZ" id="J90-VR-NsD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="CcK-oz-gL4"/>
-                                    <barButtonItem systemItem="action" id="KxT-5Q-Pnc">
-                                        <connections>
-                                            <action selector="showActivityController:" destination="jta-yV-vfZ" id="EQs-5c-jmD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jur-zp-Hte"/>
-                                    <barButtonItem systemItem="refresh" id="5Qk-Zy-rG5">
-                                        <connections>
-                                            <action selector="refreshPage:" destination="jta-yV-vfZ" id="Jwx-UP-It8"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fjI-Jl-RJJ">
-                                <rect key="frame" x="290" y="268" width="20" height="20"/>
-                                <color key="color" red="1" green="0.29803922770000002" blue="0.15294118230000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ifq-Do-Ko2" firstAttribute="leading" secondItem="CGh-W5-dLL" secondAttribute="leading" id="7kH-3W-cuk"/>
-                            <constraint firstItem="fjI-Jl-RJJ" firstAttribute="centerX" secondItem="OPG-8B-DeL" secondAttribute="centerX" id="Erx-0z-Bcw"/>
-                            <constraint firstItem="OPG-8B-DeL" firstAttribute="top" secondItem="CGh-W5-dLL" secondAttribute="topMargin" id="LM3-mc-UNz"/>
-                            <constraint firstItem="arh-63-fnm" firstAttribute="top" secondItem="Ifq-Do-Ko2" secondAttribute="bottom" id="SMe-UT-ZHj"/>
-                            <constraint firstItem="Ifq-Do-Ko2" firstAttribute="top" secondItem="OPG-8B-DeL" secondAttribute="bottom" id="Twe-b8-v20"/>
-                            <constraint firstItem="Ifq-Do-Ko2" firstAttribute="bottom" secondItem="OPG-8B-DeL" secondAttribute="bottom" id="dAx-ch-TF0"/>
-                            <constraint firstAttribute="trailing" secondItem="Ifq-Do-Ko2" secondAttribute="trailing" id="gEM-mf-ykf"/>
-                            <constraint firstItem="arh-63-fnm" firstAttribute="top" secondItem="OPG-8B-DeL" secondAttribute="bottom" id="hek-cv-h6h"/>
-                            <constraint firstItem="fjI-Jl-RJJ" firstAttribute="centerY" secondItem="OPG-8B-DeL" secondAttribute="centerY" id="lii-Ga-36B"/>
-                            <constraint firstItem="OPG-8B-DeL" firstAttribute="leading" secondItem="CGh-W5-dLL" secondAttribute="leadingMargin" constant="-20" id="uTR-4F-ESl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OPG-8B-DeL" secondAttribute="trailing" constant="-20" id="xNd-Mv-HLa"/>
+                            <constraint firstItem="DhX-6x-49z" firstAttribute="top" secondItem="xLc-Ec-bXB" secondAttribute="bottom" id="07a-Bb-Pgb"/>
+                            <constraint firstAttribute="trailing" secondItem="DhX-6x-49z" secondAttribute="trailing" id="Gcu-it-j7u"/>
+                            <constraint firstItem="7T8-Zf-s8p" firstAttribute="centerY" secondItem="DhX-6x-49z" secondAttribute="centerY" constant="-22" id="HRy-lk-EpN"/>
+                            <constraint firstItem="DhX-6x-49z" firstAttribute="leading" secondItem="VEB-z7-mKX" secondAttribute="leading" id="QEn-wc-baX"/>
+                            <constraint firstItem="szW-vm-FHM" firstAttribute="top" secondItem="DhX-6x-49z" secondAttribute="bottom" id="TTW-US-OWd"/>
+                            <constraint firstItem="7T8-Zf-s8p" firstAttribute="centerX" secondItem="DhX-6x-49z" secondAttribute="centerX" id="V6B-kz-ByH"/>
+                            <constraint firstAttribute="bottom" secondItem="DhX-6x-49z" secondAttribute="bottom" id="pC1-Gn-pHZ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Twe-b8-v20"/>
-                                <exclude reference="hek-cv-h6h"/>
+                                <exclude reference="TTW-US-OWd"/>
                             </mask>
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems>
-                        <barButtonItem enabled="NO" image="Back-50.png" id="JTM-zF-FMc"/>
-                        <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="0As-nA-1Wh"/>
-                        <barButtonItem enabled="NO" image="Forward-50.png" id="BiH-69-9Eu"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fuu-dE-INl"/>
-                        <barButtonItem systemItem="action" id="mdS-Uz-jbu"/>
-                        <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="RQT-Gt-WtS"/>
-                        <barButtonItem systemItem="refresh" id="EDi-xw-0N1"/>
+                        <barButtonItem enabled="NO" image="Back-50.png" id="NMr-wy-G8X">
+                            <connections>
+                                <action selector="goBack:" destination="Mrn-jM-Tgm" id="RnY-PH-m5m"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="jM3-Me-Nbg"/>
+                        <barButtonItem enabled="NO" image="Forward-50.png" id="PzB-jR-JZE">
+                            <connections>
+                                <action selector="goForward:" destination="Mrn-jM-Tgm" id="se1-Nr-J4B"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="RDt-RM-lxY"/>
+                        <barButtonItem systemItem="action" id="87D-mn-FD2">
+                            <connections>
+                                <action selector="showActivityController:" destination="Mrn-jM-Tgm" id="Mk5-eu-GTp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="wyL-Af-lzM"/>
+                        <barButtonItem systemItem="refresh" id="lTo-fc-9rR">
+                            <connections>
+                                <action selector="refreshPage:" destination="Mrn-jM-Tgm" id="EP4-m3-ApF"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="GGp-pE-ZLR">
+                    <navigationItem key="navigationItem" id="Ox2-PI-IV6">
                         <rightBarButtonItems>
-                            <barButtonItem enabled="NO" image="expand.png" id="dx2-Md-pgA">
+                            <barButtonItem enabled="NO" image="expand.png" id="diS-4a-v65">
                                 <connections>
-                                    <action selector="safariViewAction:" destination="jta-yV-vfZ" id="TBx-xK-uYC"/>
+                                    <action selector="safariViewAction:" destination="Mrn-jM-Tgm" id="mdc-fR-Pj3"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem enabled="NO" systemItem="trash" id="dBj-aA-cuh">
+                            <barButtonItem enabled="NO" systemItem="trash" id="kiP-Oc-oRe">
                                 <connections>
-                                    <action selector="cleanViewController:" destination="jta-yV-vfZ" id="LnT-35-ZTK"/>
+                                    <action selector="cleanViewController:" destination="Mrn-jM-Tgm" id="HIg-ey-JSN"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="actionButton" destination="KxT-5Q-Pnc" id="JPx-rw-P0Z"/>
-                        <outlet property="browserBackButton" destination="GVH-Gb-Shq" id="e6d-kg-TCj"/>
-                        <outlet property="browserForwardButton" destination="Y0O-E0-qWw" id="Gau-Y0-RTE"/>
-                        <outlet property="cleanButton" destination="dBj-aA-cuh" id="uYN-d9-ZSI"/>
-                        <outlet property="safariViewButton" destination="dx2-Md-pgA" id="fkE-hQ-evH"/>
-                        <outlet property="spinner" destination="fjI-Jl-RJJ" id="WNZ-wt-SrB"/>
-                        <outlet property="webView" destination="OPG-8B-DeL" id="E2e-eW-3mF"/>
+                        <outlet property="actionButton" destination="87D-mn-FD2" id="HgI-N9-6Pa"/>
+                        <outlet property="browserBackButton" destination="NMr-wy-G8X" id="O61-wH-nBQ"/>
+                        <outlet property="browserForwardButton" destination="PzB-jR-JZE" id="i9a-xK-rDY"/>
+                        <outlet property="cleanButton" destination="kiP-Oc-oRe" id="21t-Wm-qnO"/>
+                        <outlet property="safariViewButton" destination="diS-4a-v65" id="sQT-Bd-Djg"/>
+                        <outlet property="spinner" destination="7T8-Zf-s8p" id="RUc-MB-iTo"/>
+                        <outlet property="webView" destination="DhX-6x-49z" id="PXy-p6-hg3"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IZJ-4V-XU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ijE-D1-76Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="1350"/>
+            <point key="canvasLocation" x="-57" y="1350"/>
         </scene>
     </scenes>
     <resources>

@@ -304,7 +304,11 @@ class PostsViewController: UITableViewController, UISearchResultsUpdating
         {
             FeedModel.getSharedInstance().addPost(post)
             showCheckMarkOverlay()
+            
+            //Ho dovuto scorporare l'update del badge dal centro notifiche perchè finchè non
+            // viene instanziato l'archivedConroleller non funziona l'update dei badge.
             NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "MGSArchivedNotification", object: nil))
+            self.tabBarController?.incrementBadgeForTabAtIndex(1)
         }
         
     }

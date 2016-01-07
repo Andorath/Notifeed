@@ -31,39 +31,18 @@ class ArchivedViewController: UITableViewController, UISearchResultsUpdating
     
     func archivingUpdate()
     {
-        incrementTabBarItemBadge()
         postArray = FeedModel.getSharedInstance().getPosts()
         tableView.reloadData()
     }
     
     func incrementTabBarItemBadge()
     {
-        assert(splitViewController?.parentViewController != nil)
-        
-        if let badge = splitViewController?.parentViewController!.tabBarItem.badgeValue
-        {
-            if let badgeVal = Int(badge)
-            {
-                splitViewController?.parentViewController!.tabBarItem.badgeValue = String(badgeVal + 1)
-            }
-        }
-        else
-        {
-            splitViewController?.parentViewController!.tabBarItem.badgeValue = String(1)
-        }
+        self.tabBarController?.incrementBadgeForTabAtIndex(1)
     }
     
     func decrementTabBarItemBadge()
     {
-        assert(splitViewController?.parentViewController != nil)
-        
-        if let badge = splitViewController?.parentViewController!.tabBarItem.badgeValue
-        {
-            if let badgeVal = Int(badge)
-            {
-                splitViewController?.parentViewController!.tabBarItem.badgeValue = (badgeVal-1 == 0) ? nil : String(badgeVal-1)
-            }
-        }
+        self.tabBarController?.decrementBadgeForTabAtIndex(1)
     }
     
     func getResultSearchController() -> UISearchController

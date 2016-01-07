@@ -102,11 +102,11 @@ class BannerViewController: UIViewController
         if bannerView.bannerLoaded
         {
             contentFrame.size.height -= bannerFrame.size.height
-            bannerFrame.origin.y = contentFrame.size.height
+            bannerFrame.origin.y = contentFrame.size.height - self.tabBarController!.tabBar.frame.size.height
         }
         else
         {
-            bannerFrame.origin.y = contentFrame.size.height
+            bannerFrame.origin.y = contentFrame.size.height - self.tabBarController!.tabBar.frame.size.height
         }
         
         self.contentController.view.frame = contentFrame
